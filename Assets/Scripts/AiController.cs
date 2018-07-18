@@ -86,10 +86,26 @@ public class AiController : MonoBehaviour {
 
         if (currentPos == targetPos)
         {
-            sequence++;
+            int Dir;
+            Dir = Random.Range(1, 3);
+
+            if(Dir == 1)
+            {
+                sequence--;
+            }
+            else
+            {
+                sequence++;
+            }
+
             if(sequence > 3)
             {
                 sequence = 0;
+            }
+
+            if(sequence < 0)
+            {
+                sequence = 3;
             }
         }
 

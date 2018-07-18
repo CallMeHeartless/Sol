@@ -22,12 +22,16 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        // Remove input on death
+        if (!isAlive) {
+            return;
+        }
         Vector3 direction = (playerCamera.transform.right * Input.GetAxis("Horizontal")) + (playerCamera.transform.forward * Input.GetAxis("Vertical"));
         direction.y = 0.0f;
 
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) {
             rb.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), turnSpeed * Time.deltaTime);
-            //rb.velocity = transform.forward * speed;
+
             rb.AddForce(transform.forward * speed, ForceMode.VelocityChange);
             if(rb.velocity.magnitude > maxSpeed) {
                 rb.velocity = maxSpeed * rb.velocity.normalized;
@@ -35,10 +39,13 @@ public class PlayerController : MonoBehaviour {
             // Animation
         } else {
             // Idle animation
+
+            // Limit force
             rb.velocity = transform.forward * 0.0f;
         }
 	}
 
+    // Damages the player's charge. To be used from Sol with Time.deltaTime;
     public void DrainCharge(float drain) {
         if (!isAlive) {
             return;

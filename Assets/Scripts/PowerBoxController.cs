@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerBoxController : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class PowerBoxController : MonoBehaviour {
     float fixHealth = 0.0f;
     float repairDistance = 0.5f;
     float playerDistance;
+
+    public Slider fixSlider;
     
 
 	// Use this for initialization
@@ -24,7 +27,7 @@ public class PowerBoxController : MonoBehaviour {
         playerDistance = (player.transform.position - transform.position).magnitude;
         if(playerDistance <= repairDistance) {
             // Show repair bar
-
+            fixSlider.enabled = true;
             // Check if the player is holding repair 
             if (Input.GetKeyDown(KeyCode.E) && !isFixed) {
                 fixHealth += Time.deltaTime;
@@ -34,6 +37,8 @@ public class PowerBoxController : MonoBehaviour {
             }
 
 
+        }else if (fixSlider.enabled) {
+            fixSlider.enabled = false;
         }
 
     }

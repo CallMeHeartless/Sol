@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Taken from https://www.youtube.com/watch?v=2mJyaTNPFFc
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +12,8 @@ public class CameraController : MonoBehaviour {
     public float followDistance = -5.0f;
     float currentX = 0.0f;
     float currentY = 0.0f;
+    public float Sensitivity = 1.0f;
+   
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +23,7 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0) {
-            currentX += Input.GetAxis("Mouse X");
+            currentX += Input.GetAxis("Mouse X") * Sensitivity;
             currentY += Input.GetAxis("Mouse Y");
         }
 

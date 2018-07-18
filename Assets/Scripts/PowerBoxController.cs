@@ -10,7 +10,7 @@ public class PowerBoxController : MonoBehaviour {
     public GameObject player;
 
     float fixHealth = 0.0f;
-    float repairDistance = 0.5f;
+    float repairDistance = 2.0f;
     float playerDistance;
 
     public Slider fixSlider;
@@ -27,10 +27,12 @@ public class PowerBoxController : MonoBehaviour {
         playerDistance = (player.transform.position - transform.position).magnitude;
         if(playerDistance <= repairDistance) {
             // Show repair bar
-            fixSlider.enabled = true;
+            //fixSlider.enabled = true;
+            fixSlider.gameObject.SetActive(true);
             // Check if the player is holding repair 
-            if (Input.GetKeyDown(KeyCode.E) && !isFixed) {
+            if (Input.GetKey(KeyCode.E) && !isFixed) {
                 fixHealth += Time.deltaTime;
+                fixSlider.value = fixHealth;
                 if(fixHealth >= maxHealth) {
                     isFixed = true;
                 }
@@ -38,7 +40,7 @@ public class PowerBoxController : MonoBehaviour {
 
 
         }else if (fixSlider.enabled) {
-            fixSlider.enabled = false;
+            fixSlider.gameObject.SetActive(false);
         }
 
     }

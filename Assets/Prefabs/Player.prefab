@@ -248,7 +248,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   turnSpeed: 10
+  maxCharge: 25
   playerCamera: {fileID: 0}
+  eyeLights:
+  - {fileID: 108377642009350264}
+  - {fileID: 108251968646518452}
 --- !u!136 &136530789707244444
 CapsuleCollider:
   m_ObjectHideFlags: 1

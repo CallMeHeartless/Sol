@@ -13,12 +13,22 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody rb;
     public Camera playerCamera;
+    public Light[] eyeLights;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         charge = maxCharge;
 	}
+
+    void Update() {
+        // Test
+        if (Input.GetKey(KeyCode.K)) {
+            DrainCharge(Time.deltaTime);
+        } else {
+            GiveCharge(Time.deltaTime);
+        }
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -51,8 +61,25 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         charge -= drain;
+        foreach(Light light in eyeLights) {
+            light.GetComponent<Light>().intensity = charge / maxCharge;
+        }
         if(charge <= 0) {
             isAlive = false;
+        }
+    }
+
+    public void GiveCharge(float givenCharge) {
+        if (!isAlive || charge == maxCharge) {
+            return;
+        }
+        charge += givenCharge;
+        if(charge > maxCharge) {
+            charge = maxCharge;
+        }
+       
+        foreach (Light light in eyeLights) {
+            light.GetComponent<Light>().intensity = charge / maxCharge;
         }
     }
 }

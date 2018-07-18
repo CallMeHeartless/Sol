@@ -27,8 +27,6 @@ public class AiController : MonoBehaviour {
 	void Update () {
         currentPos = transform.position;
 
-        playerPos = GameObject.Find("Player").transform.position;
-
         if (sequence == 0)
         {
             targetPos = GameObject.Find("Target1").transform.position;
@@ -51,7 +49,7 @@ public class AiController : MonoBehaviour {
 
         //distance = Mathf.Sqrt(Mathf.Pow(2, (targetPos.x - currentPos.x)) + Mathf.Pow(2, (targetPos.z - currentPos.z)));
         distance = (targetPos - transform.position).magnitude;
-        playerDistance = (playerPos - transform.position).magnitude;
+        playerDistance = (player.transform.position - transform.position).magnitude;
 
         float step = 0;
 

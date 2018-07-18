@@ -15,6 +15,7 @@ public class AiController : MonoBehaviour {
     private float CurrentSpeed;
     private Vector3 playerPos;
     private float playerDistance;
+    public GameObject player;
 
 
 	// Use this for initialization
@@ -85,11 +86,36 @@ public class AiController : MonoBehaviour {
 
         if (currentPos == targetPos)
         {
-            sequence++;
+            int Dir;
+            Dir = Random.Range(1, 3);
+
+            if(Dir == 1)
+            {
+                sequence--;
+            }
+            else
+            {
+                sequence++;
+            }
+
             if(sequence > 3)
             {
                 sequence = 0;
             }
+
+            if(sequence < 0)
+            {
+                sequence = 3;
+            }
+        }
+
+        if(playerDistance > PlayerRadius)
+        {
+            player.GetComponent<PlayerController>().DrainCharge(Time.deltaTime);
+        }
+        else
+        {
+            player.GetComponent<PlayerController>().GiveCharge(Time.deltaTime);
         }
 	}
 }

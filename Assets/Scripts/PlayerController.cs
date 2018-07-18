@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour {
     public float speed = 5.0f;
     float maxSpeed = 5.0f;
     public float turnSpeed = 10.0f;
+    float charge;
+    public float maxCharge = 25.0f;
+    bool isAlive = true;
 
     Rigidbody rb;
     public Camera playerCamera;
@@ -14,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
-
+        charge = maxCharge;
 	}
 	
 	// Update is called once per frame
@@ -35,4 +38,14 @@ public class PlayerController : MonoBehaviour {
             rb.velocity = transform.forward * 0.0f;
         }
 	}
+
+    public void DrainCharge(float drain) {
+        if (!isAlive) {
+            return;
+        }
+        charge -= drain;
+        if(charge <= 0) {
+            isAlive = false;
+        }
+    }
 }

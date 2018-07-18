@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetAxis("Mouse X") != null || Input.GetAxis("Mouse Y") != null) {
+		if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0) {
             currentX += Input.GetAxis("Mouse X");
             currentY += Input.GetAxis("Mouse Y");
         }
@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour {
 	}
 
     void LateUpdate() {
-       transform.position = player.position + Quaternion.Euler(currentY, currentX, 0) * new Vector3(0, 0, followDistance);
+       transform.position = player.transform.position + Quaternion.Euler(currentY, currentX, 0) * new Vector3(0, 0, followDistance);
        transform.LookAt(player.transform.position);
     }
 }

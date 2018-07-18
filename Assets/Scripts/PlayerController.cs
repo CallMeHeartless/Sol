@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour {
     float maxSpeed = 5.0f;
     public float turnSpeed = 10.0f;
     float charge;
-    public float maxCharge = 25.0f;
+    public float maxCharge = 5.0f;
     bool isAlive = true;
 
     Rigidbody rb;
     public Camera playerCamera;
     public Light[] eyeLights;
+    public AudioSource bgMusic;
 
 	// Use this for initialization
 	void Start () {
@@ -61,9 +62,15 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         charge -= drain;
+
+        // Dim lights
         foreach(Light light in eyeLights) {
             light.GetComponent<Light>().intensity = charge / maxCharge;
         }
+        // Dim audio
+        bgMusic.volume = charge / maxCharge;
+
+        // Kill if out of charge
         if(charge <= 0) {
             isAlive = false;
         }
@@ -78,8 +85,12 @@ public class PlayerController : MonoBehaviour {
             charge = maxCharge;
         }
        
+        // Brighten lights
         foreach (Light light in eyeLights) {
             light.GetComponent<Light>().intensity = charge / maxCharge;
         }
+
+        // Raise audio
+        bgMusic.volume = charge / maxCharge;
     }
 }

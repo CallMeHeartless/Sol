@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 54023788906409610}
   - component: {fileID: 114431135737033566}
   - component: {fileID: 82432854587297190}
+  - component: {fileID: 95981002687058724}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -120,7 +121,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: db4dddbf214e25849a1878288e3c189a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,7 +147,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708094540054750}
-  m_Mesh: {fileID: 4300000, guid: 56c875ff9cca3ac4c9884d354274f931, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 6fcc04663be2b2a4493d2462d2258c45, type: 3}
 --- !u!54 &54023788906409610
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -160,7 +161,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!82 &82432854587297190
 AudioSource:
@@ -257,6 +258,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95981002687058724
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708094540054750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &108251968646518452
 Light:
   m_ObjectHideFlags: 1

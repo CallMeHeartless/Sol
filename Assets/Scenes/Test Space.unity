@@ -391,26 +391,6 @@ Prefab:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 33517313275000212, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 6fcc04663be2b2a4493d2462d2258c45, type: 3}
-    - target: {fileID: 23708268725789302, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: db4dddbf214e25849a1878288e3c189a, type: 2}
-    - target: {fileID: 114431135737033566, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54023788906409610, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2460aa55babb46942ac10644c97ba35e, type: 2}
   m_IsPrefabAsset: 0
@@ -576,24 +556,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1708094540054750, guid: 2460aa55babb46942ac10644c97ba35e,
     type: 2}
   m_PrefabInternal: {fileID: 677300282}
---- !u!95 &1430335691
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1430335681}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1542697573
 Prefab:
   m_ObjectHideFlags: 0

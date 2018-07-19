@@ -1,16 +1,27 @@
 fileFormatVersion: 2
-guid: c28698294d93fdc46b0d6a2b78272ed2
+guid: 7abd4371c01bd504196b8a3cea0168ee
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Mesh_WireHorizontal
+    100000: sm_Wall_InsideBottom
     100002: //RootNode
-    400000: Mesh_WireHorizontal
+    100004: sm_Wall_InsideMiddle
+    100006: sm_Wall_InsideTop
+    400000: sm_Wall_InsideBottom
     400002: //RootNode
-    2100000: Mesh_WireHorizontalMat
-    2300000: Mesh_WireHorizontal
-    3300000: Mesh_WireHorizontal
-    4300000: Mesh_WireHorizontal
+    400004: sm_Wall_InsideMiddle
+    400006: sm_Wall_InsideTop
+    2100000: Pillar
+    2100002: Wall
+    2300000: sm_Wall_InsideBottom
+    2300002: sm_Wall_InsideMiddle
+    2300004: sm_Wall_InsideTop
+    3300000: sm_Wall_InsideBottom
+    3300002: sm_Wall_InsideMiddle
+    3300004: sm_Wall_InsideTop
+    4300000: sm_Wall_InsideBottom
+    4300002: sm_Wall_InsideTop
+    4300004: sm_Wall_InsideMiddle
   externalObjects: {}
   materials:
     importMaterials: 1

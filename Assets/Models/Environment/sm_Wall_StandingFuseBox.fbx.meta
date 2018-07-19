@@ -1,16 +1,33 @@
 fileFormatVersion: 2
-guid: 080a26600afb5314d9ff3f591b0f303d
+guid: 657957f861b54b148adf99b477b0140b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Mesh_WallDoorway
-    100002: //RootNode
-    400000: Mesh_WallDoorway
-    400002: //RootNode
-    2100000: Mesh_WallDoorwayMat
-    2300000: Mesh_WallDoorway
-    3300000: Mesh_WallDoorway
-    4300000: Mesh_WallDoorway
+    100000: Mesh_PipesVertical
+    100002: pCube3
+    100004: pCube4
+    100006: sm_FuseBox
+    100008: //RootNode
+    400000: Mesh_PipesVertical
+    400002: pCube3
+    400004: pCube4
+    400006: sm_FuseBox
+    400008: //RootNode
+    2100000: Pillar
+    2100002: Buttons
+    2100004: Wall
+    2300000: Mesh_PipesVertical
+    2300002: pCube3
+    2300004: pCube4
+    2300006: sm_FuseBox
+    3300000: Mesh_PipesVertical
+    3300002: pCube3
+    3300004: pCube4
+    3300006: sm_FuseBox
+    4300000: Mesh_PipesVertical
+    4300002: sm_FuseBox
+    4300004: pCube3
+    4300006: pCube4
   externalObjects: {}
   materials:
     importMaterials: 1

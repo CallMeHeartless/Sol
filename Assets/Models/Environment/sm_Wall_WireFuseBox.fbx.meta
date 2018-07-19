@@ -1,16 +1,15 @@
 fileFormatVersion: 2
-guid: 6337b3f109a4bf440a511fc17c5ba7d6
+guid: 2a4ebaade499014409d5b6ba1916902a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Mesh_WallStraight1
-    100002: //RootNode
-    400000: Mesh_WallStraight1
-    400002: //RootNode
-    2100000: Mesh_WallStraight1Mat
-    2300000: Mesh_WallStraight1
-    3300000: Mesh_WallStraight1
-    4300000: Mesh_WallStraight1
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Pillar
+    2100002: Wall
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: sm_WireFuseBox
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -42,7 +41,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.01
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

@@ -1,16 +1,27 @@
 fileFormatVersion: 2
-guid: f62d080bb95deff488579c764fcb1d55
+guid: 942745433470d8345a51c41b88b1d755
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Mesh_WireOutsideCorner
-    100002: //RootNode
-    400000: Mesh_WireOutsideCorner
-    400002: //RootNode
-    2100000: Mesh_WireOutsideCornerMat
-    2300000: Mesh_WireOutsideCorner
-    3300000: Mesh_WireOutsideCorner
-    4300000: Mesh_WireOutsideCorner
+    100000: //RootNode
+    100002: sm_Wall_StraightBottom
+    100004: sm_Wall_StraightMiddle
+    100006: sm_Wall_StraightTop
+    400000: //RootNode
+    400002: sm_Wall_StraightBottom
+    400004: sm_Wall_StraightMiddle
+    400006: sm_Wall_StraightTop
+    2100000: Pillar
+    2100002: Wall
+    2300000: sm_Wall_StraightBottom
+    2300002: sm_Wall_StraightMiddle
+    2300004: sm_Wall_StraightTop
+    3300000: sm_Wall_StraightBottom
+    3300002: sm_Wall_StraightMiddle
+    3300004: sm_Wall_StraightTop
+    4300000: sm_Wall_StraightMiddle
+    4300002: sm_Wall_StraightBottom
+    4300004: sm_Wall_StraightTop
   externalObjects: {}
   materials:
     importMaterials: 1

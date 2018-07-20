@@ -21,6 +21,7 @@ public class PowerBoxController : MonoBehaviour {
 	void Start () {
         int spawnIndex = Random.Range(0, spawnLocations.Length);
         transform.position = spawnLocations[spawnIndex].transform.position;
+        transform.rotation = spawnLocations[spawnIndex].transform.rotation;
 	}
 	
 	// Update is called once per frame

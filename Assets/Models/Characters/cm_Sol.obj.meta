@@ -1,14 +1,34 @@
 fileFormatVersion: 2
-guid: 56c875ff9cca3ac4c9884d354274f931
+guid: 6c3e15368f0b4bf4aa7495159a2f10b5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: lambert3
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: cm_Sparky
+    100000: Body_low
+    100002: BottomLight_low
+    100004: //RootNode
+    100006: Light_low
+    100008: TopLight_low
+    400000: Body_low
+    400002: BottomLight_low
+    400004: //RootNode
+    400006: Light_low
+    400008: TopLight_low
+    2100000: Body_lowMat
+    2100002: BottomLight_lowMat
+    2100004: Light_lowMat
+    2100006: TopLight_lowMat
+    2300000: Body_low
+    2300002: BottomLight_low
+    2300004: Light_low
+    2300006: TopLight_low
+    3300000: Body_low
+    3300002: BottomLight_low
+    3300004: Light_low
+    3300006: TopLight_low
+    4300000: Body_low
+    4300002: BottomLight_low
+    4300004: Light_low
+    4300006: TopLight_low
   externalObjects: {}
   materials:
     importMaterials: 1

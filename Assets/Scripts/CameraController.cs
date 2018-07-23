@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
+    public float yOffset = 0.0f;
     public float yAngleMin = 15.0f;
     public float yAngleMax = 25.0f;
     public GameObject player;
@@ -28,10 +29,11 @@ public class CameraController : MonoBehaviour {
         }
 
         currentY = Mathf.Clamp(currentY, yAngleMin, yAngleMax);
-	}
+        //currentY = Mathf.Clamp(transform.position.y, yAngleMin, yAngleMax);
+    }
 
     void LateUpdate() {
-       transform.position = player.transform.position + Quaternion.Euler(currentY, currentX, 0) * new Vector3(0, 0, followDistance);
+       transform.position = player.transform.position + Quaternion.Euler(currentY, currentX, 0) * new Vector3(0, yOffset, followDistance);
        transform.LookAt(player.transform.position);
     }
 }

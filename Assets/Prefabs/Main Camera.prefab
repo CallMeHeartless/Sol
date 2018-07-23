@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d86f9202c464ea40b5f8b3996ab86b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yAngleMin: 15
-  yAngleMax: 25
+  yOffset: -0.66
+  yAngleMin: 40
+  yAngleMax: 40
   player: {fileID: 0}
-  followDistance: -5
+  followDistance: -4.29
   Sensitivity: 1.5

@@ -16,6 +16,7 @@ public class AiController : MonoBehaviour {
     private Vector3 playerPos;
     private float playerDistance;
     public GameObject player;
+    public GameObject[] targets;
     public float rotationSpeed = 10.0f;
     private Quaternion lookRotation;
     private Vector3 direction;
@@ -30,26 +31,7 @@ public class AiController : MonoBehaviour {
 	void Update () {
         currentPos = transform.position;
 
-        //Determine target movement
-        if (sequence == 0)
-        {
-            targetPos = GameObject.Find("Target1").transform.position;
-        }
-
-        if (sequence == 1)
-        {
-            targetPos = GameObject.Find("Target2").transform.position;
-        }
-
-        if (sequence == 2)
-        {
-            targetPos = GameObject.Find("Target3").transform.position;
-        }
-
-        if (sequence == 3)
-        {
-            targetPos = GameObject.Find("Target4").transform.position;
-        }
+        targetPos = targets[sequence].transform.position;
 
         //Dertimine distance from target
         distance = (targetPos - transform.position).magnitude;

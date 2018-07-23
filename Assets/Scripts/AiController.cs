@@ -20,6 +20,9 @@ public class AiController : MonoBehaviour {
     public float rotationSpeed = 10.0f;
     private Quaternion lookRotation;
     private Vector3 direction;
+    public bool linearMovement;
+    public bool randomMovement;
+    private bool forward = true;
 
 
 	// Use this for initialization
@@ -29,6 +32,19 @@ public class AiController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //set movement
+        if ((linearMovement == false) && (randomMovement == false))
+        {
+            linearMovement = true;
+        }
+
+        //check 1 type of movement
+        if(linearMovement == true)
+        {
+            randomMovement = false;
+        }
+
         currentPos = transform.position;
 
         targetPos = targets[sequence].transform.position;
@@ -81,30 +97,65 @@ public class AiController : MonoBehaviour {
         transform.position = Vector3.MoveTowards(currentPos, targetPos, step);
 
         //choose target
-        if (currentPos == targetPos)
+        //Random movement
+        if(randomMovement == true)
         {
-            int Dir;
-            Dir = Random.Range(1, 3);
+            if (currentPos == targetPos)
+            {
+                int Dir;
+                Dir = Random.Range(1, 3);
 
-            if(Dir == 1)
-            {
-                sequence--;
-            }
-            else
-            {
-                sequence++;
-            }
+                if (Dir == 1)
+                {
+                    sequence--;
+                }
+                else
+                {
+                    sequence++;
+                }
 
-            if(sequence > 3)
-            {
-                sequence = 2;
-            }
+                if (sequence == targets.Length)
+                {
+                    sequence = (targets.Length) - 2;
+                }
 
-            if(sequence < 0)
-            {
-                sequence = 1;
+                if (sequence < 0)
+                {
+                    sequence = 1;
+                }
             }
         }
+
+        //linear movement
+        if(linearMovement == true)
+        {
+            if(currentPos == targetPos)
+            {
+                if (forward == true)
+                {
+                    sequence++;
+                }
+                else
+                {
+                    sequence--;
+                }
+
+                if(sequence == targets.Length)
+                {
+                    sequence = (targets.Length) - 2;
+                    forward = false;
+                }
+
+                if(sequence < 0)
+                {
+                    sequence = 1;
+                    forward = true;
+                }
+            }
+            
+        }
+
+        
 
         //Recharge/drain player
         if(playerDistance > PlayerRadius)

@@ -10,7 +10,7 @@ public class AiController : MonoBehaviour {
     public float Radius = 10.0f;
     private float PlayerRadius = 5.0f;
     private Vector3 targetPos;
-    private int sequence = 1;
+    private int sequence = 0;
     private float distance;
     private float CurrentSpeed;
     private Vector3 playerPos;
@@ -115,12 +115,12 @@ public class AiController : MonoBehaviour {
 
             if(sequence > 3)
             {
-                sequence = 0;
+                sequence = 2;
             }
 
             if(sequence < 0)
             {
-                sequence = 3;
+                sequence = 1;
             }
         }
 

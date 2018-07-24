@@ -2,18 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
     public GameObject[] powerBoxes;
     public Light directionalLight;
-    //public PlayerController player;
+    public static Text fuseBoxProgressText;
+
     bool gameOver = false;
+    static int totalFuseBoxes;
+    static int fuseBoxesRepaired = 0;
 
 	// Use this for initialization
 	void Start () {
         //player = player.GetComponent<PlayerController>();
-	}
+        int totalFuseBoxes = powerBoxes.Length;
+        fuseBoxProgressText = GetComponentInChildren<Text>();
+        fuseBoxProgressText.text = "Fuse Boxes repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -54,5 +61,10 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(1);
         PlayerController.MakeAlive();
         yield return null;
+    }
+
+    public static void MarkFuseBoxAsRepaired() {
+        ++fuseBoxesRepaired;
+        fuseBoxProgressText.text = "Fuse Boxes repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
     }
 }

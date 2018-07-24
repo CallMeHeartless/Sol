@@ -143,14 +143,14 @@ public class AiController : MonoBehaviour {
 
                 if(sequence == targets.Length)
                 {
-                    sequence = (targets.Length) - 2;
-                    forward = false;
+                    sequence = 0; //(targets.Length) - 2;
+                    //forward = false;
                 }
 
                 if(sequence < 0)
                 {
-                    sequence = 1;
-                    forward = true;
+                    sequence = targets.Length - 1;
+                    //forward = true;
                 }
             }
             

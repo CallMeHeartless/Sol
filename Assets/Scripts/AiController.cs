@@ -23,6 +23,7 @@ public class AiController : MonoBehaviour {
     public bool linearMovement;
     public bool randomMovement;
     private bool forward = true;
+    public float fChargeMultiplier = 1.0f;
 
 
 	// Use this for initialization
@@ -165,7 +166,7 @@ public class AiController : MonoBehaviour {
         }
         else
         {
-            player.GetComponent<PlayerController>().GiveCharge(Time.deltaTime);
+            player.GetComponent<PlayerController>().GiveCharge(fChargeMultiplier * Time.deltaTime);
         }
 	}
 }

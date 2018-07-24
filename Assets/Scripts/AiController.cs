@@ -161,6 +161,7 @@ public class AiController : MonoBehaviour {
         if(playerDistance > PlayerRadius)
         {
             player.GetComponent<PlayerController>().DrainCharge(Time.deltaTime);
+            //Debug.Log("Draining Sparky");
         }
         else
         {

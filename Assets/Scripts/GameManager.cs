@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
     public GameObject[] powerBoxes;
     public Light directionalLight;
-    public PlayerController player;
+    //public PlayerController player;
     bool gameOver = false;
 
 	// Use this for initialization
 	void Start () {
-        player = player.GetComponent<PlayerController>();
+        //player = player.GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -24,8 +25,12 @@ public class GameManager : MonoBehaviour {
             // Start couroutine to end game
         }
 
-        if (!player.IsAlive()) {
+        if (!PlayerController.IsAlive() && !gameOver) {
+            Debug.Log("DEAD");
             // Game over stuff
+            gameOver = true;
+            StartCoroutine(ReloadLevel());
+            //SceneManager.LoadScene(1);
         }
 
 
@@ -40,5 +45,14 @@ public class GameManager : MonoBehaviour {
         }
 
         return true;
+    }
+
+    IEnumerator ReloadLevel() {
+        yield return new WaitForSeconds(2.5f);
+
+        gameOver = false;
+        SceneManager.LoadScene(1);
+        PlayerController.MakeAlive();
+        yield return null;
     }
 }

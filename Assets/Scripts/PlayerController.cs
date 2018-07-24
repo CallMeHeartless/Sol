@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     float charge;
     public float maxCharge = 20.0f;
-    bool isAlive = true;
+    static bool isAlive = true;
 
     Rigidbody rb;
     public Camera playerCamera;
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         charge -= drain;
-        Debug.Log(charge);
+        //Debug.Log(charge);
 
         // Dim lights
         foreach(Light light in eyeLights) {
@@ -97,7 +97,11 @@ public class PlayerController : MonoBehaviour {
         bgMusic.volume = charge / maxCharge;
     }
 
-    public bool IsAlive() {
+    public static bool IsAlive() {
         return isAlive;
+    }
+
+    public static void MakeAlive() {
+        isAlive = true;
     }
 }

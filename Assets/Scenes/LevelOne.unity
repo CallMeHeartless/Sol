@@ -775,6 +775,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1708094540054750, guid: 2460aa55babb46942ac10644c97ba35e,
     type: 2}
   m_PrefabInternal: {fileID: 949044649}
+--- !u!114 &251829578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114431135737033566, guid: 2460aa55babb46942ac10644c97ba35e,
+    type: 2}
+  m_PrefabInternal: {fileID: 949044649}
+  m_Script: {fileID: 11500000, guid: 7e35d2eb6f9a28045b904f479fb3df38, type: 3}
 --- !u!4 &280336064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4774179672689104, guid: d2b156427cb3cbb46bfb8dd46a0ab29e,
@@ -2725,6 +2731,11 @@ Prefab:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1053005065}
+    - target: {fileID: 114431135737033566, guid: 2460aa55babb46942ac10644c97ba35e,
+        type: 2}
+      propertyPath: maxCharge
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2460aa55babb46942ac10644c97ba35e, type: 2}
   m_IsPrefabAsset: 0
@@ -3093,6 +3104,11 @@ Prefab:
       propertyPath: directionalLight
       value: 
       objectReference: {fileID: 1164213538}
+    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 251829578}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0

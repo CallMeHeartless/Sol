@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour {
     float currentX = 0.0f;
     float currentY = 0.0f;
     public float Sensitivity = 1.0f;
+    //public PauseMenu pauseMenu;
    
 
 	// Use this for initialization
@@ -23,6 +24,9 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (PauseMenu.GameIsPaused) {
+            return;
+        }
 		if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0) {
             currentX += Input.GetAxis("Mouse X") * Sensitivity;
             currentY += Input.GetAxis("Mouse Y");

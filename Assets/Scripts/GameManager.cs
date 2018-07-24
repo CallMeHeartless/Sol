@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour {
 
     public GameObject[] powerBoxes;
     public Light directionalLight;
+    public PlayerController player;
     bool gameOver = false;
 
 	// Use this for initialization
 	void Start () {
-		
+        player = player.GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +22,10 @@ public class GameManager : MonoBehaviour {
             gameOver = true;
             directionalLight.GetComponent<Light>().intensity = 1.1f;
             // Start couroutine to end game
+        }
+
+        if (!player.IsAlive()) {
+            // Game over stuff
         }
 
 

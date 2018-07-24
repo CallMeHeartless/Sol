@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour {
     public float speed = 5.0f;
     float maxSpeed = 5.0f;
     public float turnSpeed = 10.0f;
+    [SerializeField]
     float charge;
-    public float maxCharge = 5.0f;
+    public float maxCharge = 20.0f;
     bool isAlive = true;
 
     Rigidbody rb;
@@ -24,11 +25,11 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         // Test
-        if (Input.GetKey(KeyCode.K)) {
-            DrainCharge(Time.deltaTime);
-        } else {
-            GiveCharge(Time.deltaTime);
-        }
+        //if (Input.GetKey(KeyCode.K)) {
+        //    DrainCharge(Time.deltaTime);
+        //} else {
+        //    GiveCharge(Time.deltaTime);
+        //}
     }
 	
 	// Update is called once per frame
@@ -58,10 +59,12 @@ public class PlayerController : MonoBehaviour {
 
     // Damages the player's charge. To be used from Sol with Time.deltaTime;
     public void DrainCharge(float drain) {
+        //Debug.Log("Drain charge called");
         if (!isAlive) {
             return;
         }
         charge -= drain;
+        Debug.Log(charge);
 
         // Dim lights
         foreach(Light light in eyeLights) {
@@ -92,5 +95,9 @@ public class PlayerController : MonoBehaviour {
 
         // Raise audio
         bgMusic.volume = charge / maxCharge;
+    }
+
+    public bool IsAlive() {
+        return isAlive;
     }
 }

@@ -8,23 +8,24 @@ public class GameManager : MonoBehaviour {
 
     public GameObject[] powerBoxes;
     public Light directionalLight;
-    public static Text fuseBoxProgressText;
+    public Text fuseBoxProgressText;
 
     bool gameOver = false;
-    static int totalFuseBoxes;
-    static int fuseBoxesRepaired = 0;
+    int totalFuseBoxes;
+    int fuseBoxesRepaired = 0;
 
 	// Use this for initialization
 	void Start () {
         //player = player.GetComponent<PlayerController>();
-        int totalFuseBoxes = powerBoxes.Length;
+        totalFuseBoxes = powerBoxes.Length;
+        Debug.Log(totalFuseBoxes);
         fuseBoxProgressText = GetComponentInChildren<Text>();
-        fuseBoxProgressText.text = "Fuse Boxes repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
+        fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        //Debug.Log(totalFuseBoxes);
         // Check for game over
         if (CheckForVictory() && !gameOver) {
             gameOver = true;
@@ -63,8 +64,9 @@ public class GameManager : MonoBehaviour {
         yield return null;
     }
 
-    public static void MarkFuseBoxAsRepaired() {
+    public void MarkFuseBoxAsRepaired() {
         ++fuseBoxesRepaired;
-        fuseBoxProgressText.text = "Fuse Boxes repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
+        fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
+        Debug.Log(totalFuseBoxes);
     }
 }

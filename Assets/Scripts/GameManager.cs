@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
         //player = player.GetComponent<PlayerController>();
         int totalFuseBoxes = powerBoxes.Length;
         fuseBoxProgressText = GetComponentInChildren<Text>();
-        fuseBoxProgressText.text = "Fuse Boxes repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
+        fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
     }
 	
 	// Update is called once per frame

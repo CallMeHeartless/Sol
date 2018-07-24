@@ -22,7 +22,7 @@ public class AiController : MonoBehaviour {
     private Vector3 direction;
     public bool linearMovement;
     public bool randomMovement;
-    private bool forward = true;
+    public bool forward = true;
     public float fChargeMultiplier = 1.0f;
 
 

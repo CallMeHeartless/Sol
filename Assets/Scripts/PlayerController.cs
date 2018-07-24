@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         charge -= drain;
-        Debug.Log(charge);
+        //Debug.Log(charge);
 
         // Dim lights
         foreach(Light light in eyeLights) {

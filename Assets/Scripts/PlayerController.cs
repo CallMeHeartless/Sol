@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
     public Camera playerCamera;
     public Light[] eyeLights;
     public AudioSource bgMusic;
+    public GameObject Sol;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,8 @@ public class PlayerController : MonoBehaviour {
         charge = maxCharge;
 	}
 
-    void Update() {
+    void Update()
+    {
         // Test
         //if (Input.GetKey(KeyCode.K)) {
         //    DrainCharge(Time.deltaTime);

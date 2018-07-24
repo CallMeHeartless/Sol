@@ -22,7 +22,7 @@ public class AiController : MonoBehaviour {
     private Vector3 direction;
     public bool linearMovement;
     public bool randomMovement;
-    private bool forward = true;
+    public bool forward = true;
     public float fChargeMultiplier = 1.0f;
 
 
@@ -44,6 +44,19 @@ public class AiController : MonoBehaviour {
         if(linearMovement == true)
         {
             randomMovement = false;
+        }
+
+        //change direction
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(forward == true)
+            {
+                forward = false;
+            }
+            else
+            {
+                forward = true;
+            }
         }
 
         currentPos = transform.position;

@@ -1970,10 +1970,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1398534836505772, guid: 23a72a5db8bfc4b40957c46411fb6d2e, type: 2}
-      propertyPath: m_Name
-      value: FuseBox_2
-      objectReference: {fileID: 0}
+    - target: {fileID: 114313566057196334, guid: 23a72a5db8bfc4b40957c46411fb6d2e,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 251829574}
     - target: {fileID: 114313566057196334, guid: 23a72a5db8bfc4b40957c46411fb6d2e,
         type: 2}
       propertyPath: spawnLocations.Array.data[0]
@@ -1989,11 +1990,10 @@ Prefab:
       propertyPath: spawnLocations.Array.data[2]
       value: 
       objectReference: {fileID: 434212932}
-    - target: {fileID: 114313566057196334, guid: 23a72a5db8bfc4b40957c46411fb6d2e,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 251829574}
+    - target: {fileID: 1398534836505772, guid: 23a72a5db8bfc4b40957c46411fb6d2e, type: 2}
+      propertyPath: m_Name
+      value: FuseBox_2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23a72a5db8bfc4b40957c46411fb6d2e, type: 2}
   m_IsPrefabAsset: 0
@@ -3360,10 +3360,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1085092812622546, guid: 629515274c65933419d7f7a0803e988d, type: 2}
-      propertyPath: m_Name
-      value: FuseBox_1
-      objectReference: {fileID: 0}
+    - target: {fileID: 114949262540924138, guid: 629515274c65933419d7f7a0803e988d,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 251829574}
     - target: {fileID: 114949262540924138, guid: 629515274c65933419d7f7a0803e988d,
         type: 2}
       propertyPath: spawnLocations.Array.data[0]
@@ -3379,11 +3380,10 @@ Prefab:
       propertyPath: spawnLocations.Array.data[2]
       value: 
       objectReference: {fileID: 843710322}
-    - target: {fileID: 114949262540924138, guid: 629515274c65933419d7f7a0803e988d,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 251829574}
+    - target: {fileID: 1085092812622546, guid: 629515274c65933419d7f7a0803e988d, type: 2}
+      propertyPath: m_Name
+      value: FuseBox_1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 629515274c65933419d7f7a0803e988d, type: 2}
   m_IsPrefabAsset: 0
@@ -4703,7 +4703,7 @@ Transform:
   - {fileID: 2064070286}
   - {fileID: 1260762561}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1634756046
 GameObject:

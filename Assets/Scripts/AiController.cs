@@ -46,6 +46,19 @@ public class AiController : MonoBehaviour {
             randomMovement = false;
         }
 
+        //change direction
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(forward == true)
+            {
+                forward = false;
+            }
+            else
+            {
+                forward = true;
+            }
+        }
+
         currentPos = transform.position;
 
         targetPos = targets[sequence].transform.position;

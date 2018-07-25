@@ -114,6 +114,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &137596096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114326311769727044, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+    type: 2}
+  m_PrefabInternal: {fileID: 1628509401}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &155943378
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,6 +4951,11 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 20726274273667516, guid: 05cfd1700d512214daa2007f8a070b79,
     type: 2}
   m_PrefabInternal: {fileID: 307405987}
+--- !u!1 &580238431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1367437679123544, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+    type: 2}
+  m_PrefabInternal: {fileID: 1628509401}
 --- !u!1 &644487877
 GameObject:
   m_ObjectHideFlags: 0
@@ -5064,6 +5075,11 @@ Prefab:
         type: 2}
       propertyPath: chargeSlider
       value: 
+      objectReference: {fileID: 137596096}
+    - target: {fileID: 114431135737033566, guid: 2460aa55babb46942ac10644c97ba35e,
+        type: 2}
+      propertyPath: maxCharge
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2460aa55babb46942ac10644c97ba35e, type: 2}
@@ -5198,7 +5214,7 @@ Prefab:
         type: 2}
       propertyPath: gameOverMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 580238431}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0
@@ -10091,6 +10107,11 @@ Prefab:
     - target: {fileID: 4878229804748594, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}
       propertyPath: m_RootOrder
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 224738267471809370, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}

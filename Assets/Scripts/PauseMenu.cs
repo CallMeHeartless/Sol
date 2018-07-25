@@ -70,10 +70,7 @@ public class PauseMenu : MonoBehaviour {
         //    Instructions.color.a = f;
 
         //}
-        for(float f = 0.0f; f < 5.0f; f += 0.1f) {
-            yield return null;
-        }
-
+        yield return new WaitForSeconds(5.0f);
         Instructions.gameObject.SetActive(false);
 
     }

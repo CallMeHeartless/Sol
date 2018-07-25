@@ -90,7 +90,7 @@ public class AiController : MonoBehaviour {
         //Rotate
         playerArrow.transform.rotation = Quaternion.Slerp(playerArrow.transform.rotation, arrowRotation, 10);
 
-        /*
+        
         if(forward == true)
         {
             int i = sequence + 1;
@@ -98,11 +98,31 @@ public class AiController : MonoBehaviour {
             {
                 i = 0;
             }
-
-            solArrowDirection = (targets)
-
+            //Rotate towards next point
+            solArrowDirection = (targets[i].transform.position - solArrow.transform.position).normalized;
+            solArrowDirection.y = 0;
+            //create new rotation
+            solArrowRotation = Quaternion.LookRotation(solArrowDirection);
+            //Rotate
+            solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
         }
-        */
+        
+        else
+        {
+            int i = sequence - 1;
+            if(i < 0)
+            {
+                i = targets.Length - 1;
+            }
+            //Rotate towards next point
+            solArrowDirection = (targets[i].transform.position - solArrow.transform.position).normalized;
+            solArrowDirection.y = 0;
+            //create new rotation
+            solArrowRotation = Quaternion.LookRotation(solArrowDirection);
+            //Rotate
+            solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
+        }
+        
 
         float step = 0;
 

@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject hoverEffect;
     public GameObject[] repairEffects;
 
+    // Sound effects
+    public AudioSource weldingFX;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -32,9 +35,10 @@ public class PlayerController : MonoBehaviour {
     {
         // Repair animation
         if (Input.GetKey(KeyCode.E)) {
-            if (!anim.GetBool("PlayerIsFixing")) {
+           if (!anim.GetBool("PlayerIsFixing")) {
+                weldingFX.Play();
                 anim.SetBool("PlayerIsFixing", true);
-                anim.SetBool("PlayerIsIdling", false);
+                //anim.SetBool("PlayerIsIdling", false);
                 foreach(GameObject sparks in repairEffects) {
                     sparks.SetActive(true);
                 }
@@ -42,10 +46,11 @@ public class PlayerController : MonoBehaviour {
             
         }else if (anim.GetBool("PlayerIsFixing")) {
             anim.SetBool("PlayerIsFixing", false);
+           // anim.SetBool("PlayerIsIdling", true);
            foreach(GameObject sparks in repairEffects) {
                 sparks.SetActive(false);
             }
-            
+            weldingFX.Stop();
         }
     }
 	
@@ -67,7 +72,7 @@ public class PlayerController : MonoBehaviour {
             }
             if (!anim.GetBool("PlayerIsWalking")) {
                 anim.SetBool("PlayerIsWalking", true);
-                anim.SetBool("PlayerIsIdling", false);
+               // anim.SetBool("PlayerIsIdling", false);
             }
  
             // Animation
@@ -75,7 +80,7 @@ public class PlayerController : MonoBehaviour {
             // Idle animation
             if (anim.GetBool("PlayerIsWalking")) {
                 anim.SetBool("PlayerIsWalking", false);
-                anim.SetBool("PlayerIsIdling", true);
+                //anim.SetBool("PlayerIsIdling", true);
             }
 
             // Limit force
@@ -103,7 +108,7 @@ public class PlayerController : MonoBehaviour {
         if(charge <= 0) {
             isAlive = false;
             anim.SetBool("PlayerIsDead", true);
-            anim.SetBool("PlayerIsIdling", false);
+            //anim.SetBool("PlayerIsIdling", false);
             hoverEffect.SetActive(false);
         }
     }

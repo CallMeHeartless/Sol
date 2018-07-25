@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour {
         }
         charge += givenCharge;
         // Update slider
-        chargeSlider.value = charge;
+        chargeSlider.value = charge/maxCharge;
         if(charge > maxCharge) {
             charge = maxCharge;
         }

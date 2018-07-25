@@ -502,7 +502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1708094540054750
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1980289444053164
 GameObject:
   m_ObjectHideFlags: 1
@@ -1917,6 +1917,10 @@ MonoBehaviour:
   bgMusic: {fileID: 82432854587297190}
   Sol: {fileID: 0}
   anim: {fileID: 95981002687058724}
+  hoverEffect: {fileID: 1874385150771598}
+  repairEffects:
+  - {fileID: 1957779007499898}
+  - {fileID: 1652556171390354}
 --- !u!136 &136214485464995564
 CapsuleCollider:
   m_ObjectHideFlags: 1

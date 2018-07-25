@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
     public AudioSource bgMusic;
     public GameObject Sol;
     public Animator anim;
+    public GameObject hoverEffect;
+    public GameObject[] repairEffects;
 
 	// Use this for initialization
 	void Start () {
@@ -33,11 +35,16 @@ public class PlayerController : MonoBehaviour {
             if (!anim.GetBool("PlayerIsFixing")) {
                 anim.SetBool("PlayerIsFixing", true);
                 anim.SetBool("PlayerIsIdling", false);
+                foreach(GameObject sparks in repairEffects) {
+                    sparks.SetActive(true);
+                }
             }
             
         }else if (anim.GetBool("PlayerIsFixing")) {
             anim.SetBool("PlayerIsFixing", false);
-           // anim.SetBool()
+           foreach(GameObject sparks in repairEffects) {
+                sparks.SetActive(false);
+            }
             
         }
     }
@@ -83,7 +90,7 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         charge -= drain;
-        //Debug.Log(charge);
+
 
         // Dim lights
         foreach(Light light in eyeLights) {
@@ -95,6 +102,8 @@ public class PlayerController : MonoBehaviour {
         // Kill if out of charge
         if(charge <= 0) {
             isAlive = false;
+            anim.SetBool("PlayerIsDead", true);
+            hoverEffect.SetActive(false);
         }
     }
 

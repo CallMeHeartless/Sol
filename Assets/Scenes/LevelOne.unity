@@ -1160,12 +1160,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1708094540054750, guid: 2460aa55babb46942ac10644c97ba35e,
     type: 2}
   m_PrefabInternal: {fileID: 949044649}
---- !u!114 &251829578 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114431135737033566, guid: 2460aa55babb46942ac10644c97ba35e,
-    type: 2}
-  m_PrefabInternal: {fileID: 949044649}
-  m_Script: {fileID: 11500000, guid: 7e35d2eb6f9a28045b904f479fb3df38, type: 3}
 --- !u!1 &254195191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,11 +3509,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: powerBoxes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4826404056573184, guid: 563be469a43562648ba44579b79e938d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.0504652
@@ -3564,64 +3553,14 @@ Prefab:
       objectReference: {fileID: 1552225481}
     - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
         type: 2}
-      propertyPath: directionalLight
-      value: 
-      objectReference: {fileID: 1164213538}
-    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 251829578}
-    - target: {fileID: 224194127807040446, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
       propertyPath: powerBoxes.Array.data[2]
       value: 
       objectReference: {fileID: 1653604384}
-    - target: {fileID: 114358080911536950, guid: 563be469a43562648ba44579b79e938d,
+    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
         type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114358080911536950, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_FontData.m_MinSize
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114358080911536950, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_FontData.m_MaxSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114358080911536950, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_FontData.m_FontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224703543706710222, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 444.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 224703543706710222, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 454.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 224703543706710222, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 687
-      objectReference: {fileID: 0}
-    - target: {fileID: 224703543706710222, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 62.31
-      objectReference: {fileID: 0}
+      propertyPath: directionalLight
+      value: 
+      objectReference: {fileID: 1164213538}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour {
     public Animator anim;
     public GameObject hoverEffect;
     public GameObject[] repairEffects;
+    public Slider chargeSlider;
+    
 
     // Sound effects
     public AudioSource weldingFX;
@@ -95,6 +98,8 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         charge -= drain;
+        // Update slider
+        chargeSlider.value = charge;
 
 
         // Dim lights
@@ -118,6 +123,8 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         charge += givenCharge;
+        // Update slider
+        chargeSlider.value = charge;
         if(charge > maxCharge) {
             charge = maxCharge;
         }

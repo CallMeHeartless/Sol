@@ -97,11 +97,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 50
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -160,8 +160,10 @@ MonoBehaviour:
   powerBoxes:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   directionalLight: {fileID: 0}
   fuseBoxProgressText: {fileID: 0}
+  gameOverMenu: {fileID: 0}
 --- !u!222 &222327252547250180
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -223,6 +225,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 436.02, y: 255}
-  m_SizeDelta: {x: 211.96, y: 30}
+  m_AnchoredPosition: {x: 444.76, y: 454.58}
+  m_SizeDelta: {x: 687, y: 62.31}
   m_Pivot: {x: 0.5, y: 0.5}

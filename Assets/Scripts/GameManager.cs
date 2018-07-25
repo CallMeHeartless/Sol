@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         PlayerController.MakeAlive(); // Enforces that the player is alive
         totalFuseBoxes = powerBoxes.Length;
-        Debug.Log(totalFuseBoxes);
+        //Debug.Log(totalFuseBoxes);
         fuseBoxProgressText = GetComponentInChildren<Text>();
         fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
     }
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
         }
 
         if (!PlayerController.IsAlive() && !gameOver) {
-            Debug.Log("DEAD");
+            //Debug.Log("DEAD");
             // Game over stuff
             gameOver = true;
             StartCoroutine(GameOverMenu());

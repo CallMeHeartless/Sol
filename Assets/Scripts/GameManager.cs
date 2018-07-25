@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public GameObject[] powerBoxes;
     public Light directionalLight;
     public Text fuseBoxProgressText;
+    public GameObject gameOverMenu;
 
     bool gameOver = false;
     int totalFuseBoxes;
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //player = player.GetComponent<PlayerController>();
+        PlayerController.MakeAlive(); // Enforces that the player is alive
         totalFuseBoxes = powerBoxes.Length;
         Debug.Log(totalFuseBoxes);
         fuseBoxProgressText = GetComponentInChildren<Text>();
@@ -56,9 +57,9 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator GameOverMenu() {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4.5f);
         // MENU STUFF HERE
-        
+        gameOverMenu.SetActive(true);
         yield return null;
     }
 

@@ -5073,6 +5073,11 @@ Prefab:
       propertyPath: spawnLocations.Array.data[2]
       value: 
       objectReference: {fileID: 1286333950}
+    - target: {fileID: 224942644006545730, guid: 629515274c65933419d7f7a0803e988d,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 629515274c65933419d7f7a0803e988d, type: 2}
   m_IsPrefabAsset: 0
@@ -5215,6 +5220,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224699119589554850, guid: 23a72a5db8bfc4b40957c46411fb6d2e,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23a72a5db8bfc4b40957c46411fb6d2e, type: 2}
   m_IsPrefabAsset: 0
@@ -5324,6 +5334,11 @@ Prefab:
       propertyPath: directionalLight
       value: 
       objectReference: {fileID: 170076734}
+    - target: {fileID: 224194127807040446, guid: 563be469a43562648ba44579b79e938d,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0

@@ -9,6 +9,8 @@ public class PowerBoxController : MonoBehaviour {
     public float maxHealth = 4.0f;
     public GameObject player;
     public GameObject[] spawnLocations;
+    public GameObject brokenMesh;
+    public GameObject fixedMesh;
 
     float fixHealth = 0.0f;
     float repairDistance = 2.0f;
@@ -39,6 +41,9 @@ public class PowerBoxController : MonoBehaviour {
                 if(fixHealth >= maxHealth) {
                     isFixed = true;
                     GameObject.Find("GameManager").GetComponent<GameManager>().MarkFuseBoxAsRepaired();
+                    // Change mesh
+                    brokenMesh.SetActive(false);
+                    fixedMesh.SetActive(true);
                 }
             }
 

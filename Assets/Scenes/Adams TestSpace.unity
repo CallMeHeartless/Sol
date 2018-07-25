@@ -220,6 +220,11 @@ Prefab:
       propertyPath: chargeSlider
       value: 
       objectReference: {fileID: 85322281}
+    - target: {fileID: 114431135737033566, guid: 2460aa55babb46942ac10644c97ba35e,
+        type: 2}
+      propertyPath: LowPowerFX
+      value: 
+      objectReference: {fileID: 106487555}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2460aa55babb46942ac10644c97ba35e, type: 2}
   m_IsPrefabAsset: 0
@@ -231,6 +236,11 @@ GameObject:
 --- !u!1 &106487550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1708094540054750, guid: 2460aa55babb46942ac10644c97ba35e,
+    type: 2}
+  m_PrefabInternal: {fileID: 106487548}
+--- !u!82 &106487555 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82432854587297190, guid: 2460aa55babb46942ac10644c97ba35e,
     type: 2}
   m_PrefabInternal: {fileID: 106487548}
 --- !u!1001 &219705025

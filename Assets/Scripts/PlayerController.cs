@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 
     // Sound effects
     public AudioSource weldingFX;
-
+    public AudioSource LowPowerFX;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -93,6 +93,10 @@ public class PlayerController : MonoBehaviour {
 
     // Damages the player's charge. To be used from Sol with Time.deltaTime;
     public void DrainCharge(float drain) {
+        if (charge <= charge / 4)
+        {
+            LowPowerFX.Play();
+        }
         //Debug.Log("Drain charge called");
         if (!isAlive) {
             return;

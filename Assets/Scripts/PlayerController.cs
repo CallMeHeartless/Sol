@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour {
         if(charge <= 0) {
             isAlive = false;
             anim.SetBool("PlayerIsDead", true);
+            anim.SetBool("PlayerIsIdling", false);
             hoverEffect.SetActive(false);
         }
     }

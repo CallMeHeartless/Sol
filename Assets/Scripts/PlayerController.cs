@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject hoverEffect;
     public GameObject[] repairEffects;
 
+    // Sound effects
+    public AudioSource weldingFX;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour {
         // Repair animation
         if (Input.GetKey(KeyCode.E)) {
             if (!anim.GetBool("PlayerIsFixing")) {
+                weldingFX.Play();
                 anim.SetBool("PlayerIsFixing", true);
                 anim.SetBool("PlayerIsIdling", false);
                 foreach(GameObject sparks in repairEffects) {
@@ -45,7 +49,7 @@ public class PlayerController : MonoBehaviour {
            foreach(GameObject sparks in repairEffects) {
                 sparks.SetActive(false);
             }
-            
+            weldingFX.Stop();
         }
     }
 	

@@ -65,11 +65,6 @@ public class PauseMenu : MonoBehaviour {
     }
 
     IEnumerator FadeInstructions() {
-        //for(float f =1.0f; f >= 0.0f; f -= 0.1f) {
-        //    Color c = renderer.material.color;
-        //    Instructions.color.a = f;
-
-        //}
         yield return new WaitForSeconds(5.0f);
         Instructions.gameObject.SetActive(false);
 

@@ -28,6 +28,9 @@ public class AiController : MonoBehaviour {
     private Quaternion arrowRotation;
     private Vector3 arrowDirection;
 
+    public GameObject solArrow;
+    private Quaternion solArrowRotation;
+    private Vector3 solArrowDirection;
 
 	// Use this for initialization
 	void Start () {
@@ -87,6 +90,19 @@ public class AiController : MonoBehaviour {
         //Rotate
         playerArrow.transform.rotation = Quaternion.Slerp(playerArrow.transform.rotation, arrowRotation, 10);
 
+        /*
+        if(forward == true)
+        {
+            int i = sequence + 1;
+            if(i == targets.Length)
+            {
+                i = 0;
+            }
+
+            solArrowDirection = (targets)
+
+        }
+        */
 
         float step = 0;
 

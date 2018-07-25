@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
             Debug.Log("DEAD");
             // Game over stuff
             gameOver = true;
-            StartCoroutine(ReloadLevel());
+            StartCoroutine(GameOverMenu());
             //SceneManager.LoadScene(1);
         }
 
@@ -53,6 +53,13 @@ public class GameManager : MonoBehaviour {
         }
 
         return true;
+    }
+
+    IEnumerator GameOverMenu() {
+        yield return new WaitForSeconds(2.5f);
+        // MENU STUFF HERE
+
+        yield return null;
     }
 
     IEnumerator ReloadLevel() {

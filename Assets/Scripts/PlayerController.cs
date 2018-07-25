@@ -17,21 +17,29 @@ public class PlayerController : MonoBehaviour {
     public Light[] eyeLights;
     public AudioSource bgMusic;
     public GameObject Sol;
+    public Animator anim;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         charge = maxCharge;
+        anim = GetComponent<Animator>();
 	}
 
     void Update()
     {
-        // Test
-        //if (Input.GetKey(KeyCode.K)) {
-        //    DrainCharge(Time.deltaTime);
-        //} else {
-        //    GiveCharge(Time.deltaTime);
-        //}
+        // Repair animation
+        if (Input.GetKey(KeyCode.E)) {
+            if (!anim.GetBool("PlayerIsFixing")) {
+                anim.SetBool("PlayerIsFixing", true);
+                anim.SetBool("PlayerIsIdling", false);
+            }
+            
+        }else if (anim.GetBool("PlayerIsFixing")) {
+            anim.SetBool("PlayerIsFixing", false);
+           // anim.SetBool()
+            
+        }
     }
 	
 	// Update is called once per frame
@@ -50,9 +58,18 @@ public class PlayerController : MonoBehaviour {
             if(rb.velocity.magnitude > maxSpeed) {
                 rb.velocity = maxSpeed * rb.velocity.normalized;
             }
+            if (!anim.GetBool("PlayerIsWalking")) {
+                anim.SetBool("PlayerIsWalking", true);
+                anim.SetBool("PlayerIsIdling", false);
+            }
+ 
             // Animation
         } else {
             // Idle animation
+            if (anim.GetBool("PlayerIsWalking")) {
+                anim.SetBool("PlayerIsWalking", false);
+                anim.SetBool("PlayerIsIdling", true);
+            }
 
             // Limit force
             rb.velocity = transform.forward * 0.0f;

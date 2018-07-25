@@ -38,12 +38,14 @@ public class PowerBoxController : MonoBehaviour {
                 fixSlider.value = fixHealth;
                 if(fixHealth >= maxHealth) {
                     isFixed = true;
+                    GameObject.Find("GameManager").GetComponent<GameManager>().MarkFuseBoxAsRepaired();
                 }
             }
 
 
         }else if (fixSlider.enabled) {
             fixSlider.gameObject.SetActive(false);
+            
         }
 
     }

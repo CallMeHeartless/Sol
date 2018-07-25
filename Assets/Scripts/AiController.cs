@@ -22,7 +22,8 @@ public class AiController : MonoBehaviour {
     private Vector3 direction;
     public bool linearMovement;
     public bool randomMovement;
-    private bool forward = true;
+    public bool forward = true;
+    public float fChargeMultiplier = 1.0f;
 
 
 	// Use this for initialization
@@ -43,6 +44,19 @@ public class AiController : MonoBehaviour {
         if(linearMovement == true)
         {
             randomMovement = false;
+        }
+
+        //change direction
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(forward == true)
+            {
+                forward = false;
+            }
+            else
+            {
+                forward = true;
+            }
         }
 
         currentPos = transform.position;
@@ -142,14 +156,14 @@ public class AiController : MonoBehaviour {
 
                 if(sequence == targets.Length)
                 {
-                    sequence = (targets.Length) - 2;
-                    forward = false;
+                    sequence = 0; //(targets.Length) - 2;
+                    //forward = false;
                 }
 
                 if(sequence < 0)
                 {
-                    sequence = 1;
-                    forward = true;
+                    sequence = targets.Length - 1;
+                    //forward = true;
                 }
             }
             
@@ -165,7 +179,7 @@ public class AiController : MonoBehaviour {
         }
         else
         {
-            player.GetComponent<PlayerController>().GiveCharge(Time.deltaTime);
+            player.GetComponent<PlayerController>().GiveCharge(fChargeMultiplier * Time.deltaTime);
         }
 	}
 }

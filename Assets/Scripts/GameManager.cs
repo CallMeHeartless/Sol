@@ -31,7 +31,12 @@ public class GameManager : MonoBehaviour {
         if (CheckForVictory() && !gameOver) {
             gameOver = true;
             directionalLight.GetComponent<Light>().intensity = 1.1f;
+            // Play player animation
+            GameObject.Find("Player").GetComponent<Animator>().SetBool("PlayerWins", true);
             // Start couroutine to end game
+            gameOverMenu.GetComponentInChildren<Text>().text = "Congratulations! You win!";
+            
+            StartCoroutine(GameOverMenu());
         }
 
         if (!PlayerController.IsAlive() && !gameOver) {

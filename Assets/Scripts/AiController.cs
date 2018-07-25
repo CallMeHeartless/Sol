@@ -24,6 +24,9 @@ public class AiController : MonoBehaviour {
     public bool randomMovement;
     public bool forward = true;
     public float fChargeMultiplier = 1.0f;
+    public GameObject playerArrow;
+    private Quaternion arrowRotation;
+    private Vector3 arrowDirection;
 
 
 	// Use this for initialization
@@ -76,8 +79,25 @@ public class AiController : MonoBehaviour {
         //rotate over time
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
 
+        //Rotate Arrow towards Sol
+        arrowDirection = (transform.position - playerArrow.transform.position).normalized;
+        arrowDirection.y = 0;
+        //create arrow rotation
+        arrowRotation = Quaternion.LookRotation(arrowDirection);
+        //Rotate
+        playerArrow.transform.rotation = Quaternion.Slerp(playerArrow.transform.rotation, arrowRotation, 10);
+
 
         float step = 0;
+
+        if(playerDistance < PlayerRadius)
+        {
+            playerArrow.SetActive(false);
+        }
+        else
+        {
+            playerArrow.SetActive(true);
+        }
 
         //Increase speed if player is near
         if(distance < Radius)

@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour {
         }
         charge -= drain;
         // Update slider
-        chargeSlider.value = charge;
+        chargeSlider.value = charge/maxCharge;
 
 
         // Dim lights

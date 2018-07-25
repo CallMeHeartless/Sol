@@ -123,12 +123,13 @@ public class PlayerController : MonoBehaviour {
             return;
         }
         charge += givenCharge;
-        // Update slider
-        chargeSlider.value = charge;
+        
         if(charge > maxCharge) {
             charge = maxCharge;
         }
-       
+        // Update slider
+        chargeSlider.value = charge / maxCharge;
+
         // Brighten lights
         foreach (Light light in eyeLights) {
             light.GetComponent<Light>().intensity = charge / maxCharge;

@@ -5189,6 +5189,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
+        type: 2}
+      propertyPath: gameOverMenu
+      value: 
+      objectReference: {fileID: 1240187522}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0
@@ -9914,11 +9919,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224738267471809370, guid: 0fb19955ab87c234598fc8aea7a0ce29,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4878229804748594, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}
       propertyPath: m_LocalPosition.x
       value: 449.4672
@@ -9951,14 +9951,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 114895615742046654, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+    - target: {fileID: 224738267471809370, guid: 0fb19955ab87c234598fc8aea7a0ce29,
         type: 2}
-      propertyPath: controlMenuUI
-      value: 
-      objectReference: {fileID: 1905487663}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1240187522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1367437679123544, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+    type: 2}
+  m_PrefabInternal: {fileID: 1174818883}
 --- !u!1 &1286333950
 GameObject:
   m_ObjectHideFlags: 0
@@ -14810,8 +14815,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1905487663 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1374929164700554, guid: 0fb19955ab87c234598fc8aea7a0ce29,
-    type: 2}
-  m_PrefabInternal: {fileID: 1174818883}

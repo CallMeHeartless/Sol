@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
     IEnumerator GameOverMenu() {
         yield return new WaitForSeconds(2.5f);
         // MENU STUFF HERE
-
+        
         yield return null;
     }
 

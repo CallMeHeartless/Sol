@@ -1066,7 +1066,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708094540054750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.434097, y: 0.5, z: -5.0744305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4365751110985912}
@@ -2000,7 +2000,7 @@ MonoBehaviour:
   speed: 2.5
   turnSpeed: 10
   charge: 0
-  maxCharge: 5
+  maxCharge: 20
   playerCamera: {fileID: 0}
   eyeLights:
   - {fileID: 108267940173368466}
@@ -2017,7 +2017,7 @@ MonoBehaviour:
   repairEffects:
   - {fileID: 1957779007499898}
   - {fileID: 1652556171390354}
-  weldingFX: {fileID: 0}
+  weldingFX: {fileID: 82567939671890508}
 --- !u!136 &136214485464995564
 CapsuleCollider:
   m_ObjectHideFlags: 1

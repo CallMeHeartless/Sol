@@ -5158,11 +5158,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: powerBoxes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4826404056573184, guid: 563be469a43562648ba44579b79e938d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.0504652
@@ -10117,10 +10112,6 @@ Prefab:
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1972236440139188, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}
-      propertyPath: m_Name
-      value: GameOverText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}

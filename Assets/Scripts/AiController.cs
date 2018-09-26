@@ -105,12 +105,21 @@ public class AiController : MonoBehaviour {
 
        
         //Rotate Arrow towards Sol
-        arrowDirection = (transform.position - playerArrow.transform.position).normalized;
-        arrowDirection.y = 0;
-        //create arrow rotation
-        arrowRotation = Quaternion.LookRotation(arrowDirection);
-        //Rotate
-        playerArrow.transform.rotation = Quaternion.Slerp(playerArrow.transform.rotation, arrowRotation, 10);
+        if(playerArrow != null) {
+           arrowDirection = (transform.position - playerArrow.transform.position).normalized;
+           arrowDirection.y = 0;
+           //create arrow rotation
+           arrowRotation = Quaternion.LookRotation(arrowDirection);
+           //Rotate
+           playerArrow.transform.rotation = Quaternion.Slerp(playerArrow.transform.rotation, arrowRotation, 10);
+
+            if (playerDistance < PlayerRadius) {
+                playerArrow.SetActive(false);
+            } else {
+                playerArrow.SetActive(true);
+            }
+        }
+     
 
         ray.origin = player.transform.position;
         ray.direction = Vector3.down;
@@ -157,14 +166,7 @@ public class AiController : MonoBehaviour {
         }
         */
 
-        if (playerDistance < PlayerRadius)
-        {
-            playerArrow.SetActive(false);
-        }
-        else
-        {
-            playerArrow.SetActive(true);
-        }
+
 
 
         

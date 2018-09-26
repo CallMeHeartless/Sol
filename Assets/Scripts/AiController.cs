@@ -57,9 +57,27 @@ public class AiController : MonoBehaviour {
         return closest;
     }
 
+    public GameObject FindPlayerArrow()
+    {
+        GameObject gos;
+        gos = GameObject.FindGameObjectWithTag("PlayerArrow");
+        
+        return gos;
+    }
+
+    public GameObject FindSolArrow()
+    {
+        GameObject gos;
+        gos = GameObject.FindGameObjectWithTag("SolArrow");
+        
+        return gos;
+    }
+
     // Use this for initialization
     void Start () {
         player = FindPlayer();
+        playerArrow = FindPlayerArrow();
+        solArrow = FindSolArrow();
     }
 	
 	// Update is called once per frame
@@ -112,6 +130,14 @@ public class AiController : MonoBehaviour {
         //Rotate
         playerArrow.transform.rotation = Quaternion.Slerp(playerArrow.transform.rotation, arrowRotation, 10);
 
+        //Rotate towards next point
+        solArrowDirection = (player.transform.position - solArrow.transform.position).normalized;
+        solArrowDirection.y = 0;
+        //create new rotation
+        solArrowRotation = Quaternion.LookRotation(solArrowDirection);
+        //Rotate
+        solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
+
         ray.origin = player.transform.position;
         ray.direction = Vector3.down;
 
@@ -120,7 +146,6 @@ public class AiController : MonoBehaviour {
         if (Physics.Raycast(ray, out hit))
         {
             agent.SetDestination(hit.point);
-            Debug.Log("Happened Fam");
         }
 
         /*

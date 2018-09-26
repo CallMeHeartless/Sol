@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4995678228472034}
   m_Layer: 0
   m_Name: Sol Arrow Offset
-  m_TagString: Untagged
+  m_TagString: SolArrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 33737099800771350}
   - component: {fileID: 95064234097173956}
   - component: {fileID: 82492371082544014}
+  - component: {fileID: 195913234166790646}
   m_Layer: 0
   m_Name: Sol
   m_TagString: Untagged
@@ -517,7 +518,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972537863636618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.14, z: 0}
+  m_LocalPosition: {x: 11, y: 8, z: -53.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4436171968460318}
@@ -904,34 +905,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1744d3c14da13458ff98b2cc3c8c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  agent: {fileID: 195913234166790646}
+  fAttackRadius: 2
   MaxSpeed: 2
   Radius: 10
-  player: {fileID: 0}
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  rotationSpeed: 10
-  linearMovement: 1
-  randomMovement: 0
-  forward: 1
   fChargeMultiplier: 1
   playerArrow: {fileID: 0}
-  solArrow: {fileID: 1338252013506876}
+  solArrow: {fileID: 0}
 --- !u!137 &137602307026380630
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -984,6 +965,27 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.3294864, y: 0.0004593134, z: -0.000000059604645}
     m_Extent: {x: 0.5705888, y: 0.78682566, z: 0.7843265}
   m_DirtyAABB: 0
+--- !u!195 &195913234166790646
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972537863636618}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.78432655
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3.7999213
+  m_BaseOffset: 1.8999606
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!198 &198210062372292354
 ParticleSystem:
   m_ObjectHideFlags: 1

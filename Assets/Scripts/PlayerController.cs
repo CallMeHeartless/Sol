@@ -65,22 +65,28 @@ public class PlayerController : MonoBehaviour {
 
         // Repair animation
         if (Input.GetKey(KeyCode.E)) {
-           if (!anim.GetBool("PlayerIsFixing")) {
+            /// Transfer this to animation key events
+            anim.SetTrigger("Repairing");
+            //if (!anim.GetBool("PlayerIsFixing")) {
+            if (!weldingFX.isPlaying) {
                 weldingFX.Play();
-                anim.SetBool("PlayerIsFixing", true);
+                //anim.SetBool("PlayerIsFixing", true);
                 //anim.SetBool("PlayerIsIdling", false);
-                foreach(GameObject sparks in repairEffects) {
+                foreach (GameObject sparks in repairEffects) {
                     sparks.SetActive(true);
                 }
             }
             
-        }else if (anim.GetBool("PlayerIsFixing")) {
-            anim.SetBool("PlayerIsFixing", false);
-           // anim.SetBool("PlayerIsIdling", true);
-           foreach(GameObject sparks in repairEffects) {
-                sparks.SetActive(false);
+        } else {
+            /// Add fix here to check if not repairing
+            if (weldingFX.isPlaying) {
+                anim.ResetTrigger("Repairing");
+                foreach (GameObject sparks in repairEffects) {
+                    sparks.SetActive(false);
+                }
+                weldingFX.Stop();
             }
-            weldingFX.Stop();
+
         }
     }
 	
@@ -126,9 +132,12 @@ public class PlayerController : MonoBehaviour {
 
         velocity = (forwardMovement + sideMovement).normalized * fSpeed;
         if (velocity.sqrMagnitude > 0) {
-           //Anim
+            //Anim
+            anim.ResetTrigger("Idling");
+            anim.SetTrigger("Walking");
         } else {
-            anim.SetTrigger("Idle");
+            anim.ResetTrigger("Walking");
+            anim.SetTrigger("Idling");
          // Anim
         }
 

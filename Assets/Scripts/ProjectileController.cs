@@ -24,7 +24,7 @@ public class ProjectileController : MonoBehaviour {
         if (other.CompareTag("Enemy")) {
             // Damage
         }
-        Debug.Log("Collision");
+
         Destroy(gameObject);
     }
 }

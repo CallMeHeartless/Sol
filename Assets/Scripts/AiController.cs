@@ -147,7 +147,10 @@ public class AiController : MonoBehaviour {
         //Rotate
         solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
 
-        ray.origin = player.transform.position;
+        Vector3 vA = player.transform.position;
+        vA.y = vA.y + 4.0f;
+
+        ray.origin = vA;
         ray.direction = Vector3.down;
 
         RaycastHit hit;

@@ -17,13 +17,33 @@ public class PowerBoxController : MonoBehaviour {
     float playerDistance;
 
     public Slider fixSlider;
-    
 
-	// Use this for initialization
-	void Start () {
+    public GameObject FindPlayer()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Player");
+        GameObject closest = null;
+        float distance = 100000.0f;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
+
+    // Use this for initialization
+    void Start () {
         int spawnIndex = Random.Range(0, spawnLocations.Length);
         transform.position = spawnLocations[spawnIndex].transform.position;
         transform.rotation = spawnLocations[spawnIndex].transform.rotation;
+        player = FindPlayer();
 	}
 	
 	// Update is called once per frame

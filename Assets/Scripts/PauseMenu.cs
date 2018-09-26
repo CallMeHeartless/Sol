@@ -9,7 +9,6 @@ public class PauseMenu : MonoBehaviour {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject controlMenuUI;
-    public Text Instructions;
 	
 	// Update is called once per frame
 	void Update ()
@@ -58,20 +57,8 @@ public class PauseMenu : MonoBehaviour {
 
 
     public void Start() {
-        // Display instructions
-        Instructions.text = "Stay with Sol to keep yourself charged. Your charge drains when you are away from Sol, and you die when you run out!";
-        StartCoroutine(FadeInstructions());
+
 
     }
 
-    IEnumerator FadeInstructions() {
-        //for(float f =1.0f; f >= 0.0f; f -= 0.1f) {
-        //    Color c = renderer.material.color;
-        //    Instructions.color.a = f;
-
-        //}
-        yield return new WaitForSeconds(5.0f);
-        Instructions.gameObject.SetActive(false);
-
-    }
 }

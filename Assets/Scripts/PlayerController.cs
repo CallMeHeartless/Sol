@@ -105,12 +105,14 @@ public class PlayerController : MonoBehaviour {
 
         if (_camera != null) {
             _camera.transform.position = cameraFocus.position + cameraFocus.rotation * cameraOffset;
-           // _camera.transform.LookAt(cameraFocus.position);
+            _camera.transform.LookAt(cameraFocus.position);
             if (fCameraRotation != 0.0f) {
                 fCurrentCameraRotation -= fCameraRotation;
                 fCurrentCameraRotation = Mathf.Clamp(fCurrentCameraRotation, -45, 45);
-                //_camera.transform.LookAt(cameraFocus.position);
-                _camera.transform.localEulerAngles = new Vector3(fCurrentCameraRotation, transform.localRotation.y, 0);
+               // _camera.transform.rotation = transform.rotation;
+               // _camera.transform.
+               //_camera.transform.LookAt(cameraFocus.position);
+               // _camera.transform.localEulerAngles = new Vector3(fCurrentCameraRotation, transform.rotation.y, 0);
                // _camera.transform.rotation = Quaternion.Euler(fCurrentCameraRotation, 0, 0);
             }
         }

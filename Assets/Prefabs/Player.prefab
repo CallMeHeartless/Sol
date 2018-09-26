@@ -959,7 +959,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336425001026596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.94, z: 0}
+  m_LocalPosition: {x: 0, y: 2.196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4597685212760796}
@@ -1112,7 +1112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708094540054750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 11.35, y: 8, z: -52.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4365751110985912}
@@ -1528,7 +1528,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!82 &82432854587297190
 AudioSource:
@@ -2196,11 +2196,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e35d2eb6f9a28045b904f479fb3df38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
-  turnSpeed: 10
+  fLookSensitivity: 10
+  fSpeed: 5
+  _camera: {fileID: 0}
+  cameraFocus: {fileID: 4365751110985912}
+  cameraOffset: {x: 0, y: 0, z: -3.5}
   charge: 0
   maxCharge: 20
-  playerCamera: {fileID: 0}
+  turnSpeed: 10
   eyeLights:
   - {fileID: 108267940173368466}
   - {fileID: 108901731595616642}
@@ -2210,7 +2213,6 @@ MonoBehaviour:
   - {fileID: 108734350456320258}
   - {fileID: 108432486435050560}
   bgMusic: {fileID: 82432854587297190}
-  Sol: {fileID: 0}
   anim: {fileID: 95981002687058724}
   hoverEffect: {fileID: 1874385150771598}
   repairEffects:

@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour {
     float charge;
     public float maxCharge = 20.0f;
     static bool isAlive = true;
+    bool bCanFire = true;
+    [SerializeField]
+    private float fFireCooldown = 0.75f;
 
     float maxSpeed = 5.0f;
     public float turnSpeed = 10.0f;
@@ -87,6 +90,11 @@ public class PlayerController : MonoBehaviour {
                 weldingFX.Stop();
             }
 
+        }
+
+        // Debug test fire
+        if (Input.GetButtonDown("Fire1")) {
+            FireWeapon(); // This may be extracted and placed on an animation effect || If so, animation trigger here
         }
     }
 	
@@ -212,5 +220,20 @@ public class PlayerController : MonoBehaviour {
 
     public static void MakeAlive() {
         isAlive = true;
+    }
+
+    public void FireWeapon() {
+        if (bCanFire) {
+            bCanFire = false;
+            // Replace position with reference to Transform on final model
+            GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), transform.position + transform.forward + transform.up, transform.rotation);
+            StartCoroutine(WeaponCooldown());
+        }
+
+    }
+
+    IEnumerator WeaponCooldown() {
+        yield return new WaitForSeconds(fFireCooldown);
+        bCanFire = true;
     }
 }

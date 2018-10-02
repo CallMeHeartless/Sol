@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: 6ee2fec691986b54987b24f6f68e23b5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ApeHead
+    100004: ApeLLeg1
+    100006: ApeLLeg1 1
+    100008: ApeLLeg2
+    100010: ApeLLeg2 1
+    100012: ApeLLegCollarbone
+    100014: ApeLLegDigit01
+    100016: ApeLLegDigit01 1
+    100018: ApeLLegDigit02
+    100020: ApeLLegDigit02 1
+    100022: ApeLLegDigit03
+    100024: ApeLLegDigit11
+    100026: ApeLLegDigit11 1
+    100028: ApeLLegDigit12
+    100030: ApeLLegDigit12 1
+    100032: ApeLLegDigit13
+    100034: ApeLLegDigit21
+    100036: ApeLLegDigit21 1
+    100038: ApeLLegDigit22
+    100040: ApeLLegDigit22 1
+    100042: ApeLLegDigit23
+    100044: ApeLLegDigit31
+    100046: ApeLLegDigit31 1
+    100048: ApeLLegDigit32
+    100050: ApeLLegDigit32 1
+    100052: ApeLLegDigit33
+    100054: ApeLLegDigit51
+    100056: ApeLLegDigit52
+    100058: ApeLLegDigit53
+    100060: ApeLLegPalm
+    100062: ApeLLegPalm 1
+    100064: ApeNeck1
+    100066: ApeNeck2
+    100068: ApeNeck3
+    100070: ApeNeck4
+    100072: ApePelvis
+    100074: ApeRibcage
+    100076: ApeRLeg1
+    100078: ApeRLeg1 1
+    100080: ApeRLeg2
+    100082: ApeRLeg2 1
+    100084: ApeRLegCollarbone
+    100086: ApeRLegDigit01
+    100088: ApeRLegDigit01 1
+    100090: ApeRLegDigit02
+    100092: ApeRLegDigit02 1
+    100094: ApeRLegDigit03
+    100096: ApeRLegDigit11
+    100098: ApeRLegDigit11 1
+    100100: ApeRLegDigit12
+    100102: ApeRLegDigit12 1
+    100104: ApeRLegDigit13
+    100106: ApeRLegDigit21
+    100108: ApeRLegDigit21 1
+    100110: ApeRLegDigit22
+    100112: ApeRLegDigit22 1
+    100114: ApeRLegDigit23
+    100116: ApeRLegDigit31
+    100118: ApeRLegDigit31 1
+    100120: ApeRLegDigit32
+    100122: ApeRLegDigit32 1
+    100124: ApeRLegDigit33
+    100126: ApeRLegDigit51
+    100128: ApeRLegDigit52
+    100130: ApeRLegDigit53
+    100132: ApeRLegPalm
+    100134: ApeRLegPalm 1
+    100136: ApeSpine1
+    100138: ApeSpine2
+    100140: ApeSpine3
+    100142: ApeSpine4
+    100144: ApeSpine5
+    100146: pCylinder13
+    400000: //RootNode
+    400002: ApeHead
+    400004: ApeLLeg1
+    400006: ApeLLeg1 1
+    400008: ApeLLeg2
+    400010: ApeLLeg2 1
+    400012: ApeLLegCollarbone
+    400014: ApeLLegDigit01
+    400016: ApeLLegDigit01 1
+    400018: ApeLLegDigit02
+    400020: ApeLLegDigit02 1
+    400022: ApeLLegDigit03
+    400024: ApeLLegDigit11
+    400026: ApeLLegDigit11 1
+    400028: ApeLLegDigit12
+    400030: ApeLLegDigit12 1
+    400032: ApeLLegDigit13
+    400034: ApeLLegDigit21
+    400036: ApeLLegDigit21 1
+    400038: ApeLLegDigit22
+    400040: ApeLLegDigit22 1
+    400042: ApeLLegDigit23
+    400044: ApeLLegDigit31
+    400046: ApeLLegDigit31 1
+    400048: ApeLLegDigit32
+    400050: ApeLLegDigit32 1
+    400052: ApeLLegDigit33
+    400054: ApeLLegDigit51
+    400056: ApeLLegDigit52
+    400058: ApeLLegDigit53
+    400060: ApeLLegPalm
+    400062: ApeLLegPalm 1
+    400064: ApeNeck1
+    400066: ApeNeck2
+    400068: ApeNeck3
+    400070: ApeNeck4
+    400072: ApePelvis
+    400074: ApeRibcage
+    400076: ApeRLeg1
+    400078: ApeRLeg1 1
+    400080: ApeRLeg2
+    400082: ApeRLeg2 1
+    400084: ApeRLegCollarbone
+    400086: ApeRLegDigit01
+    400088: ApeRLegDigit01 1
+    400090: ApeRLegDigit02
+    400092: ApeRLegDigit02 1
+    400094: ApeRLegDigit03
+    400096: ApeRLegDigit11
+    400098: ApeRLegDigit11 1
+    400100: ApeRLegDigit12
+    400102: ApeRLegDigit12 1
+    400104: ApeRLegDigit13
+    400106: ApeRLegDigit21
+    400108: ApeRLegDigit21 1
+    400110: ApeRLegDigit22
+    400112: ApeRLegDigit22 1
+    400114: ApeRLegDigit23
+    400116: ApeRLegDigit31
+    400118: ApeRLegDigit31 1
+    400120: ApeRLegDigit32
+    400122: ApeRLegDigit32 1
+    400124: ApeRLegDigit33
+    400126: ApeRLegDigit51
+    400128: ApeRLegDigit52
+    400130: ApeRLegDigit53
+    400132: ApeRLegPalm
+    400134: ApeRLegPalm 1
+    400136: ApeSpine1
+    400138: ApeSpine2
+    400140: ApeSpine3
+    400142: ApeSpine4
+    400144: ApeSpine5
+    400146: pCylinder13
+    2100000: lambert1
+    4300000: pCylinder13
+    7400000: run
+    7400002: attack
+    7400004: idle
+    7400006: Die
+    9500000: //RootNode
+    13700000: pCylinder13
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: run
+      takeName: run
+      firstFrame: 10
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: attack
+      takeName: attack
+      firstFrame: 50
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle
+      takeName: idle
+      firstFrame: 90
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Die
+      takeName: Die
+      firstFrame: 135
+      lastFrame: 155
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

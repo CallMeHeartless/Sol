@@ -12,31 +12,24 @@ public class GeneratorPuzzleController : MonoBehaviour {
     }
 
     //public List<List<PUZZLE_DIRECTIONS>> solution;
-    int[,] solution = new int[4,4];
+    int[,] solution = new int[4, 4];
+    int solutionIndex = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         GenerateSolution();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 
-    //List<PUZZLE_DIRECTIONS> GenerateSingleSet() {
-        
-    //}
+    // Update is called once per frame
+    void Update() {
+
+    }
 
     void GenerateSolution() {
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 3; ++j) {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
                 solution[i, j] = Random.Range(0, 3);
             }
         }
-    }
-
-    int GenerateCellAnswer() {
-        return Random.Range(0, 3);
     }
 }

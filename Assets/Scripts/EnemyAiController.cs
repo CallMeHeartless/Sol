@@ -68,7 +68,7 @@ public class EnemyAiController : MonoBehaviour {
 
     public void DamageEnemy(int _iDamage) {
         m_iLife -= m_iLife;
-        if(m_iLife <= 0) {
+        if(m_iLife <= 0 && isAlive) {
             isAlive = false;
             // Cue death animation
             anim.SetTrigger("Die");

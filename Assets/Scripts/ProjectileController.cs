@@ -12,7 +12,7 @@ public class ProjectileController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = Vector3.forward * fSpeed;
+        rb.velocity = transform.forward * fSpeed;
 	}
 	
 	// Update is called once per frame
@@ -23,6 +23,7 @@ public class ProjectileController : MonoBehaviour {
     public void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Enemy")) {
             // Damage
+            other.GetComponent<EnemyAiController>().DamageEnemy(iDamage);
         }
 
         Destroy(gameObject);

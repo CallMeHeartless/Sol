@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyAiController : MonoBehaviour {
 
     [SerializeField]
-    private int m_iLife = 5;
+    private int m_iLife = 1;
 
     private bool isAlive = true;
 
@@ -56,6 +56,7 @@ public class EnemyAiController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = FindPlayer();
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -67,9 +68,10 @@ public class EnemyAiController : MonoBehaviour {
 
     public void DamageEnemy(int _iDamage) {
         m_iLife -= m_iLife;
-        if(m_iLife <= 0) {
+        if(m_iLife <= 0 && isAlive) {
             isAlive = false;
             // Cue death animation
+            anim.SetTrigger("Die");
         }
     }
 }

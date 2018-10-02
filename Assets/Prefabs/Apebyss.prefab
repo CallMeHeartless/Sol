@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 136396184277283090}
   - component: {fileID: 195897451385528798}
   - component: {fileID: 114884427500200194}
+  - component: {fileID: 114095236908966502}
   m_Layer: 0
   m_Name: Apebyss
   m_TagString: Enemy
@@ -1900,7 +1901,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1077745780194182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.824778, y: 8.23, z: 2.28}
+  m_LocalPosition: {x: 10.85, y: 8.16, z: -45.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4383604068511088}
@@ -2183,6 +2184,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114095236908966502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077745780194182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca01f5688f5743429d00cd8afd7483d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
 --- !u!114 &114884427500200194
 MonoBehaviour:
   m_ObjectHideFlags: 1

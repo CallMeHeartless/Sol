@@ -23,6 +23,7 @@ public class ProjectileController : MonoBehaviour {
     public void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Enemy")) {
             // Damage
+            other.GetComponent<EnemyAiController>().DamageEnemy(iDamage);
         }
 
         Destroy(gameObject);

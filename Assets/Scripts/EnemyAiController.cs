@@ -23,6 +23,7 @@ public class EnemyAiController : MonoBehaviour {
         m_iLife -= m_iLife;
         if(m_iLife <= 0) {
             isAlive = false;
+            // Cue death animation
         }
     }
 }

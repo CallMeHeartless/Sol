@@ -136,8 +136,10 @@ public class AiController : MonoBehaviour {
 
             if (playerDistance < PlayerRadius) {
                 playerArrow.SetActive(false);
+                solArrow.SetActive(false);
             } else {
                 playerArrow.SetActive(true);
+                solArrow.SetActive(true);
             }
         }
      

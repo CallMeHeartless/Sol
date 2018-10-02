@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class GeneratorPuzzleController : MonoBehaviour {
 
-    public enum PUZZLE_DIRECTIONS {
-        EAST,
-        NORTH,
-        WEST,
-        SOUTH
-    }
+    private bool isSolved = false;
+    private bool playerHasSolution = false;
+    private bool isPlayerSolving = false;
 
-    //public List<List<PUZZLE_DIRECTIONS>> solution;
+    /*********
+     * 0: Right Arrow
+     * 1: Up Arrow
+     * 2: Left Arrow
+     * 3: Down Arrow
+     ********/
     int[,] solution = new int[4, 4];
     int solutionIndex = 0;
 
@@ -23,6 +25,11 @@ public class GeneratorPuzzleController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        // Check if player is currently solving the puzzle
+        if (isPlayerSolving) {
+
+        }
+
     }
 
     void GenerateSolution() {
@@ -32,4 +39,23 @@ public class GeneratorPuzzleController : MonoBehaviour {
             }
         }
     }
+
+    int GetPlayerInput() {
+        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            return 0;
+        }else if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            return 1;
+        }else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            return 2;
+        }else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            return 3;
+        }
+        // Default value:
+        return 4;
+    }
+
+    void ResetProgress() {
+        solutionIndex = 0;
+    }
+
 }

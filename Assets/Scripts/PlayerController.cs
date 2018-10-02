@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float fFireCooldown = 0.75f;
 
-    float maxSpeed = 5.0f;
+    //float maxSpeed = 5.0f;
     public float turnSpeed = 10.0f;
    
 

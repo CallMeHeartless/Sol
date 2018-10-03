@@ -158,7 +158,6 @@ public class PlayerController : MonoBehaviour {
 
     // Damages the player's charge. To be used from Sol with Time.deltaTime;
     public void DrainCharge(float drain) {
-        Debug.Log(charge / maxCharge);
         if (charge/maxCharge <= 0.3f && !lowPower)
         {
             lowPower = true;

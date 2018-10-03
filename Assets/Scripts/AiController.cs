@@ -79,7 +79,7 @@ public class AiController : MonoBehaviour {
 
         float GenDistance = (player.transform.position - closest.transform.position).magnitude;
 
-        if(GeneratorRadius < GenDistance)
+        if(GenDistance < GeneratorRadius)
         {
             Vector3 vA = closest.transform.position;
             vA.y = vA.y + 4.0f;

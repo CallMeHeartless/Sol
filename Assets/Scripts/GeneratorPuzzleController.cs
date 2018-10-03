@@ -11,7 +11,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
     private bool playerHasSolution = false;
     private bool isPlayerSolving = false;
     [SerializeField]
-    private float playerRange = 1.0f;
+    private float playerRange = 3.0f;
     private GameObject player;
     [SerializeField]
     private float repairCountdown = 20.0f;
@@ -34,7 +34,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         GenerateSolution();
         player = GameObject.Find("Sol");
         repairSlider.maxValue = repairCountdown;
-        repairSlider.value = repairCountdown;
+        repairSlider.value = 0;
     }
 
     // Update is called once per frame
@@ -109,15 +109,19 @@ public class GeneratorPuzzleController : MonoBehaviour {
 
     // Determines if the player is in range
     void TrackPlayer() {
-        if((player.transform.position - transform.position).sqrMagnitude < playerRange) {
+        float playerDistance = (player.transform.position - transform.position).sqrMagnitude;
+       // Debug.Log(playerDistance + "   " +  playerRange);
+        if(playerDistance < playerRange) {
             isPlayerInRange = true;
-            if (!repairSlider.enabled) {
-                repairSlider.enabled = true;
+            Debug.Log("Hit");
+            if (!repairSlider.gameObject.activeSelf) {
+                repairSlider.gameObject.SetActive(true);
             }
         } else {
             isPlayerInRange = false;
-            if (repairSlider.enabled) {
-                repairSlider.enabled = false;
+            if (repairSlider.gameObject.activeSelf) {
+                ResetProgress();
+                repairSlider.gameObject.SetActive(false);
             }
         }
     }

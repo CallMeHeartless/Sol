@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour {
     int totalFuseBoxes;
     int fuseBoxesRepaired = 0;
 
+    public float fWaveMaxTime = 5.0f;
+    float fWaveTime = 0.0f;
+
 	// Use this for initialization
 	void Start () {
         Cursor.visible = false;
@@ -116,5 +119,32 @@ public class GameManager : MonoBehaviour {
                 Apebyss.transform.position = go.transform.position;
             }
         }
+    }
+
+    public static void SpawnWaves()
+    {
+        GameObject[] gos;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        gos = GameObject.FindGameObjectsWithTag("Generator");
+        GameObject closest = null;
+        float distance = 100000.0f;
+        Vector3 position = player.transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+
+        if(closest.GetComponent<GeneratorPuzzleController>().IsSolRepairing() == true)
+        {
+            
+        }
+
+        
     }
 }

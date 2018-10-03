@@ -40,11 +40,11 @@ public class PowerBoxController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        if(spawnLocations != null) {
-            int spawnIndex = Random.Range(0, spawnLocations.Length);
-            transform.position = spawnLocations[spawnIndex].transform.position;
-            transform.rotation = spawnLocations[spawnIndex].transform.rotation;
-        }
+        //if(spawnLocations != null) {
+        //    int spawnIndex = Random.Range(0, spawnLocations.Length-1);
+        //    transform.position = spawnLocations[spawnIndex].transform.position;
+        //    transform.rotation = spawnLocations[spawnIndex].transform.rotation;
+        //}
 
         player = FindPlayer();
 	}

@@ -17,6 +17,12 @@ public class EnemyAiController : MonoBehaviour {
     private Animator anim;
     private float fDistance;
 
+    private bool bIsStunned = false;
+    private bool bIsAttacking = false;
+    private float fAttackRate = 0.6f;
+    private bool bCanAttack = true;
+    public float fAttackRadius = 2.0f;
+
     public GameObject FindPlayer()
     {
         GameObject[] gos;
@@ -35,6 +41,39 @@ public class EnemyAiController : MonoBehaviour {
             }
         }
         return closest;
+    }
+
+    private void Attack()
+    {
+        bIsAttacking = true;
+        // Animation
+        anim.SetTrigger("Attack");
+        agent.isStopped = true;
+        // cooldown
+        StartCoroutine(AttackCooldown(fAttackRate));
+    }
+
+    IEnumerator AttackCooldown(float _fAttackCooldown)
+    {
+        yield return new WaitForSeconds(_fAttackCooldown);
+        agent.isStopped = false;
+        anim.SetTrigger("Run");
+        bIsAttacking = false;
+
+    }
+
+    void AttackDistance()
+    {
+        fDistance = (player.transform.position - transform.position).magnitude;
+
+        if (fDistance < fAttackRadius)
+        {
+            if (bCanAttack == true && isAlive == true)
+            {
+                Attack();
+            }
+
+        }
     }
 
     public void movement()
@@ -57,12 +96,14 @@ public class EnemyAiController : MonoBehaviour {
     void Start () {
         player = FindPlayer();
         anim = GetComponent<Animator>();
-	}
+        anim.SetTrigger("Run");
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
         movement();
+        AttackDistance();
 
     }
 
@@ -70,6 +111,7 @@ public class EnemyAiController : MonoBehaviour {
         m_iLife -= m_iLife;
         if(m_iLife <= 0 && isAlive) {
             isAlive = false;
+            agent.isStopped = true;
             // Cue death animation
             anim.SetTrigger("Die");
         }

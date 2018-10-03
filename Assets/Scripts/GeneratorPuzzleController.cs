@@ -126,4 +126,8 @@ public class GeneratorPuzzleController : MonoBehaviour {
         }
     }
 
+    public bool IsSolRepairing() {
+        return isAISolving && (player.transform.position - transform.position).sqrMagnitude <= playerRange && !isSolved;
+    }
+
 }

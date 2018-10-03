@@ -128,4 +128,8 @@ public class GeneratorPuzzleController : MonoBehaviour {
         return isAISolving && (player.transform.position - transform.position).sqrMagnitude <= playerRange && !isSolved;
     }
 
+    public bool IsSolved() {
+        return isSolved;
+    }
+
 }

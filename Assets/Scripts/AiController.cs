@@ -79,7 +79,7 @@ public class AiController : MonoBehaviour {
 
         float GenDistance = (player.transform.position - closest.transform.position).magnitude;
 
-        if((GenDistance < GeneratorRadius) && closest.GetComponent<GeneratorPuzzleController>().IsSolved())
+        if((GenDistance < GeneratorRadius) && !closest.GetComponent<GeneratorPuzzleController>().IsSolved())
         {
             Vector3 vA = closest.transform.position;
             vA.y = vA.y + 4.0f;
@@ -122,37 +122,6 @@ public class AiController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        //set movement
-        /*
-        if ((linearMovement == false) && (randomMovement == false))
-        {
-            linearMovement = true;
-        }
-
-        //check 1 type of movement
-        if(linearMovement == true)
-        {
-            randomMovement = false;
-        }
-        */
-
-        //change direction
-
-        /*
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            if(forward == true)
-            {
-                forward = false;
-            }
-            else
-            {
-                forward = true;
-            }
-        }
-        */
-
         currentPos = transform.position;
 
 

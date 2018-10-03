@@ -162,11 +162,17 @@ public class PlayerController : MonoBehaviour {
         if (charge/maxCharge <= 0.3f && !lowPower)
         {
             lowPower = true;
-            LowPowerFX.Play();
+            if(LowPowerFX != null) {
+                LowPowerFX.Play();
+            }
+            
         }else if (lowPower)
         {
             lowPower = false;
-            LowPowerFX.Stop();
+            if(LowPowerFX != null) {
+                LowPowerFX.Stop();
+            }
+            
         }
         //Debug.Log("Drain charge called");
         if (!isAlive) {
@@ -182,7 +188,10 @@ public class PlayerController : MonoBehaviour {
             light.GetComponent<Light>().intensity = charge / maxCharge;
         }
         // Dim audio
-        bgMusic.volume = charge / maxCharge;
+        if(bgMusic != null) {
+            bgMusic.volume = charge / maxCharge;
+        }
+
 
         // Kill if out of charge
         if(charge <= 0) {

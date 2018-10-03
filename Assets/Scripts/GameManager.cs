@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
         //Debug.Log(totalFuseBoxes);
         fuseBoxProgressText = GetComponentInChildren<Text>();
         fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
+        SpawnEnemies();
+        
     }
 	
 	// Update is called once per frame
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour {
             //SceneManager.LoadScene(1);
         }
 
+        
 
 	}
 
@@ -82,5 +85,36 @@ public class GameManager : MonoBehaviour {
         ++fuseBoxesRepaired;
         fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
         //Debug.Log(totalFuseBoxes);
+    }
+
+    public static void SpawnEnemies()
+    {
+        GameObject[] gos;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        gos = GameObject.FindGameObjectsWithTag("ESpawn");
+        GameObject closest = null;
+        float distance = 100000.0f;
+        Vector3 position = player.transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+
+        string groupName = closest.GetComponent<ESpawn>().name;
+
+        foreach (GameObject go in gos)
+        {
+            if (groupName == go.GetComponent<ESpawn>().name)
+            {
+                GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
+                Apebyss.transform.position = go.transform.position;
+            }
+        }
     }
 }

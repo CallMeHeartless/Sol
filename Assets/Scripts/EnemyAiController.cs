@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyAiController : MonoBehaviour {
 
     [SerializeField]
-    private int m_iLife = 5;
+    private int m_iLife = 1;
 
     private bool isAlive = true;
 
@@ -16,6 +16,12 @@ public class EnemyAiController : MonoBehaviour {
     private Ray ray;
     private Animator anim;
     private float fDistance;
+
+    private bool bIsStunned = false;
+    private bool bIsAttacking = false;
+    private float fAttackRate = 0.6f;
+    private bool bCanAttack = true;
+    public float fAttackRadius = 2.0f;
 
     public GameObject FindPlayer()
     {
@@ -37,6 +43,39 @@ public class EnemyAiController : MonoBehaviour {
         return closest;
     }
 
+    private void Attack()
+    {
+        bIsAttacking = true;
+        // Animation
+        anim.SetTrigger("Attack");
+        agent.isStopped = true;
+        // cooldown
+        StartCoroutine(AttackCooldown(fAttackRate));
+    }
+
+    IEnumerator AttackCooldown(float _fAttackCooldown)
+    {
+        yield return new WaitForSeconds(_fAttackCooldown);
+        agent.isStopped = false;
+        anim.SetTrigger("Run");
+        bIsAttacking = false;
+
+    }
+
+    void AttackDistance()
+    {
+        fDistance = (player.transform.position - transform.position).magnitude;
+
+        if (fDistance < fAttackRadius)
+        {
+            if (bCanAttack == true && isAlive == true)
+            {
+                Attack();
+            }
+
+        }
+    }
+
     public void movement()
     {
         Vector3 vA = player.transform.position;
@@ -56,20 +95,25 @@ public class EnemyAiController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = FindPlayer();
-	}
+        anim = GetComponent<Animator>();
+        anim.SetTrigger("Run");
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
         movement();
+        AttackDistance();
 
     }
 
     public void DamageEnemy(int _iDamage) {
         m_iLife -= m_iLife;
-        if(m_iLife <= 0) {
+        if(m_iLife <= 0 && isAlive) {
             isAlive = false;
+            agent.isStopped = true;
             // Cue death animation
+            anim.SetTrigger("Die");
         }
     }
 }

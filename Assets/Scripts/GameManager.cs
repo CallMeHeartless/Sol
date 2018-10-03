@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour {
     int totalFuseBoxes;
     int fuseBoxesRepaired = 0;
 
-    public float fWaveMaxTime = 5.0f;
-    float fWaveTime = 0.0f;
+    static public float fWaveMaxTime = 5.0f;
+    static float fWaveTime = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
         //Debug.Log(totalFuseBoxes);
         fuseBoxProgressText = GetComponentInChildren<Text>();
         fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
-        SpawnEnemies();
+        
         
     }
 	
@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         //Debug.Log(totalFuseBoxes);
         // Check for game over
+        SpawnWaves();
+
         if (CheckForVictory() && !gameOver) {
             gameOver = true;
             directionalLight.GetComponent<Light>().intensity = 1.1f;
@@ -142,7 +144,15 @@ public class GameManager : MonoBehaviour {
 
         if(closest.GetComponent<GeneratorPuzzleController>().IsSolRepairing() == true)
         {
-            
+            if(fWaveTime > fWaveMaxTime)
+            {
+                SpawnEnemies();
+                fWaveTime = 0.0f;
+            }
+            else
+            {
+                fWaveTime = fWaveTime + Time.deltaTime;
+            }
         }
 
         

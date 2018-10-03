@@ -21,7 +21,6 @@ public class MeatHunk : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerController>().DrainCharge(fDam);
-
         }
     }
 }

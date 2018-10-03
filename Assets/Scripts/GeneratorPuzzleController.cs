@@ -1,12 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GeneratorPuzzleController : MonoBehaviour {
 
     private bool isSolved = false;
+    private bool isPlayerInRange = false;
+    private bool isAISolving = true;
     private bool playerHasSolution = false;
     private bool isPlayerSolving = false;
+    [SerializeField]
+    private float playerRange = 1.0f;
+    private GameObject player;
+    [SerializeField]
+    private float repairCountdown = 20.0f;
+    private float repairCount = 0.0f;
+    [SerializeField]
+    private Slider repairSlider;
 
     /*********
      * 0: Right Arrow
@@ -16,19 +27,42 @@ public class GeneratorPuzzleController : MonoBehaviour {
      ********/
     int[,] solution = new int[4, 4];
     int solutionIndex = 0;
+    int setIndex = 0;
 
     // Use this for initialization
     void Start() {
         GenerateSolution();
+        player = GameObject.Find("Sol");
+        repairSlider.maxValue = repairCountdown;
+        repairSlider.value = repairCountdown;
     }
 
     // Update is called once per frame
     void Update() {
+        if (isSolved) {
+            return;
+        }
+
+        // Check player is in range to solve puzzle
+        TrackPlayer();
+
+        // AI solving
+        if(isPlayerInRange && isAISolving) {
+            repairCount += Time.deltaTime;
+            repairSlider.value = repairCount;
+            if(repairCount >= repairCountdown) {
+                isSolved = true;
+            }
+        }
 
         // Check if player is currently solving the puzzle
-        if (isPlayerSolving) {
-
-        }
+        //if (isPlayerSolving) {
+        //    if(GetPlayerInput() == solution[solutionIndex,setIndex] ) {
+        //        AdvanceProgress();
+        //    } else {
+        //        ResetProgress();
+        //    }
+        //}
 
     }
 
@@ -36,6 +70,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 3; ++j) {
                 solution[i, j] = Random.Range(0, 3);
+                Debug.Log(solution[i, j]);
             }
         }
     }
@@ -56,6 +91,35 @@ public class GeneratorPuzzleController : MonoBehaviour {
 
     void ResetProgress() {
         solutionIndex = 0;
+        repairCount = 0.0f;
+        repairSlider.value = 0.0f;
+    }
+
+    void AdvanceProgress() {
+        ++setIndex;
+        if(setIndex > 3) {
+            setIndex = 0;
+            ++solutionIndex;
+            if(solutionIndex > 3) {
+                solutionIndex = 0;
+                isSolved = true;
+            }
+        }
+    }
+
+    // Determines if the player is in range
+    void TrackPlayer() {
+        if((player.transform.position - transform.position).sqrMagnitude < playerRange) {
+            isPlayerInRange = true;
+            if (!repairSlider.enabled) {
+                repairSlider.enabled = true;
+            }
+        } else {
+            isPlayerInRange = false;
+            if (repairSlider.enabled) {
+                repairSlider.enabled = false;
+            }
+        }
     }
 
 }

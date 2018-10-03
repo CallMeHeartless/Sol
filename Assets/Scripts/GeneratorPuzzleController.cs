@@ -56,7 +56,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         }
 
         // Check if player is currently solving the puzzle
-        //if (isPlayerSolving) {
+        //if (isPlayerSolving && isPlayerInRange) {
         //    if(GetPlayerInput() == solution[solutionIndex,setIndex] ) {
         //        AdvanceProgress();
         //    } else {
@@ -67,8 +67,8 @@ public class GeneratorPuzzleController : MonoBehaviour {
     }
 
     void GenerateSolution() {
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 4; ++j) {
                 solution[i, j] = Random.Range(0, 3);
                 Debug.Log(solution[i, j]);
             }
@@ -110,10 +110,8 @@ public class GeneratorPuzzleController : MonoBehaviour {
     // Determines if the player is in range
     void TrackPlayer() {
         float playerDistance = (player.transform.position - transform.position).sqrMagnitude;
-       // Debug.Log(playerDistance + "   " +  playerRange);
         if(playerDistance < playerRange) {
             isPlayerInRange = true;
-            Debug.Log("Hit");
             if (!repairSlider.gameObject.activeSelf) {
                 repairSlider.gameObject.SetActive(true);
             }

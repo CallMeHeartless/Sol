@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     int totalFuseBoxes;
     int fuseBoxesRepaired = 0;
 
-    static public float fWaveMaxTime = 5.0f;
+    static public float fWaveMaxTime = 1.0f;
     static float fWaveTime = 0.0f;
 
 	// Use this for initialization

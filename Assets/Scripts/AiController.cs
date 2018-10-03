@@ -33,6 +33,8 @@ public class AiController : MonoBehaviour {
     private Quaternion arrowRotation;
     private Vector3 arrowDirection;
 
+    public float GeneratorRadius = 10.0f;
+
     public GameObject solArrow;
     private Quaternion solArrowRotation;
     private Vector3 solArrowDirection;
@@ -55,6 +57,44 @@ public class AiController : MonoBehaviour {
             }
         }
         return closest;
+    }
+
+    public void GoToGenerator()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Generator");
+        GameObject closest = null;
+        float distance = 100000.0f;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+
+        float GenDistance = (player.transform.position - closest.transform.position).magnitude;
+
+        if(GeneratorRadius < GenDistance)
+        {
+            Vector3 vA = closest.transform.position;
+            vA.y = vA.y + 4.0f;
+
+            ray.origin = vA;
+            ray.direction = Vector3.down;
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                agent.SetDestination(hit.point);
+            }
+        }
+
     }
 
     public GameObject FindPlayerArrow()
@@ -168,6 +208,7 @@ public class AiController : MonoBehaviour {
             agent.SetDestination(hit.point);
         }
 
+        GoToGenerator();
         /*
         if(forward == true)
         {

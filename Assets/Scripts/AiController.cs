@@ -79,7 +79,7 @@ public class AiController : MonoBehaviour {
 
         float GenDistance = (player.transform.position - closest.transform.position).magnitude;
 
-        if(GenDistance < GeneratorRadius)
+        if((GenDistance < GeneratorRadius) && closest.GetComponent<GeneratorPuzzleController>().IsSolved())
         {
             Vector3 vA = closest.transform.position;
             vA.y = vA.y + 4.0f;

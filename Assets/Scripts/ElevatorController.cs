@@ -18,7 +18,7 @@ public class ElevatorController : MonoBehaviour {
         if (other.CompareTag("Player") && GameManager.CheckForVictory()) {
             // Next level 
             Debug.Log("Loading next level...");
-            //GameManager.LoadNextLevel();
+            GameManager.LoadNextLevel();
         }
     }
 }

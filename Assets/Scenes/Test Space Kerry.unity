@@ -12301,6 +12301,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 100, y: 2.220446e-14, z: 100}
   m_Center: {x: 0, y: 0, z: -0.00024414062}
+--- !u!4 &370418370 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4581498844427802, guid: 2460aa55babb46942ac10644c97ba35e,
+    type: 2}
+  m_PrefabInternal: {fileID: 949044649}
 --- !u!1 &370431357 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1974733964810526, guid: ca97fb67279c07247a02d47aec22f784,
@@ -30112,7 +30117,13 @@ Prefab:
       propertyPath: chargeSlider
       value: 
       objectReference: {fileID: 594153342}
-    m_RemovedComponents: []
+    - target: {fileID: 114431135737033566, guid: 2460aa55babb46942ac10644c97ba35e,
+        type: 2}
+      propertyPath: gunPosition
+      value: 
+      objectReference: {fileID: 370418370}
+    m_RemovedComponents:
+    - {fileID: 95981002687058724, guid: 2460aa55babb46942ac10644c97ba35e, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 2460aa55babb46942ac10644c97ba35e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &949565014 stripped
@@ -43906,6 +43917,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5885ae17a026c2c408cb64b858a76b8f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1334887089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1608673720248678, guid: 2460aa55babb46942ac10644c97ba35e,
+    type: 2}
+  m_PrefabInternal: {fileID: 949044649}
+--- !u!114 &1334887092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1334887089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f78c85f7fe68b745bbcf83dea1801bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1335885987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1585492022025966, guid: 5bd0c18afde7c194193c760fb0af164d,

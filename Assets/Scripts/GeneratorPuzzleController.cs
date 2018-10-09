@@ -70,7 +70,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 4; ++j) {
                 solution[i, j] = Random.Range(0, 3);
-                Debug.Log(solution[i, j]);
+                //Debug.Log(solution[i, j]);
             }
         }
     }

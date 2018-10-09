@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
     //float maxSpeed = 5.0f;
     public float turnSpeed = 10.0f;
    
-
+    // Other properties
     Rigidbody rb;
     public Light[] eyeLights;
     public AudioSource bgMusic;
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject hoverEffect;
     public GameObject[] repairEffects;
     public Slider chargeSlider;
+    public Transform gunPosition;
 
     // Sound effects
     public AudioSource weldingFX;
@@ -52,7 +53,8 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody>();
         charge = maxCharge;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
+        //gunPosition = transform.Find("Base HumanGun");
 	}
 
     void Update()
@@ -65,36 +67,13 @@ public class PlayerController : MonoBehaviour {
         // Determine movement
         SetMovement();
 
-
-        // Repair animation
-        if (Input.GetKey(KeyCode.E)) {
-            /// Transfer this to animation key events
-            anim.SetTrigger("Repairing");
-            //if (!anim.GetBool("PlayerIsFixing")) {
-            if (!weldingFX.isPlaying) {
-                weldingFX.Play();
-                //anim.SetBool("PlayerIsFixing", true);
-                //anim.SetBool("PlayerIsIdling", false);
-                foreach (GameObject sparks in repairEffects) {
-                    sparks.SetActive(true);
-                }
-            }
-            
-        } else {
-            /// Add fix here to check if not repairing
-            if (weldingFX.isPlaying) {
-                anim.ResetTrigger("Repairing");
-                foreach (GameObject sparks in repairEffects) {
-                    sparks.SetActive(false);
-                }
-                weldingFX.Stop();
-            }
-
-        }
-
         // Debug test fire
         if (Input.GetButtonDown("Fire1")) {
-            FireWeapon(); // This may be extracted and placed on an animation effect || If so, animation trigger here
+            anim.ResetTrigger("Idle");
+            anim.ResetTrigger("Walk");
+            anim.SetTrigger("Attack");
+            //anim.ResetTrigger("Attack");
+            //FireWeapon(); // This may be extracted and placed on an animation effect || If so, animation trigger here
         }
     }
 	
@@ -141,11 +120,11 @@ public class PlayerController : MonoBehaviour {
         velocity = (forwardMovement + sideMovement).normalized * fSpeed;
         if (velocity.sqrMagnitude > 0) {
             //Anim
-            anim.ResetTrigger("Idling");
-            anim.SetTrigger("Walking");
+            anim.ResetTrigger("Idle");
+            anim.SetTrigger("Walk");
         } else {
-            anim.ResetTrigger("Walking");
-            anim.SetTrigger("Idling");
+            anim.ResetTrigger("Walk");
+            anim.SetTrigger("Idle");
          // Anim
         }
 
@@ -181,22 +160,24 @@ public class PlayerController : MonoBehaviour {
         // Update slider
         chargeSlider.value = charge/maxCharge;
 
-
-        // Dim lights
-        foreach(Light light in eyeLights) {
-            light.GetComponent<Light>().intensity = charge / maxCharge;
+        if(eyeLights != null) {
+            // Dim lights
+            foreach (Light light in eyeLights) {
+                light.GetComponent<Light>().intensity = charge / maxCharge;
+            }
+            // Dim audio
+            if (bgMusic != null) {
+                bgMusic.volume = charge / maxCharge;
+            }
         }
-        // Dim audio
-        if(bgMusic != null) {
-            bgMusic.volume = charge / maxCharge;
-        }
+    
 
 
         // Kill if out of charge
         if(charge <= 0) {
             isAlive = false;
-            anim.SetBool("PlayerIsDead", true);
-            //anim.SetBool("PlayerIsIdling", false);
+            //anim.SetBool("PlayerIsDead", true);
+            anim.SetTrigger("Death");
             hoverEffect.SetActive(false);
         }
     }
@@ -234,7 +215,7 @@ public class PlayerController : MonoBehaviour {
         if (bCanFire) {
             bCanFire = false;
             // Replace position with reference to Transform on final model
-            GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), transform.position + transform.forward + transform.up, transform.rotation);
+            GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation);//+ transform.forward + transform.up
             StartCoroutine(WeaponCooldown());
         }
 

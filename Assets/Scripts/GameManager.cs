@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour {
             {
                 GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
                 Apebyss.transform.position = go.transform.position;
+                Apebyss.GetComponent<EnemyAiController>().bWave = true;
             }
         }
     }

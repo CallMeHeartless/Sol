@@ -1,67 +1,16 @@
 fileFormatVersion: 2
-guid: 325c2c7bca1cce541825622932271333
+guid: 4b605a8c36ae6d14287843e886263aa1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Base HumanGun
-    100004: Base HumanHead
-    100006: Base HumanLCollarbone
-    100008: Base HumanLDigit21
-    100010: Base HumanLDigit22
-    100012: Base HumanLDigit31
-    100014: Base HumanLDigit32
-    100016: Base HumanLDigit41
-    100018: Base HumanLDigit42
-    100020: Base HumanLForearm
-    100022: Base HumanLPalm
-    100024: Base HumanLUpperarm
-    100026: Base HumanNeck1
-    100028: Base HumanNeck2
-    100030: Base HumanPelvis
-    100032: Base HumanRArmCollarbone
-    100034: Base HumanRArmForearm
-    100036: Base HumanRArmUpperarm
-    100038: Base HumanRibcage
-    100040: Base HumanSpine1
-    100042: Base HumanSpine2
-    100044: Base HumanSpine3
-    100046: Base HumanSpine4
-    100048: Sparky
+    100002: RoomCieling_Light_low
     400000: //RootNode
-    400002: Base HumanGun
-    400004: Base HumanHead
-    400006: Base HumanLCollarbone
-    400008: Base HumanLDigit21
-    400010: Base HumanLDigit22
-    400012: Base HumanLDigit31
-    400014: Base HumanLDigit32
-    400016: Base HumanLDigit41
-    400018: Base HumanLDigit42
-    400020: Base HumanLForearm
-    400022: Base HumanLPalm
-    400024: Base HumanLUpperarm
-    400026: Base HumanNeck1
-    400028: Base HumanNeck2
-    400030: Base HumanPelvis
-    400032: Base HumanRArmCollarbone
-    400034: Base HumanRArmForearm
-    400036: Base HumanRArmUpperarm
-    400038: Base HumanRibcage
-    400040: Base HumanSpine1
-    400042: Base HumanSpine2
-    400044: Base HumanSpine3
-    400046: Base HumanSpine4
-    400048: Sparky
+    400002: RoomCieling_Light_low
     2100000: lambert1
-    2100002: lambert2
-    4300000: Sparky
-    7400000: idle
-    7400002: attack
-    7400004: walk
-    7400006: Death
-    9500000: //RootNode
-    13700000: Sparky
+    2300000: RoomCieling_Light_low
+    3300000: RoomCieling_Light_low
+    4300000: RoomCieling_Light_low
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -113,8 +62,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.0254
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -139,7 +88,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

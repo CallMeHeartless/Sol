@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-    public GameObject[] powerBoxes;
+    private static GameManager instance;
+
+    private GameObject[] generators;
     public Light directionalLight;
     public Text fuseBoxProgressText;
     public GameObject gameOverMenu;
 
     bool gameOver = false;
-    int totalFuseBoxes;
+    int totalGenerators;
     int fuseBoxesRepaired = 0;
 
     static public float fWaveMaxTime = 5.0f;
@@ -20,32 +22,33 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        instance = this;
         Cursor.visible = false;
         PlayerController.MakeAlive(); // Enforces that the player is alive
-        totalFuseBoxes = powerBoxes.Length;
+        generators = GameObject.FindGameObjectsWithTag("Generator");
+        totalGenerators = generators.Length;
         //Debug.Log(totalFuseBoxes);
         fuseBoxProgressText = GetComponentInChildren<Text>();
-        fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
+        fuseBoxProgressText.text = "Generators Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalGenerators.ToString();
         
         
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //Debug.Log(totalFuseBoxes);
         // Check for game over
         SpawnWaves();
 
-        if (CheckForVictory() && !gameOver) {
-            gameOver = true;
-            directionalLight.GetComponent<Light>().intensity = 1.1f;
-            // Play player animation
-            GameObject.Find("Player").GetComponent<Animator>().SetBool("PlayerWins", true);
-            // Start couroutine to end game
-            gameOverMenu.GetComponentInChildren<Text>().text = "Congratulations! You win!";
+        //if (CheckForVictory() && !gameOver) {
+        //    gameOver = true;
+        //    directionalLight.GetComponent<Light>().intensity = 1.1f;
+        //    // Play player animation
+        //    GameObject.Find("Player").GetComponent<Animator>().SetBool("PlayerWins", true);
+        //    // Start couroutine to end game
+        //    gameOverMenu.GetComponentInChildren<Text>().text = "Congratulations! You win!";
             
-            StartCoroutine(GameOverMenu());
-        }
+        //    StartCoroutine(GameOverMenu());
+        //}
 
         if (!PlayerController.IsAlive() && !gameOver) {
             //Debug.Log("DEAD");
@@ -55,14 +58,12 @@ public class GameManager : MonoBehaviour {
             //SceneManager.LoadScene(1);
         }
 
-        
-
 	}
 
     // Iterates through all powerboxes and checkes if they have all been fixed
-    bool CheckForVictory() {
-        foreach(GameObject fuseBox in powerBoxes) {
-            if (!fuseBox.GetComponent<PowerBoxController>().isFixed) {
+    public static bool CheckForVictory() {
+        foreach(GameObject fuseBox in instance.generators) {
+            if (!fuseBox.GetComponent<GeneratorPuzzleController>().IsSolved()) {
                 return false;
             }
         }
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour {
 
     public void MarkFuseBoxAsRepaired() {
         ++fuseBoxesRepaired;
-        fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalFuseBoxes.ToString();
+        fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalGenerators.ToString();
         //Debug.Log(totalFuseBoxes);
     }
 
@@ -155,6 +156,18 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+        
+    }
+
+    // Loads the next level in build settings
+    public static void LoadNextLevel() {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentIndex+1 < SceneManager.sceneCountInBuildSettings) {
+            SceneManager.LoadScene(currentIndex + 1);
+        } else {
+            // return to main menu
+            SceneManager.LoadScene(0);
+        }
         
     }
 }

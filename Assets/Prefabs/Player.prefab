@@ -817,7 +817,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708094540054750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.0321603, y: 0.049943447, z: 44.06215}
+  m_LocalPosition: {x: 3.0984392, y: 0.049943447, z: 44.066288}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4365751110985912}
@@ -1456,6 +1456,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   chargeSlider: {fileID: 0}
+  gunPosition: {fileID: 0}
   weldingFX: {fileID: 82567939671890508}
   LowPowerFX: {fileID: 0}
 --- !u!136 &136530789707244444
@@ -1486,7 +1487,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: bcfbf6b5afc351f419547fc3c610cbf3, type: 3}
+  - {fileID: 2100000, guid: 21115fcf1e1cc504f8b3d5255cd3d03d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -31,8 +31,10 @@ public class MeatHunk : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>().DrainCharge(fDam);
+            //other.GetComponent<PlayerController>().DrainCharge(fDam);
             Debug.Log("Huh");
+            collider.enabled = false;
+            GetComponentInParent<EnemyAiController>().bIsAttacking = false;
         }
     }
 }

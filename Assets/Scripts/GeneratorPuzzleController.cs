@@ -132,4 +132,16 @@ public class GeneratorPuzzleController : MonoBehaviour {
         return isSolved;
     }
 
+    public void DrainRepair(float _fDamage) {
+        if (isSolved) {
+            return;
+        }
+        repairCount -= _fDamage;
+        if (repairCount < 0) {
+            repairCount = 0.0f;
+        }
+        repairSlider.value = repairCount;
+        
+    }
+
 }

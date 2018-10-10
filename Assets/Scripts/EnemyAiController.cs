@@ -14,7 +14,7 @@ public class EnemyAiController : MonoBehaviour {
     public NavMeshAgent agent;
 
     private Ray ray;
-    private Animator anim;
+    public Animator anim;
     private float fDistance;
 
     private bool bIsStunned = false;
@@ -22,6 +22,8 @@ public class EnemyAiController : MonoBehaviour {
     private float fAttackRate = 0.6f;
     private bool bCanAttack = true;
     public float fAttackRadius = 2.0f;
+    public bool bChase = false;
+    public bool bWave = false;
 
     public GameObject FindPlayer()
     {
@@ -41,6 +43,15 @@ public class EnemyAiController : MonoBehaviour {
             }
         }
         return closest;
+    }
+
+    private void WaveEnemy()
+    {
+        if(bWave == true)
+        {
+            bChase = true;
+            anim.SetTrigger("Run");
+        }
     }
 
     private void Attack()
@@ -64,31 +75,44 @@ public class EnemyAiController : MonoBehaviour {
 
     void AttackDistance()
     {
-        fDistance = (player.transform.position - transform.position).magnitude;
 
-        if (fDistance < fAttackRadius)
+        if(bChase)
         {
-            if (bCanAttack == true && isAlive == true)
-            {
-                Attack();
-            }
+            fDistance = (player.transform.position - transform.position).magnitude;
 
+            if (fDistance < fAttackRadius)
+            {
+                if (bCanAttack == true && isAlive == true)
+                {
+                    Attack();
+                }
+
+            }
         }
+        
     }
 
     public void movement()
     {
-        Vector3 vA = player.transform.position;
-        vA.y = vA.y + 4.0f;
-
-        ray.origin = vA;
-        ray.direction = Vector3.down;
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if(bChase)
         {
-            agent.SetDestination(hit.point);
+            if(agent.isStopped == false)
+            {
+                anim.SetTrigger("Run");
+            }
+
+            Vector3 vA = player.transform.position;
+            vA.y = vA.y + 4.0f;
+
+            ray.origin = vA;
+            ray.direction = Vector3.down;
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                agent.SetDestination(hit.point);
+            }
         }
     }
 
@@ -96,7 +120,8 @@ public class EnemyAiController : MonoBehaviour {
     void Start () {
         player = FindPlayer();
         anim = GetComponent<Animator>();
-        anim.SetTrigger("Run");
+        anim.SetTrigger("Idle");
+        WaveEnemy();
     }
 	
 	// Update is called once per frame

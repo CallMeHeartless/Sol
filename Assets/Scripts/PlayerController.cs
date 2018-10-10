@@ -37,9 +37,9 @@ public class PlayerController : MonoBehaviour {
     Rigidbody rb;
     public Light[] eyeLights;
     public AudioSource bgMusic;
-    public Animator anim;
+    Animator anim;
     public GameObject hoverEffect;
-    public GameObject[] repairEffects;
+    //public GameObject[] repairEffects;
     public Slider chargeSlider;
     public Transform gunPosition;
 
@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour {
             anim.ResetTrigger("Idle");
             anim.ResetTrigger("Walk");
             anim.SetTrigger("Attack");
+            Debug.Log("Fire");
             //anim.ResetTrigger("Attack");
             //FireWeapon(); // This may be extracted and placed on an animation effect || If so, animation trigger here
         }

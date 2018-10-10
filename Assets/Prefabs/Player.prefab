@@ -1163,7 +1163,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336425001026596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.196, z: 0}
+  m_LocalPosition: {x: 0.567, y: 2.196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4597685212760796}
@@ -1366,7 +1366,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708094540054750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.2272215, y: 0.049943447, z: 20.785126}
+  m_LocalPosition: {x: 11.35, y: 8, z: -52.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4365751110985912}
@@ -2066,7 +2066,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1608673720248678}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: bcfbf6b5afc351f419547fc3c610cbf3, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 0576edaeb46f90d428abcd85570c1098, type: 3}
   m_Controller: {fileID: 9100000, guid: fd3f5587f9c58ea45a3a7f3b8d17cf83, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -2165,7 +2165,7 @@ MonoBehaviour:
   fSpeed: 5
   _camera: {fileID: 0}
   cameraFocus: {fileID: 4365751110985912}
-  cameraOffset: {x: 0, y: 0, z: -3.5}
+  cameraOffset: {x: 0, y: 0, z: -1.66}
   charge: 0
   maxCharge: 20
   fFireCooldown: 0.75
@@ -2179,11 +2179,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   bgMusic: {fileID: 82432854587297190}
-  anim: {fileID: 0}
   hoverEffect: {fileID: 0}
-  repairEffects:
-  - {fileID: 0}
-  - {fileID: 0}
   chargeSlider: {fileID: 0}
   gunPosition: {fileID: 4581498844427802}
   weldingFX: {fileID: 82567939671890508}

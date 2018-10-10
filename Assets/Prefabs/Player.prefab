@@ -369,6 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4634861767491658}
   - component: {fileID: 95281724071347766}
+  - component: {fileID: 114647882493322318}
   m_Layer: 0
   m_Name: Anim_Sparky_V02
   m_TagString: Untagged
@@ -405,7 +406,6 @@ GameObject:
   - component: {fileID: 54023788906409610}
   - component: {fileID: 114431135737033566}
   - component: {fileID: 82432854587297190}
-  - component: {fileID: 95981002687058724}
   - component: {fileID: 82567939671890508}
   - component: {fileID: 82487667832062610}
   m_Layer: 0
@@ -817,7 +817,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708094540054750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0984392, y: 0.049943447, z: 44.066288}
+  m_LocalPosition: {x: 11.35, y: 8, z: -52.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4365751110985912}
@@ -1329,24 +1329,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95981002687058724
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1708094540054750}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3aa4fde86a051ea4eb85f23d87affad3, type: 3}
-  m_Controller: {fileID: 9100000, guid: 08555ad03f8ecff4fa01094a620033dc, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &108251968646518452
 Light:
   m_ObjectHideFlags: 1
@@ -1450,15 +1432,26 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   bgMusic: {fileID: 82432854587297190}
-  anim: {fileID: 95981002687058724}
+  anim: {fileID: 0}
   hoverEffect: {fileID: 0}
   repairEffects:
   - {fileID: 0}
   - {fileID: 0}
   chargeSlider: {fileID: 0}
-  gunPosition: {fileID: 0}
+  gunPosition: {fileID: 4581498844427802}
   weldingFX: {fileID: 82567939671890508}
   LowPowerFX: {fileID: 0}
+--- !u!114 &114647882493322318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1608673720248678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f78c85f7fe68b745bbcf83dea1801bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136530789707244444
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1487,7 +1480,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 21115fcf1e1cc504f8b3d5255cd3d03d, type: 2}
+  - {fileID: 2100000, guid: bcfbf6b5afc351f419547fc3c610cbf3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

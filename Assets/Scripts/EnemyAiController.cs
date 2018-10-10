@@ -18,7 +18,7 @@ public class EnemyAiController : MonoBehaviour {
     private float fDistance;
 
     private bool bIsStunned = false;
-    private bool bIsAttacking = false;
+    public bool bIsAttacking = false;
     private float fAttackRate = 0.6f;
     private bool bCanAttack = true;
     public float fAttackRadius = 2.0f;

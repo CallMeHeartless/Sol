@@ -77,24 +77,23 @@ public class AiController : MonoBehaviour {
             }
         }
 
-        float GenDistance = (player.transform.position - closest.transform.position).magnitude;
+        if(closest != null) {
+            float GenDistance = (player.transform.position - closest.transform.position).magnitude;
 
-        if((GenDistance < GeneratorRadius) && !closest.GetComponent<GeneratorPuzzleController>().IsSolved())
-        {
-            Vector3 vA = closest.transform.position;
-            vA.y = vA.y + 4.0f;
+            if ((GenDistance < GeneratorRadius) && !closest.GetComponent<GeneratorPuzzleController>().IsSolved()) {
+                Vector3 vA = closest.transform.position;
+                vA.y = vA.y + 4.0f;
 
-            ray.origin = vA;
-            ray.direction = Vector3.down;
+                ray.origin = vA;
+                ray.direction = Vector3.down;
 
-            RaycastHit hit;
+                RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                agent.SetDestination(hit.point);
+                if (Physics.Raycast(ray, out hit)) {
+                    agent.SetDestination(hit.point);
+                }
             }
         }
-
     }
 
     public GameObject FindPlayerArrow()

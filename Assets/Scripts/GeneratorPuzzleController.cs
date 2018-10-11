@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GeneratorPuzzleController : MonoBehaviour {
 
+    public string sectorName;
+
     private bool isSolved = false;
     private bool isPlayerInRange = false;
     private bool isAISolving = true;
@@ -55,14 +57,6 @@ public class GeneratorPuzzleController : MonoBehaviour {
             }
         }
 
-        // Check if player is currently solving the puzzle
-        //if (isPlayerSolving && isPlayerInRange) {
-        //    if(GetPlayerInput() == solution[solutionIndex,setIndex] ) {
-        //        AdvanceProgress();
-        //    } else {
-        //        ResetProgress();
-        //    }
-        //}
 
     }
 
@@ -142,6 +136,13 @@ public class GeneratorPuzzleController : MonoBehaviour {
         }
         repairSlider.value = repairCount;
         
+    }
+
+    void TurnOnLights() {
+        // Find sector game object
+        GameObject sector = GameObject.Find(sectorName);
+        // Iterate through children and turn on emission
+
     }
 
 }

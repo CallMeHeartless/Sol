@@ -12,6 +12,8 @@ public class DialogueController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         instance = this;
+        dialoguePanel = GameObject.Find("UI/Canvas/DialoguePanel");
+        dialogueText = GameObject.Find("UI/Canvas/DialoguePanel/DialogueText").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame

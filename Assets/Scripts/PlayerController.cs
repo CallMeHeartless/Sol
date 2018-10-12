@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour {
     //public GameObject[] repairEffects;
     public Slider chargeSlider;
     public Transform gunPosition;
+    //private GameObject muzzleFlash;
+    ParticleSystem muzzleFlash;
 
     // Sound effects
     public AudioSource weldingFX;
@@ -55,6 +57,8 @@ public class PlayerController : MonoBehaviour {
         charge = maxCharge;
         anim = GetComponentInChildren<Animator>();
         //gunPosition = transform.Find("Base HumanGun");
+        muzzleFlash = gunPosition.Find("VFX_MuzzleFlash").GetComponent<ParticleSystem>();
+        
 	}
 
     void Update()
@@ -91,11 +95,6 @@ public class PlayerController : MonoBehaviour {
         if (rotation != Vector3.zero) {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         }
-        //if (_camera != null && fCameraRotation != 0.0f) {
-        //    fCurrentCameraRotation -= fCameraRotation;
-        //    fCurrentCameraRotation = Mathf.Clamp(fCurrentCameraRotation, -45, 45);
-        //    _camera.transform.localEulerAngles = new Vector3(fCurrentCameraRotation, 0, 0);
-        //}
 
         if (_camera != null) {
             _camera.transform.position = cameraFocus.position + cameraFocus.rotation * cameraOffset;
@@ -103,11 +102,7 @@ public class PlayerController : MonoBehaviour {
             if (fCameraRotation != 0.0f) {
                 fCurrentCameraRotation -= fCameraRotation;
                 fCurrentCameraRotation = Mathf.Clamp(fCurrentCameraRotation, -45, 45);
-               // _camera.transform.rotation = transform.rotation;
-               // _camera.transform.
-               //_camera.transform.LookAt(cameraFocus.position);
-               // _camera.transform.localEulerAngles = new Vector3(fCurrentCameraRotation, transform.rotation.y, 0);
-               // _camera.transform.rotation = Quaternion.Euler(fCurrentCameraRotation, 0, 0);
+
             }
         }
     }
@@ -214,9 +209,14 @@ public class PlayerController : MonoBehaviour {
 
     public void FireWeapon() {
         if (bCanFire) {
+            Debug.Log("Firing");
             bCanFire = false;
+            muzzleFlash.Play();
             // Replace position with reference to Transform on final model
-            GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation);//+ transform.forward + transform.up
+            GameObject projectile = GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation) as GameObject;//+ transform.forward + transform.up
+            if(projectile == null) {
+                Debug.Log("No projectile");
+            }
             StartCoroutine(WeaponCooldown());
         }
 

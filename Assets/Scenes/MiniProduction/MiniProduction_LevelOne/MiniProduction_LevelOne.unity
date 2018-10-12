@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04439433, g: 0.04188624, b: 0.04585708, a: 1}
+  m_IndirectSpecularColor: {r: 0.04345821, g: 0.041858047, b: 0.044895597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -647,7 +647,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4144429925143990, guid: f13ae77394677c648b3656bfc5bd2ce2, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f13ae77394677c648b3656bfc5bd2ce2, type: 2}
@@ -4041,7 +4041,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &569278154
 MonoBehaviour:
@@ -4232,7 +4232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &590373297
 Transform:
   m_ObjectHideFlags: 0
@@ -4965,7 +4965,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4234441971644576, guid: 5369d608016a5d0479377f25b7352c2b, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4234441971644576, guid: 5369d608016a5d0479377f25b7352c2b, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -6862,7 +6862,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4878229804748594, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1033196959036178, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}
       propertyPath: m_IsActive
@@ -13074,7 +13074,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4437684033030898, guid: ee52561972deed140be1613b454ad7bb, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1017750171205718, guid: ee52561972deed140be1613b454ad7bb, type: 2}
       propertyPath: m_Name
@@ -14332,51 +14332,6 @@ Prefab:
       propertyPath: chargeSlider
       value: 
       objectReference: {fileID: 876291553}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.80271673
-      objectReference: {fileID: 0}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0.4392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Range
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_SpotAngle
-      value: 34.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Intensity
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_BounceIntensity
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 108291587002432852, guid: 2460aa55babb46942ac10644c97ba35e,
-        type: 2}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2460aa55babb46942ac10644c97ba35e, type: 2}
   m_IsPrefabAsset: 0

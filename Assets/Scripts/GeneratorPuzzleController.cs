@@ -142,7 +142,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         // Find sector game object
         GameObject sector = GameObject.Find(sectorName);
         // Iterate through children and turn on emission
-
+        //sector.transform.chi
     }
 
 }

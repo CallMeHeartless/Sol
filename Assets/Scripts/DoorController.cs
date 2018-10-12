@@ -13,6 +13,7 @@ public class DoorController : MonoBehaviour {
     private Transform target;
 
     void Start() {
+        closed = door.transform;
         target = closed;
     }
 
@@ -20,7 +21,8 @@ public class DoorController : MonoBehaviour {
     public void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player") || other.name == "Sol") {
             if(!isLocked && !isMoving) {
-
+                target = open ;
+                StartCoroutine(MoveDoor());
             }
         }
     }
@@ -29,15 +31,17 @@ public class DoorController : MonoBehaviour {
     public void OnTriggerExit(Collider other) {
         if(other.CompareTag("Player") || other.name == "Sol") {
             if (!isLocked && !isMoving) {
-
+                target = closed;
+                StartCoroutine(MoveDoor());
             }
         }
     }
 
     IEnumerator MoveDoor() {
         isMoving = true;
-        while(door.transform.position != target.position) {
-            door.transform.position = Vector3.MoveTowards(door.transform.position, target.position, Time.deltaTime);
+        while(door.transform.localPosition != target.position) {
+            door.transform.localPosition = Vector3.MoveTowards(door.transform.localPosition, target.position, Time.deltaTime);
+            yield return null;
         }
         yield return new WaitForSeconds(2);
         isMoving = false;

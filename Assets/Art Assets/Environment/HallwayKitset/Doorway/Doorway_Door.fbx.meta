@@ -3,18 +3,28 @@ guid: c4bdcadbce064d14e926d3bb86c30af7
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Doorway_Door_low
-    400000: //RootNode
-    400002: Doorway_Door_low
-    2100000: lambert2
-    2100002: lambert1
-    2300000: Doorway_Door_low
-    3300000: Doorway_Door_low
-    4300000: Doorway_Door_low
+    100000: Bone_Door
+    100002: Bone_Door_ROOT
+    100004: Door_low
+    100006: //RootNode
+    100008: DoorWindow_low
+    100010: Small_Doorway
+    400000: Bone_Door
+    400002: Bone_Door_ROOT
+    400004: Door_low
+    400006: //RootNode
+    400008: DoorWindow_low
+    400010: Small_Doorway
+    2100000: lambert1
+    4300000: Door_low
+    4300002: DoorWindow_low
+    7400000: DoorSlide
+    9500000: //RootNode
+    13700000: Door_low
+    13700002: DoorWindow_low
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -39,7 +49,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: DoorSlide
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -64,7 +102,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -89,7 +127,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

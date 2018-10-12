@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour {
     private static GameManager instance;
 
     private GameObject[] generators;
-    public Light directionalLight;
     public Text fuseBoxProgressText;
     public GameObject gameOverMenu;
+    public GameObject elevatorDoor;
 
     bool gameOver = false;
     int totalGenerators;
@@ -112,17 +112,18 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        string groupName = closest.GetComponent<ESpawn>().name;
+        if(closest != null) {
+            string groupName = closest.GetComponent<ESpawn>().name;
 
-        foreach (GameObject go in gos)
-        {
-            if (groupName == go.GetComponent<ESpawn>().name)
-            {
-                GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
-                Apebyss.transform.position = go.transform.position;
-                Apebyss.GetComponent<EnemyAiController>().bWave = true;
+            foreach (GameObject go in gos) {
+                if (groupName == go.GetComponent<ESpawn>().name) {
+                    GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
+                    Apebyss.transform.position = go.transform.position;
+                    Apebyss.GetComponent<EnemyAiController>().bWave = true;
+                }
             }
         }
+
     }
 
     public static void SpawnWaves()

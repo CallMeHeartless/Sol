@@ -54,6 +54,8 @@ public class GeneratorPuzzleController : MonoBehaviour {
             repairSlider.value = repairCount;
             if(repairCount >= repairCountdown) {
                 isSolved = true;
+                Debug.Log("Repaired");
+                TurnOnLights();
             }
         }
 
@@ -142,7 +144,45 @@ public class GeneratorPuzzleController : MonoBehaviour {
         // Find sector game object
         GameObject sector = GameObject.Find(sectorName);
         // Iterate through children and turn on emission
-        //sector.transform.chi
+        Renderer[] materials = sector.GetComponentsInChildren<Renderer>();
+
+        foreach(Renderer renderer in materials) {
+
+            if (CheckForEmissiveMaterial(renderer.material)) {
+                renderer.material.EnableKeyword("_EMISSION");
+            } 
+        }
     }
+
+    // Checks if a specified material is one of the emissive materials
+    bool CheckForEmissiveMaterial(Material _test) {
+        if(_test.name == "M_Ceiling_Light (Instance)"||
+           _test.name == "M_FloorEdge_InnerCorner (Instance)" ||
+           _test.name == "M_FloorEdge_Straight (Instance)" ||
+           _test.name == "M_Wall_InnerCorner01 (Instance)"||
+           _test.name == "M_Wall_InnerCorner02 (Instance)"||
+           _test.name == "M_Wall_InnerCorner03 (Instance)"||
+           _test.name == "M_Wall_InnerCorner04 (Instance)"||
+           _test.name == "M_Wall_OuterCorner01 (Instance)"||
+           _test.name == "M_Wall_OuterCorner02 (Instance)"||
+           _test.name == "M_Wall_OuterCorner03 (Instance)" ||
+           _test.name == "M_Wall_OuterCorner04 (Instance)" ||
+           _test.name == "M_Wall_Straight01 (Instance)" ||
+           _test.name == "M_Wall_Straight02 (Instance)" ||
+           _test.name == "M_Wall_Straight03 (Instance)" ||
+           _test.name == "M_Wall_Straight04 (Instance)" 
+           //||
+           //_test.name == "M_Wall_Pillar01 (Instance)" ||
+           //_test.name == "M_Wall_Pillar02 (Instance)" ||
+           //_test.name == "M_Wall_Pillar03 (Instance)" ||
+           //_test.name == "M_Wall_Pillar04 (Instance)"
+           ) {
+            return true;
+        }
+
+        return false;
+    }
+
+   
 
 }

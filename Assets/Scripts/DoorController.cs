@@ -46,7 +46,6 @@ public class DoorController : MonoBehaviour {
         Vector3 position = door.transform.position;
         Vector3 targetPosition = position + new Vector3(1, 0, 0);
         while(door.transform.localPosition != targetPosition) {
-            Debug.Log("Open");
             door.transform.localPosition = Vector3.MoveTowards(position, targetPosition, Time.deltaTime);
             yield return null;
            
@@ -58,7 +57,6 @@ public class DoorController : MonoBehaviour {
         Vector3 position = door.transform.position;
         Vector3 targetPosition = position + new Vector3(-1, 0, 0);
         while (door.transform.position != targetPosition) {
-            Debug.Log("Close");
             door.transform.position = Vector3.MoveTowards(position, targetPosition, Time.deltaTime);
             yield return null;
 

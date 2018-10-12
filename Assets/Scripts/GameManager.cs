@@ -168,6 +168,7 @@ public class GameManager : MonoBehaviour {
         } else {
             // return to main menu
             SceneManager.LoadScene(0);
+            Cursor.visible = true;
         }
         
     }

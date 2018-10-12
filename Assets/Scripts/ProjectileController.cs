@@ -25,7 +25,6 @@ public class ProjectileController : MonoBehaviour {
             // Damage
             other.GetComponent<EnemyAiController>().DamageEnemy(iDamage);
         }
-        Debug.Log("Destroyed projectile");
         Destroy(gameObject);
     }
 }

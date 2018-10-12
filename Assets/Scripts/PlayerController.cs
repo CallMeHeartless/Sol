@@ -209,14 +209,10 @@ public class PlayerController : MonoBehaviour {
 
     public void FireWeapon() {
         if (bCanFire) {
-            Debug.Log("Firing");
             bCanFire = false;
             muzzleFlash.Play();
             // Replace position with reference to Transform on final model
             GameObject projectile = GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation) as GameObject;//+ transform.forward + transform.up
-            if(projectile == null) {
-                Debug.Log("No projectile");
-            }
             StartCoroutine(WeaponCooldown());
         }
 

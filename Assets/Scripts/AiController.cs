@@ -1,96 +1,183 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AiController : MonoBehaviour {
 
+    public GameObject player;
+    public NavMeshAgent agent;
+    public float fAttackRadius = 2.0f;
+
+    private bool bIsStunned = false;
+    private bool bIsAttacking = false;
+    private float fAttackRate = 0.6f;
+    private bool bCanAttack = true;
+
+    private Ray ray;
+    private Animator anim;
+    private float fDistance;
+
     public float MaxSpeed = 1.0f;
     private Vector3 currentPos;
-    private Vector3 movement;
     public float Radius = 10.0f;
     private float PlayerRadius = 5.0f;
     private Vector3 targetPos;
-    private int sequence = 0;
     private float distance;
-    private float CurrentSpeed;
     private Vector3 playerPos;
     private float playerDistance;
-    public GameObject player;
-    public GameObject[] targets;
-    public float rotationSpeed = 10.0f;
     private Quaternion lookRotation;
     private Vector3 direction;
-    public bool linearMovement;
-    public bool randomMovement;
-    public bool forward = true;
     public float fChargeMultiplier = 1.0f;
     public GameObject playerArrow;
     private Quaternion arrowRotation;
     private Vector3 arrowDirection;
 
+    public float GeneratorRadius = 10.0f;
+
     public GameObject solArrow;
     private Quaternion solArrowRotation;
     private Vector3 solArrowDirection;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public GameObject FindPlayer()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Player");
+        GameObject closest = null;
+        float distance = 100000.0f;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
+
+    public void GoToGenerator()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Generator");
+        GameObject closest = null;
+        float distance = 100000.0f;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+
+        if(closest != null) {
+            float GenDistance = (player.transform.position - closest.transform.position).magnitude;
+
+            if ((GenDistance < GeneratorRadius) && !closest.GetComponent<GeneratorPuzzleController>().IsSolved()) {
+                Vector3 vA = closest.transform.position;
+                vA.y = vA.y + 4.0f;
+
+                ray.origin = vA;
+                ray.direction = Vector3.down;
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit)) {
+                    agent.SetDestination(hit.point);
+                }
+            }
+        }
+    }
+
+    public GameObject FindPlayerArrow()
+    {
+        GameObject gos;
+        gos = GameObject.FindGameObjectWithTag("PlayerArrow");
+        
+        return gos;
+    }
+
+    public GameObject FindSolArrow()
+    {
+        GameObject gos;
+        gos = GameObject.FindGameObjectWithTag("SolArrow");
+        
+        return gos;
+    }
+
+    // Use this for initialization
+    void Start () {
+        player = FindPlayer();
+        playerArrow = FindPlayerArrow();
+        solArrow = FindSolArrow();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
-        //set movement
-        if ((linearMovement == false) && (randomMovement == false))
-        {
-            linearMovement = true;
-        }
-
-        //check 1 type of movement
-        if(linearMovement == true)
-        {
-            randomMovement = false;
-        }
-
-        //change direction
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            if(forward == true)
-            {
-                forward = false;
-            }
-            else
-            {
-                forward = true;
-            }
-        }
-
         currentPos = transform.position;
 
-        targetPos = targets[sequence].transform.position;
 
         //Dertimine distance from target
         distance = (targetPos - transform.position).magnitude;
         //Dertimine distance from player
         playerDistance = (player.transform.position - transform.position).magnitude;
 
-        //Rotate towards target
-        //Find vector from sol current pos to target
-        direction = (targetPos - currentPos).normalized;
-        //create rotation
-        lookRotation = Quaternion.LookRotation(direction);
-        //rotate over time
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
-
+       
         //Rotate Arrow towards Sol
-        arrowDirection = (transform.position - playerArrow.transform.position).normalized;
-        arrowDirection.y = 0;
-        //create arrow rotation
-        arrowRotation = Quaternion.LookRotation(arrowDirection);
-        //Rotate
-        playerArrow.transform.rotation = Quaternion.Slerp(playerArrow.transform.rotation, arrowRotation, 10);
+        if(playerArrow != null) {
+           arrowDirection = (transform.position - playerArrow.transform.position).normalized;
+           arrowDirection.y = 0;
+            if(arrowDirection != Vector3.zero) {
+                //create arrow rotation
+                arrowRotation = Quaternion.LookRotation(arrowDirection);
+                //Rotate
+                playerArrow.transform.rotation = Quaternion.Slerp(playerArrow.transform.rotation, arrowRotation, 10);
+            }
 
-        
+
+            if (playerDistance < PlayerRadius) {
+                playerArrow.SetActive(false);
+                solArrow.SetActive(false);
+            } else {
+                playerArrow.SetActive(true);
+                solArrow.SetActive(true);
+            }
+        }
+     
+
+        //Rotate towards next point
+        solArrowDirection = (player.transform.position - solArrow.transform.position).normalized;
+        solArrowDirection.y = 0;
+        //create new rotation
+        if(solArrowDirection != Vector3.zero) {
+            solArrowRotation = Quaternion.LookRotation(solArrowDirection);
+            //Rotate
+            solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
+        }
+
+
+        Vector3 vA = player.transform.position;
+        vA.y = vA.y + 4.0f;
+
+        ray.origin = vA;
+        ray.direction = Vector3.down;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            agent.SetDestination(hit.point);
+        }
+
+        GoToGenerator();
+        /*
         if(forward == true)
         {
             int i = sequence + 1;
@@ -122,111 +209,18 @@ public class AiController : MonoBehaviour {
             //Rotate
             solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
         }
-        
+        */
 
-        float step = 0;
 
-        if(playerDistance < PlayerRadius)
-        {
-            playerArrow.SetActive(false);
-        }
-        else
-        {
-            playerArrow.SetActive(true);
-        }
 
-        //Increase speed if player is near
-        if(distance < Radius)
-        {
-            step = MaxSpeed * (distance / Radius) * Time.deltaTime + 0.01f;
-            CurrentSpeed = step;
-            if(playerDistance < PlayerRadius)
-            {
-                step = step * 2;
-            }
-        }
-        //else move slowly
-        else
-        {
-            if(CurrentSpeed < MaxSpeed)
-            {
-                CurrentSpeed = CurrentSpeed + 0.01f;
-            }
-
-            
-            step = CurrentSpeed * Time.deltaTime;
-            if (playerDistance < PlayerRadius)
-            {
-                step = step * 2;
-            }
-        }
-
-        
-  
-        //move towards target
-        transform.position = Vector3.MoveTowards(currentPos, targetPos, step);
-
-        //choose target
-        //Random movement
-        if(randomMovement == true)
-        {
-            if (currentPos == targetPos)
-            {
-                int Dir;
-                Dir = Random.Range(1, 3);
-
-                if (Dir == 1)
-                {
-                    sequence--;
-                }
-                else
-                {
-                    sequence++;
-                }
-
-                if (sequence == targets.Length)
-                {
-                    sequence = (targets.Length) - 2;
-                }
-
-                if (sequence < 0)
-                {
-                    sequence = 1;
-                }
-            }
-        }
-
-        //linear movement
-        if(linearMovement == true)
-        {
-            if(currentPos == targetPos)
-            {
-                if (forward == true)
-                {
-                    sequence++;
-                }
-                else
-                {
-                    sequence--;
-                }
-
-                if(sequence == targets.Length)
-                {
-                    sequence = 0; //(targets.Length) - 2;
-                    //forward = false;
-                }
-
-                if(sequence < 0)
-                {
-                    sequence = targets.Length - 1;
-                    //forward = true;
-                }
-            }
-            
-        }
 
         
 
+        
+        
+
+        
+        /*
         //Recharge/drain player
         if(playerDistance > PlayerRadius)
         {
@@ -237,5 +231,6 @@ public class AiController : MonoBehaviour {
         {
             player.GetComponent<PlayerController>().GiveCharge(fChargeMultiplier * Time.deltaTime);
         }
+        */
 	}
 }

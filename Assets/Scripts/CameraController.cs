@@ -27,17 +27,17 @@ public class CameraController : MonoBehaviour {
         if (PauseMenu.GameIsPaused) {
             return;
         }
-		if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0) {
-            currentX += Input.GetAxis("Mouse X") * Sensitivity;
-            currentY += Input.GetAxis("Mouse Y");
-        }
+		//if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0) {
+  //          currentX += Input.GetAxis("Mouse X") * Sensitivity;
+  //          currentY += Input.GetAxis("Mouse Y");
+  //      }
 
-        currentY = Mathf.Clamp(currentY, yAngleMin, yAngleMax);
-        //currentY = Mathf.Clamp(transform.position.y, yAngleMin, yAngleMax);
+  //      currentY = Mathf.Clamp(currentY, yAngleMin, yAngleMax);
+  //      //currentY = Mathf.Clamp(transform.position.y, yAngleMin, yAngleMax);
     }
 
-    void LateUpdate() {
-       transform.position = player.transform.position + Quaternion.Euler(currentY, currentX, 0) * new Vector3(0, yOffset, followDistance);
-       transform.LookAt(player.transform.position);
-    }
+    //void LateUpdate() {
+    //   transform.position = player.transform.position + Quaternion.Euler(currentY, currentX, 0) * new Vector3(0, yOffset, followDistance);
+    //   transform.LookAt(player.transform.position);
+    //}
 }

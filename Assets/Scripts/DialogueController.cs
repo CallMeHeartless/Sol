@@ -25,9 +25,10 @@ public class DialogueController : MonoBehaviour {
     public static void BasicMessage(string _message, float _duration) {
         instance.dialoguePanel.SetActive(true);
         instance.dialogueText.text = _message;
+        instance.StartCoroutine(ClearDialogue(_duration));
     }
 
-    IEnumerator ClearDialogue(float _delay) {
+    static IEnumerator ClearDialogue(float _delay) {
         yield return new WaitForSeconds(_delay);
         instance.dialogueText.text = "";
         instance.dialoguePanel.SetActive(false);

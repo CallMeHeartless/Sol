@@ -144,20 +144,16 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if(closest.GetComponent<GeneratorPuzzleController>().IsSolRepairing() == true)
-        {
-            if(fWaveTime > fWaveMaxTime)
-            {
-                SpawnEnemies();
-                fWaveTime = 0.0f;
-            }
-            else
-            {
-                fWaveTime = fWaveTime + Time.deltaTime;
+        if(closest != null) {
+            if (closest.GetComponent<GeneratorPuzzleController>().IsSolRepairing() == true) {
+                if (fWaveTime > fWaveMaxTime) {
+                    SpawnEnemies();
+                    fWaveTime = 0.0f;
+                } else {
+                    fWaveTime = fWaveTime + Time.deltaTime;
+                }
             }
         }
-
-        
     }
 
     // Loads the next level in build settings

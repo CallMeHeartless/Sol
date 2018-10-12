@@ -242,6 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4737658754008698}
+  - component: {fileID: 111263859155379548}
   m_Layer: 0
   m_Name: Bone_Door_ROOT
   m_TagString: Untagged
@@ -444,6 +445,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4064480515726350}
+  - component: {fileID: 65927681414500226}
+  - component: {fileID: 95344969999351444}
   m_Layer: 0
   m_Name: Doorway_Door
   m_TagString: Untagged
@@ -1659,6 +1662,7 @@ GameObject:
   - component: {fileID: 4225803974904200}
   - component: {fileID: 65736194122003888}
   - component: {fileID: 114935725267322872}
+  - component: {fileID: 95855044429558562}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -2227,21 +2231,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1931478283121580
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4658991644176988}
-  m_Layer: 0
-  m_Name: Doorway_Door
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1939588857658088
 GameObject:
   m_ObjectHideFlags: 1
@@ -2445,7 +2434,7 @@ Transform:
   - {fileID: 4737658754008698}
   - {fileID: 4410165095491592}
   m_Father: {fileID: 4225803974904200}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4065005386714498
 Transform:
@@ -2746,7 +2735,6 @@ Transform:
   m_LocalScale: {x: 100.00005, y: 100, z: 100.00005}
   m_Children:
   - {fileID: 4710799527893570}
-  - {fileID: 4658991644176988}
   - {fileID: 4448829469524388}
   - {fileID: 4727820205336476}
   - {fileID: 4064480515726350}
@@ -3217,8 +3205,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1017750171205718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.0584, y: 0.9386703, z: 2.0197382}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0100000035, y: 0.01, z: 0.0100000035}
   m_Children:
   - {fileID: 4225803974904200}
   - {fileID: 4558616100650050}
@@ -3231,7 +3219,7 @@ Transform:
   - {fileID: 4279217295067124}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4448149857729024
 Transform:
   m_ObjectHideFlags: 1
@@ -3259,7 +3247,7 @@ Transform:
   - {fileID: 4132864885688976}
   - {fileID: 4393679353486290}
   m_Father: {fileID: 4225803974904200}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4451892218239432
 Transform:
@@ -3632,19 +3620,6 @@ Transform:
   m_Father: {fileID: 4684093655378284}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4658991644176988
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931478283121580}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.888, y: 0, z: 1}
-  m_LocalScale: {x: 0.010000007, y: 0.01, z: 0.010000007}
-  m_Children: []
-  m_Father: {fileID: 4225803974904200}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4672835500194824
 Transform:
   m_ObjectHideFlags: 1
@@ -3866,7 +3841,7 @@ Transform:
   - {fileID: 4414204619605246}
   - {fileID: 4113927155973184}
   m_Father: {fileID: 4225803974904200}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4729481170311300
 Transform:
@@ -9782,6 +9757,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 200.00003, y: 0.8000002, z: 200.00003}
   m_Center: {x: -99.97905, y: 0.0908009, z: -99.97902}
+--- !u!65 &65927681414500226
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1218553004660088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65962169943971798
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -9818,6 +9805,56 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 200.00003, y: 0.8000002, z: 200.00003}
   m_Center: {x: -99.97905, y: 0.0908009, z: -99.97902}
+--- !u!95 &95344969999351444
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1218553004660088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: c4bdcadbce064d14e926d3bb86c30af7, type: 3}
+  m_Controller: {fileID: 9100000, guid: d33748ea4cd3a5a438c9039c6477f98a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &95855044429558562
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682964980867608}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &111263859155379548
+Animation:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1118027785538190}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c4bdcadbce064d14e926d3bb86c30af7, type: 3}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114935725267322872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9830,9 +9867,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 4279217295067124}
-  closed: {fileID: 4586935787816738}
+  closed: {fileID: 0}
   isLocked: 0
-  door: {fileID: 1931478283121580}
+  door: {fileID: 0}
 --- !u!137 &137335927732988184
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

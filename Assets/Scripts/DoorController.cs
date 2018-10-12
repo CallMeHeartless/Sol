@@ -11,18 +11,23 @@ public class DoorController : MonoBehaviour {
     [SerializeField]
     private GameObject door;
     private Transform target;
+    private Transform origin;
 
     void Start() {
         closed = door.transform;
         target = closed;
+        origin = open;
+    }
+
+    void Update() {
+        
     }
 
     // Open door
     public void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player") || other.name == "Sol") {
             if(!isLocked && !isMoving) {
-                target = open ;
-                StartCoroutine(MoveDoor());
+                StartCoroutine(OpenDoor());
             }
         }
     }
@@ -31,21 +36,33 @@ public class DoorController : MonoBehaviour {
     public void OnTriggerExit(Collider other) {
         if(other.CompareTag("Player") || other.name == "Sol") {
             if (!isLocked && !isMoving) {
-                target = closed;
-                StartCoroutine(MoveDoor());
+                StartCoroutine(CloseDoor());
             }
         }
     }
 
-    IEnumerator MoveDoor() {
-        isMoving = true;
-        while(door.transform.localPosition != target.position) {
-            door.transform.localPosition = Vector3.MoveTowards(door.transform.localPosition, target.position, Time.deltaTime);
+    IEnumerator OpenDoor() {
+        //isMoving = true;
+        Vector3 position = door.transform.position;
+        Vector3 targetPosition = position + new Vector3(1, 0, 0);
+        while(door.transform.localPosition != targetPosition) {
+            Debug.Log("Open");
+            door.transform.localPosition = Vector3.MoveTowards(position, targetPosition, Time.deltaTime);
             yield return null;
+           
         }
-        yield return new WaitForSeconds(2);
-        isMoving = false;
-        yield return null;
+    }
+
+    IEnumerator CloseDoor() {
+        //isMoving = true;
+        Vector3 position = door.transform.position;
+        Vector3 targetPosition = position + new Vector3(-1, 0, 0);
+        while (door.transform.position != targetPosition) {
+            Debug.Log("Close");
+            door.transform.position = Vector3.MoveTowards(position, targetPosition, Time.deltaTime);
+            yield return null;
+
+        }
     }
 
     public void Unlock() {

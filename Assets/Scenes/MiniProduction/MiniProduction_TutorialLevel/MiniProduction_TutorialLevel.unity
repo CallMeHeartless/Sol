@@ -737,32 +737,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1121426701338542, guid: ee52561972deed140be1613b454ad7bb, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1912621844841282, guid: ee52561972deed140be1613b454ad7bb, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1189694098540180, guid: ee52561972deed140be1613b454ad7bb, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1427556780112674, guid: ee52561972deed140be1613b454ad7bb, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1087735156470558, guid: ee52561972deed140be1613b454ad7bb, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1505573633636250, guid: ee52561972deed140be1613b454ad7bb, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 95855044429558562, guid: ee52561972deed140be1613b454ad7bb, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee52561972deed140be1613b454ad7bb, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &409889237
@@ -4555,6 +4530,11 @@ Prefab:
     - target: {fileID: 4437684033030898, guid: ee52561972deed140be1613b454ad7bb, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.010000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 114935725267322872, guid: ee52561972deed140be1613b454ad7bb,
+        type: 2}
+      propertyPath: isLocked
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee52561972deed140be1613b454ad7bb, type: 2}

@@ -10,13 +10,10 @@ public class DoorController : MonoBehaviour {
     public bool isLocked;
     [SerializeField]
     private GameObject door;
-    private Transform target;
-    private Transform origin;
+    private Animator anim;
 
     void Start() {
-        closed = door.transform;
-        target = closed;
-        origin = open;
+        anim = GetComponent<Animator>();
     }
 
     void Update() {
@@ -25,43 +22,18 @@ public class DoorController : MonoBehaviour {
 
     // Open door
     public void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("Player") || other.name == "Sol") {
-            if(!isLocked && !isMoving) {
-                StartCoroutine(OpenDoor());
-            }
+        if(other.CompareTag("Player") || other.name == "Sol" && !isLocked) {
+            // anim.SetTrigger("Open");
         }
     }
 
     // Close door
     public void OnTriggerExit(Collider other) {
-        if(other.CompareTag("Player") || other.name == "Sol") {
-            if (!isLocked && !isMoving) {
-                StartCoroutine(CloseDoor());
-            }
+        if (other.CompareTag("Player") || other.name == "Sol" && !isLocked) {
+            // anim.SetTrigger("Close");
         }
     }
 
-    IEnumerator OpenDoor() {
-        //isMoving = true;
-        Vector3 position = door.transform.position;
-        Vector3 targetPosition = position + new Vector3(1, 0, 0);
-        while(door.transform.localPosition != targetPosition) {
-            door.transform.localPosition = Vector3.MoveTowards(position, targetPosition, Time.deltaTime);
-            yield return null;
-           
-        }
-    }
-
-    IEnumerator CloseDoor() {
-        //isMoving = true;
-        Vector3 position = door.transform.position;
-        Vector3 targetPosition = position + new Vector3(-1, 0, 0);
-        while (door.transform.position != targetPosition) {
-            door.transform.position = Vector3.MoveTowards(position, targetPosition, Time.deltaTime);
-            yield return null;
-
-        }
-    }
 
     public void Unlock() {
         isLocked = false;

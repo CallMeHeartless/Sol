@@ -152,6 +152,17 @@ public class GeneratorPuzzleController : MonoBehaviour {
                 renderer.material.EnableKeyword("_EMISSION");
             } 
         }
+
+        GameObject[] children = sector.GetComponentsInChildren<GameObject>();
+        foreach(GameObject child in children) {
+            //Light light = child.GetComponent<Light>();
+            //if(light != null) {
+            //    child.SetActive(true);
+            //}
+            if (!child.activeSelf) {
+                child.SetActive(true);
+            }
+        }
     }
 
     // Checks if a specified material is one of the emissive materials

@@ -55,6 +55,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
             if(repairCount >= repairCountdown) {
                 isSolved = true;
                 Debug.Log("Repaired");
+                AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
                 TurnOnLights();
             }
         }
@@ -112,10 +113,12 @@ public class GeneratorPuzzleController : MonoBehaviour {
         float playerDistance = (player.transform.position - transform.position).sqrMagnitude;
         if(playerDistance < playerRange) {
             isPlayerInRange = true;
+            AudioController.PlaySingleSound("ALARM_Submarine_Slow_loop_stereo");
             if (!repairSlider.gameObject.activeSelf) {
                 repairSlider.gameObject.SetActive(true);
             }
         } else {
+            AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
             isPlayerInRange = false;
             if (repairSlider.gameObject.activeSelf) {
                 ResetProgress();
@@ -157,18 +160,10 @@ public class GeneratorPuzzleController : MonoBehaviour {
             } 
         }
 
-        Transform[] children = sector.GetComponentsInChildren<Transform>(true);
-        foreach(Transform child in children) {
-            //Light light = child.GetComponent<Light>();
-            //if (light != null) {
-            //    child.gameObject.SetActive(true);
-            //    Debug.Log("Hit");
-            //}
-            GameObject lights = child.Find("Lights").gameObject;
-            if(lights != null) {
-                lights.SetActive(true);
-                Debug.Log("Found Lights");
-            }
+        Light[] lights = sector.GetComponentsInChildren<Light>(true);
+
+        foreach(Light light in lights) {
+            light.enabled = true;
         }
     }
 

@@ -153,15 +153,15 @@ public class GeneratorPuzzleController : MonoBehaviour {
             } 
         }
 
-        GameObject[] children = sector.GetComponentsInChildren<GameObject>();
-        foreach(GameObject child in children) {
-            //Light light = child.GetComponent<Light>();
-            //if(light != null) {
-            //    child.SetActive(true);
-            //}
-            if (!child.activeSelf) {
-                child.SetActive(true);
+        Transform[] children = sector.GetComponentsInChildren<Transform>();
+        foreach(Transform child in children) {
+            Light light = child.GetComponent<Light>();
+            if (light != null) {
+                child.gameObject.SetActive(true);
             }
+            //if (!child.gameObject.activeSelf) {
+            //    child.gameObject.SetActive(true);
+            //}
         }
     }
 

@@ -59,6 +59,10 @@ public class GeneratorPuzzleController : MonoBehaviour {
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.F)) {
+            TurnOnLights();
+        }
+
 
     }
 
@@ -153,15 +157,18 @@ public class GeneratorPuzzleController : MonoBehaviour {
             } 
         }
 
-        Transform[] children = sector.GetComponentsInChildren<Transform>();
+        Transform[] children = sector.GetComponentsInChildren<Transform>(true);
         foreach(Transform child in children) {
-            Light light = child.GetComponent<Light>();
-            if (light != null) {
-                child.gameObject.SetActive(true);
-            }
-            //if (!child.gameObject.activeSelf) {
+            //Light light = child.GetComponent<Light>();
+            //if (light != null) {
             //    child.gameObject.SetActive(true);
+            //    Debug.Log("Hit");
             //}
+            GameObject lights = child.Find("Lights").gameObject;
+            if(lights != null) {
+                lights.SetActive(true);
+                Debug.Log("Found Lights");
+            }
         }
     }
 

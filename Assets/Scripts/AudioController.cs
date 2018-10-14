@@ -12,9 +12,6 @@ public class AudioController : MonoBehaviour {
 	void Start () {
         instance = this;
         sounds = GetComponents<AudioSource>();
-        foreach(AudioSource sound in sounds) {
-            Debug.Log(sound.clip.name);
-        }
 	}
 	
 	// Update is called once per frame
@@ -28,6 +25,7 @@ public class AudioController : MonoBehaviour {
         if (audio) {
             if (!audio.isPlaying) {// Stop looping sounds from starting up again
                 audio.Play();
+                Debug.Log("Playing: " + sound);
             }
         } else {
             Debug.Log("Sound not found - null reference.");
@@ -38,7 +36,10 @@ public class AudioController : MonoBehaviour {
     public static void StopSingleSound(string sound) {
         AudioSource audio = instance.GetSource(sound);
         if (audio) {
-            audio.Play();
+            if (audio.isPlaying) {
+                audio.Stop();
+                Debug.Log("Stopping: " + sound);
+            }
         } else {
             Debug.Log("Sound not found - null reference.");
         }
@@ -53,4 +54,6 @@ public class AudioController : MonoBehaviour {
 
         return null;
     }
+
+
 }

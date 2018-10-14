@@ -58,6 +58,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
                 isSolved = true;
                 Debug.Log("Repaired");
                 AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
+                AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
                 TurnOnLights();
                 runningNoise.Play();
             }
@@ -117,11 +118,13 @@ public class GeneratorPuzzleController : MonoBehaviour {
         if(playerDistance < playerRange) {
             isPlayerInRange = true;
             AudioController.PlaySingleSound("ALARM_Submarine_Slow_loop_stereo");
+            AudioController.PlaySingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             if (!repairSlider.gameObject.activeSelf) {
                 repairSlider.gameObject.SetActive(true);
             }
         } else {
             AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
+            AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             isPlayerInRange = false;
             if (repairSlider.gameObject.activeSelf) {
                 ResetProgress();

@@ -39,16 +39,11 @@ public class PlayerController : MonoBehaviour {
     public AudioSource bgMusic;
     Animator anim;
     public GameObject hoverEffect;
-    //public GameObject[] repairEffects;
+
     public Slider chargeSlider;
     public Transform gunPosition;
     //private GameObject muzzleFlash;
     ParticleSystem muzzleFlash;
-
-    // Sound effects
-    public AudioSource weldingFX;
-    public AudioSource LowPowerFX;
-    bool lowPower = false;
 
  
     // Use this for initialization
@@ -133,21 +128,7 @@ public class PlayerController : MonoBehaviour {
 
     // Damages the player's charge. To be used from Sol with Time.deltaTime;
     public void DrainCharge(float drain) {
-        if (charge/maxCharge <= 0.3f && !lowPower)
-        {
-            lowPower = true;
-            if(LowPowerFX != null) {
-                LowPowerFX.Play();
-            }
-            
-        }else if (lowPower)
-        {
-            lowPower = false;
-            if(LowPowerFX != null) {
-                LowPowerFX.Stop();
-            }
-            
-        }
+        
         //Debug.Log("Drain charge called");
         if (!isAlive) {
             return;

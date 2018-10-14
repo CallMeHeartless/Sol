@@ -36,9 +36,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        // Check for game over
         SpawnWaves();
 
+        // Check for game over
         if (CheckForVictory() && !gameOver) {
             gameOver = true;
             if(elevatorDoor != null) {
@@ -47,14 +47,10 @@ public class GameManager : MonoBehaviour {
                 Debug.Log("ERROR: Elevator door is null reference.");
             }
 
-        }
-
-        if (!PlayerController.IsAlive() && !gameOver) {
-            //Debug.Log("DEAD");
+        }else if (!PlayerController.IsAlive() && !gameOver) {
             // Game over stuff
             gameOver = true;
             StartCoroutine(GameOverMenu());
-            //SceneManager.LoadScene(1);
         }
 
 	}

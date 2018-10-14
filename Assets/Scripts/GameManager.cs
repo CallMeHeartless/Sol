@@ -39,16 +39,15 @@ public class GameManager : MonoBehaviour {
         // Check for game over
         SpawnWaves();
 
-        //if (CheckForVictory() && !gameOver) {
-        //    gameOver = true;
-        //    directionalLight.GetComponent<Light>().intensity = 1.1f;
-        //    // Play player animation
-        //    GameObject.Find("Player").GetComponent<Animator>().SetBool("PlayerWins", true);
-        //    // Start couroutine to end game
-        //    gameOverMenu.GetComponentInChildren<Text>().text = "Congratulations! You win!";
-            
-        //    StartCoroutine(GameOverMenu());
-        //}
+        if (CheckForVictory() && !gameOver) {
+            gameOver = true;
+            if(elevatorDoor != null) {
+                elevatorDoor.GetComponent<DoorController>().Unlock();
+            } else {
+                Debug.Log("ERROR: Elevator door is null reference.");
+            }
+
+        }
 
         if (!PlayerController.IsAlive() && !gameOver) {
             //Debug.Log("DEAD");

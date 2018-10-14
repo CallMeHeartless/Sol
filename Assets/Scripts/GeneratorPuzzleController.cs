@@ -20,6 +20,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
     private float repairCount = 0.0f;
     [SerializeField]
     private Slider repairSlider;
+    private AudioSource runningNoise;
 
     /*********
      * 0: Right Arrow
@@ -37,6 +38,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         player = GameObject.Find("Sol");
         repairSlider.maxValue = repairCountdown;
         repairSlider.value = 0;
+        runningNoise = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,6 +59,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
                 Debug.Log("Repaired");
                 AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
                 TurnOnLights();
+                runningNoise.Play();
             }
         }
 

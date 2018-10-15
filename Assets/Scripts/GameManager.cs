@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public Text fuseBoxProgressText;
     public GameObject gameOverMenu;
     public GameObject elevatorDoor;
+    private GameObject player;
 
     bool gameOver = false;
     int totalGenerators;
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour {
         //Debug.Log(totalFuseBoxes);
         fuseBoxProgressText = GetComponentInChildren<Text>();
         fuseBoxProgressText.text = "Generators Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalGenerators.ToString();
+        player = GameObject.FindGameObjectWithTag("Player");
+        if(player == null) {
+            Debug.Log("ERROR: PLAYER NOT FOUND!");
+        }
         
         
     }
@@ -90,13 +95,13 @@ public class GameManager : MonoBehaviour {
 
     public static void SpawnEnemies()
     {
-        GameObject[] gos;
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        gos = GameObject.FindGameObjectsWithTag("ESpawn");
+        //GameObject[] gos;
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //gos = GameObject.FindGameObjectsWithTag("ESpawn");
         GameObject closest = null;
         float distance = 100000.0f;
-        Vector3 position = player.transform.position;
-        foreach (GameObject go in gos)
+        Vector3 position = instance.player.transform.position;
+        foreach (GameObject go in instance.generators)
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
@@ -110,7 +115,7 @@ public class GameManager : MonoBehaviour {
         if(closest != null) {
             string groupName = closest.GetComponent<ESpawn>().name;
 
-            foreach (GameObject go in gos) {
+            foreach (GameObject go in instance.generators) {
                 if (groupName == go.GetComponent<ESpawn>().name) {
                     GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
                     Apebyss.transform.position = go.transform.position;

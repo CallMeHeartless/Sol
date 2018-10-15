@@ -24,6 +24,7 @@ public class EnemyAiController : MonoBehaviour {
     public float fAttackRadius = 2.0f;
     public bool bChase = false;
     public bool bWave = false;
+    
 
     public GameObject FindPlayer()
     {
@@ -51,6 +52,13 @@ public class EnemyAiController : MonoBehaviour {
         {
             bChase = true;
             anim.SetTrigger("Run");
+            // Determine target
+            int random = Random.Range(0, 4);
+            if(random == 0) {
+                // Target Sol
+                player = GameObject.Find("Sol");
+            }
+
         }
     }
 
@@ -118,7 +126,7 @@ public class EnemyAiController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        player = FindPlayer();
+        player = GameObject.Find("Player");//FindPlayer();
         anim = GetComponent<Animator>();
         anim.SetTrigger("Idle");
         WaveEnemy();
@@ -139,6 +147,9 @@ public class EnemyAiController : MonoBehaviour {
             agent.isStopped = true;
             // Cue death animation
             anim.SetTrigger("Die");
+        }// If the enemy was hit from stealth, make them chase the player
+        else if(isAlive && !bChase) {
+            bChase = true;
         }
     }
 }

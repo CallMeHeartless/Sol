@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour {
     private static GameManager instance;
 
     private GameObject[] generators;
-    public Light directionalLight;
     public Text fuseBoxProgressText;
     public GameObject gameOverMenu;
+    public GameObject elevatorDoor;
+    private GameObject player;
+    private GameObject[] enemySpawn;
 
     bool gameOver = false;
     int totalGenerators;
@@ -30,32 +32,32 @@ public class GameManager : MonoBehaviour {
         //Debug.Log(totalFuseBoxes);
         fuseBoxProgressText = GetComponentInChildren<Text>();
         fuseBoxProgressText.text = "Generators Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalGenerators.ToString();
+        player = GameObject.FindGameObjectWithTag("Player");
+        if(player == null) {
+            Debug.Log("ERROR: PLAYER NOT FOUND!");
+        }
+        enemySpawn = GameObject.FindGameObjectsWithTag("ESpawn");
         
         
     }
 	
 	// Update is called once per frame
 	void Update () {
-        // Check for game over
         SpawnWaves();
 
-        //if (CheckForVictory() && !gameOver) {
-        //    gameOver = true;
-        //    directionalLight.GetComponent<Light>().intensity = 1.1f;
-        //    // Play player animation
-        //    GameObject.Find("Player").GetComponent<Animator>().SetBool("PlayerWins", true);
-        //    // Start couroutine to end game
-        //    gameOverMenu.GetComponentInChildren<Text>().text = "Congratulations! You win!";
-            
-        //    StartCoroutine(GameOverMenu());
-        //}
+        // Check for game over
+        if (CheckForVictory() && !gameOver) {
+            gameOver = true;
+            if(elevatorDoor != null) {
+                elevatorDoor.GetComponent<DoorController>().Unlock();
+            } else {
+                Debug.Log("ERROR: Elevator door is null reference.");
+            }
 
-        if (!PlayerController.IsAlive() && !gameOver) {
-            //Debug.Log("DEAD");
+        }else if (!PlayerController.IsAlive() && !gameOver) {
             // Game over stuff
             gameOver = true;
             StartCoroutine(GameOverMenu());
-            //SceneManager.LoadScene(1);
         }
 
 	}
@@ -95,13 +97,13 @@ public class GameManager : MonoBehaviour {
 
     public static void SpawnEnemies()
     {
-        GameObject[] gos;
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        gos = GameObject.FindGameObjectsWithTag("ESpawn");
+        //GameObject[] gos;
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //gos = GameObject.FindGameObjectsWithTag("ESpawn");
         GameObject closest = null;
         float distance = 100000.0f;
-        Vector3 position = player.transform.position;
-        foreach (GameObject go in gos)
+        Vector3 position = instance.player.transform.position;
+        foreach (GameObject go in instance.enemySpawn)
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
@@ -112,17 +114,18 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        string groupName = closest.GetComponent<ESpawn>().name;
+        if(closest != null) {
+            string groupName = closest.GetComponent<ESpawn>().name;
 
-        foreach (GameObject go in gos)
-        {
-            if (groupName == go.GetComponent<ESpawn>().name)
-            {
-                GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
-                Apebyss.transform.position = go.transform.position;
-                Apebyss.GetComponent<EnemyAiController>().bWave = true;
+            foreach (GameObject go in instance.enemySpawn) {
+                if (groupName == go.GetComponent<ESpawn>().name) {
+                    GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
+                    Apebyss.transform.position = go.transform.position;
+                    Apebyss.GetComponent<EnemyAiController>().bWave = true;
+                }
             }
         }
+
     }
 
     public static void SpawnWaves()
@@ -144,20 +147,16 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if(closest.GetComponent<GeneratorPuzzleController>().IsSolRepairing() == true)
-        {
-            if(fWaveTime > fWaveMaxTime)
-            {
-                SpawnEnemies();
-                fWaveTime = 0.0f;
-            }
-            else
-            {
-                fWaveTime = fWaveTime + Time.deltaTime;
+        if(closest != null) {
+            if (closest.GetComponent<GeneratorPuzzleController>().IsSolRepairing() == true) {
+                if (fWaveTime > fWaveMaxTime) {
+                    SpawnEnemies();
+                    fWaveTime = 0.0f;
+                } else {
+                    fWaveTime = fWaveTime + Time.deltaTime;
+                }
             }
         }
-
-        
     }
 
     // Loads the next level in build settings
@@ -168,6 +167,7 @@ public class GameManager : MonoBehaviour {
         } else {
             // return to main menu
             SceneManager.LoadScene(0);
+            Cursor.visible = true;
         }
         
     }

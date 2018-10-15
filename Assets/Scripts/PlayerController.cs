@@ -39,14 +39,15 @@ public class PlayerController : MonoBehaviour {
     public AudioSource bgMusic;
     Animator anim;
     public GameObject hoverEffect;
+<<<<<<< HEAD
     //public GameObject[] repairEffects;
+=======
+
+>>>>>>> master
     public Slider chargeSlider;
     public Transform gunPosition;
-
-    // Sound effects
-    public AudioSource weldingFX;
-    public AudioSource LowPowerFX;
-    bool lowPower = false;
+    //private GameObject muzzleFlash;
+    ParticleSystem muzzleFlash;
 
  
     // Use this for initialization
@@ -55,6 +56,8 @@ public class PlayerController : MonoBehaviour {
         charge = maxCharge;
         anim = GetComponentInChildren<Animator>();
         //gunPosition = transform.Find("Base HumanGun");
+        muzzleFlash = gunPosition.Find("VFX_MuzzleFlash").GetComponent<ParticleSystem>();
+        
 	}
 
     void Update()
@@ -91,11 +94,6 @@ public class PlayerController : MonoBehaviour {
         if (rotation != Vector3.zero) {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         }
-        //if (_camera != null && fCameraRotation != 0.0f) {
-        //    fCurrentCameraRotation -= fCameraRotation;
-        //    fCurrentCameraRotation = Mathf.Clamp(fCurrentCameraRotation, -45, 45);
-        //    _camera.transform.localEulerAngles = new Vector3(fCurrentCameraRotation, 0, 0);
-        //}
 
         if (_camera != null) {
             _camera.transform.position = cameraFocus.position + cameraFocus.rotation * cameraOffset;
@@ -103,11 +101,7 @@ public class PlayerController : MonoBehaviour {
             if (fCameraRotation != 0.0f) {
                 fCurrentCameraRotation -= fCameraRotation;
                 fCurrentCameraRotation = Mathf.Clamp(fCurrentCameraRotation, -45, 45);
-               // _camera.transform.rotation = transform.rotation;
-               // _camera.transform.
-               //_camera.transform.LookAt(cameraFocus.position);
-               // _camera.transform.localEulerAngles = new Vector3(fCurrentCameraRotation, transform.rotation.y, 0);
-               // _camera.transform.rotation = Quaternion.Euler(fCurrentCameraRotation, 0, 0);
+
             }
         }
     }
@@ -138,21 +132,7 @@ public class PlayerController : MonoBehaviour {
 
     // Damages the player's charge. To be used from Sol with Time.deltaTime;
     public void DrainCharge(float drain) {
-        if (charge/maxCharge <= 0.3f && !lowPower)
-        {
-            lowPower = true;
-            if(LowPowerFX != null) {
-                LowPowerFX.Play();
-            }
-            
-        }else if (lowPower)
-        {
-            lowPower = false;
-            if(LowPowerFX != null) {
-                LowPowerFX.Stop();
-            }
-            
-        }
+        
         //Debug.Log("Drain charge called");
         if (!isAlive) {
             return;
@@ -215,8 +195,9 @@ public class PlayerController : MonoBehaviour {
     public void FireWeapon() {
         if (bCanFire) {
             bCanFire = false;
+            muzzleFlash.Play();
             // Replace position with reference to Transform on final model
-            GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation);//+ transform.forward + transform.up
+            GameObject projectile = GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation) as GameObject;//+ transform.forward + transform.up
             StartCoroutine(WeaponCooldown());
         }
 

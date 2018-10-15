@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GeneratorPuzzleController : MonoBehaviour {
 
+    public string sectorName;
+
     private bool isSolved = false;
     private bool isPlayerInRange = false;
     private bool isAISolving = true;
@@ -18,6 +20,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
     private float repairCount = 0.0f;
     [SerializeField]
     private Slider repairSlider;
+    private AudioSource runningNoise;
 
     /*********
      * 0: Right Arrow
@@ -35,6 +38,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         player = GameObject.Find("Sol");
         repairSlider.maxValue = repairCountdown;
         repairSlider.value = 0;
+        runningNoise = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,17 +56,18 @@ public class GeneratorPuzzleController : MonoBehaviour {
             repairSlider.value = repairCount;
             if(repairCount >= repairCountdown) {
                 isSolved = true;
+                Debug.Log("Repaired");
+                AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
+                AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
+                TurnOnLights();
+                runningNoise.Play();
             }
         }
 
-        // Check if player is currently solving the puzzle
-        //if (isPlayerSolving && isPlayerInRange) {
-        //    if(GetPlayerInput() == solution[solutionIndex,setIndex] ) {
-        //        AdvanceProgress();
-        //    } else {
-        //        ResetProgress();
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.F)) {
+            TurnOnLights();
+        }
+
 
     }
 
@@ -112,10 +117,14 @@ public class GeneratorPuzzleController : MonoBehaviour {
         float playerDistance = (player.transform.position - transform.position).sqrMagnitude;
         if(playerDistance < playerRange) {
             isPlayerInRange = true;
+            AudioController.PlaySingleSound("ALARM_Submarine_Slow_loop_stereo");
+            AudioController.PlaySingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             if (!repairSlider.gameObject.activeSelf) {
                 repairSlider.gameObject.SetActive(true);
             }
         } else {
+            AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
+            AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             isPlayerInRange = false;
             if (repairSlider.gameObject.activeSelf) {
                 ResetProgress();
@@ -125,11 +134,97 @@ public class GeneratorPuzzleController : MonoBehaviour {
     }
 
     public bool IsSolRepairing() {
-        return isAISolving && (player.transform.position - transform.position).sqrMagnitude <= playerRange && !isSolved;
+        return isAISolving && isPlayerInRange && !isSolved;
     }
 
     public bool IsSolved() {
         return isSolved;
+    }
+
+    public void DrainRepair(float _fDamage) {
+        if (isSolved) {
+            return;
+        }
+        repairCount -= _fDamage;
+        if (repairCount < 0) {
+            repairCount = 0.0f;
+        }
+        repairSlider.value = repairCount;
+        
+    }
+
+    void TurnOnLights() {
+        // Find sector game object
+        GameObject sector = GameObject.Find(sectorName);
+        // Iterate through children and turn on emission
+        Renderer[] materials = sector.GetComponentsInChildren<Renderer>();
+
+        foreach(Renderer renderer in materials) {
+
+            if (CheckForEmissiveMaterial(renderer.material)) {
+                renderer.material.EnableKeyword("_EMISSION");
+            } 
+        }
+
+        Light[] lights = sector.GetComponentsInChildren<Light>(true);
+
+        foreach(Light light in lights) {
+            light.enabled = true;
+        }
+    }
+
+    // Checks if a specified material is one of the emissive materials
+    bool CheckForEmissiveMaterial(Material _test) {
+        if(_test.name == "M_Ceiling_Light (Instance)"||
+           _test.name == "M_FloorEdge_InnerCorner (Instance)" ||
+           _test.name == "M_FloorEdge_Straight (Instance)" ||
+           _test.name == "M_Wall_InnerCorner01 (Instance)"||
+           _test.name == "M_Wall_InnerCorner02 (Instance)"||
+           _test.name == "M_Wall_InnerCorner03 (Instance)"||
+           _test.name == "M_Wall_InnerCorner04 (Instance)"||
+           _test.name == "M_Wall_OuterCorner01 (Instance)"||
+           _test.name == "M_Wall_OuterCorner02 (Instance)"||
+           _test.name == "M_Wall_OuterCorner03 (Instance)" ||
+           _test.name == "M_Wall_OuterCorner04 (Instance)" ||
+           _test.name == "M_Wall_Straight01 (Instance)" ||
+           _test.name == "M_Wall_Straight02 (Instance)" ||
+           _test.name == "M_Wall_Straight03 (Instance)" ||
+           _test.name == "M_Wall_Straight04 (Instance)" 
+           //||
+           //_test.name == "M_Wall_Pillar01 (Instance)" ||
+           //_test.name == "M_Wall_Pillar02 (Instance)" ||
+           //_test.name == "M_Wall_Pillar03 (Instance)" ||
+           //_test.name == "M_Wall_Pillar04 (Instance)"
+           ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void OnTriggerEnter(Collider other) {
+        Debug.Log(other.name);
+        if (other.CompareTag("Sol")) {
+            isPlayerInRange = true;
+            AudioController.PlaySingleSound("ALARM_Submarine_Slow_loop_stereo");
+            AudioController.PlaySingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
+            if (!repairSlider.gameObject.activeSelf) {
+                repairSlider.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void OnTriggerExit(Collider other) {
+
+        if(other.CompareTag("Sol")) {
+            AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
+            AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
+            isPlayerInRange = false;
+            if (repairSlider.gameObject.activeSelf) {
+                ResetProgress();
+                repairSlider.gameObject.SetActive(false);
+            }
+        }
     }
 
 }

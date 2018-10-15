@@ -19,5 +19,6 @@ public class PlayerAnimationController : MonoBehaviour {
     public void PlayerAttack() {
         // Make player attack
         player.FireWeapon();
+        AudioController.PlaySingleSound("BLASTER_Complex_Wave_Distortion_stereo");
     }
 }

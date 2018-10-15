@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     public GameObject gameOverMenu;
     public GameObject elevatorDoor;
     private GameObject player;
+    private GameObject[] enemySpawn;
 
     bool gameOver = false;
     int totalGenerators;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour {
         if(player == null) {
             Debug.Log("ERROR: PLAYER NOT FOUND!");
         }
+        enemySpawn = GameObject.FindGameObjectsWithTag("ESpawn");
         
         
     }
@@ -101,7 +103,7 @@ public class GameManager : MonoBehaviour {
         GameObject closest = null;
         float distance = 100000.0f;
         Vector3 position = instance.player.transform.position;
-        foreach (GameObject go in instance.generators)
+        foreach (GameObject go in instance.enemySpawn)
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
@@ -115,7 +117,7 @@ public class GameManager : MonoBehaviour {
         if(closest != null) {
             string groupName = closest.GetComponent<ESpawn>().name;
 
-            foreach (GameObject go in instance.generators) {
+            foreach (GameObject go in instance.enemySpawn) {
                 if (groupName == go.GetComponent<ESpawn>().name) {
                     GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
                     Apebyss.transform.position = go.transform.position;

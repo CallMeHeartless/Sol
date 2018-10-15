@@ -29,9 +29,7 @@ public class AudioController : MonoBehaviour {
             } else {
                 Debug.Log("Already playing sound");
             }
-        } else {
-            Debug.Log("Sound not found - null reference.");
-        }
+        } 
     }
 
     // Stops a sound (assumed to be looping)

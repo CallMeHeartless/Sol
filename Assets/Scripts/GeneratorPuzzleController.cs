@@ -48,7 +48,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         }
 
         // Check player is in range to solve puzzle
-        //TrackPlayer();
+        TrackPlayer();
 
         // AI solving
         if(isPlayerInRange && isAISolving) {
@@ -134,7 +134,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
     }
 
     public bool IsSolRepairing() {
-        return isAISolving && (player.transform.position - transform.position).sqrMagnitude <= playerRange && !isSolved;
+        return isAISolving && isPlayerInRange && !isSolved;
     }
 
     public bool IsSolved() {
@@ -203,7 +203,8 @@ public class GeneratorPuzzleController : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider other) {
-        if(other.name == "Sol") {
+        Debug.Log(other.name);
+        if (other.CompareTag("Sol")) {
             isPlayerInRange = true;
             AudioController.PlaySingleSound("ALARM_Submarine_Slow_loop_stereo");
             AudioController.PlaySingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
@@ -214,7 +215,8 @@ public class GeneratorPuzzleController : MonoBehaviour {
     }
 
     public void OnTriggerExit(Collider other) {
-        if(other.name == "Sol") {
+
+        if(other.CompareTag("Sol")) {
             AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
             AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             isPlayerInRange = false;

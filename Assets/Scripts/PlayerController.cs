@@ -39,11 +39,9 @@ public class PlayerController : MonoBehaviour {
     public AudioSource bgMusic;
     Animator anim;
     public GameObject hoverEffect;
-<<<<<<< HEAD
-    //public GameObject[] repairEffects;
-=======
 
->>>>>>> master
+    //public GameObject[] repairEffects;
+
     public Slider chargeSlider;
     public Transform gunPosition;
     //private GameObject muzzleFlash;

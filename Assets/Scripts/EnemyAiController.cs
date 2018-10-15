@@ -54,7 +54,7 @@ public class EnemyAiController : MonoBehaviour {
             anim.SetTrigger("Run");
             // Determine target
             int random = Random.Range(0, 4);
-            if(random >= 0) {
+            if(random == 0) {
                 // Target Sol
                 player = GameObject.Find("Sol");
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeatHunk : MonoBehaviour {
 
     public float fDam = 5.0f;
-    private Collider collider;
+    public Collider collider;
 
 	// Use this for initialization
 	void Start () {
@@ -29,12 +29,22 @@ public class MeatHunk : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Sol"))
         {
-            //other.GetComponent<PlayerController>().DrainCharge(fDam);
-            Debug.Log("Huh");
-            collider.enabled = false;
-            GetComponentInParent<EnemyAiController>().bIsAttacking = false;
+            if(other.CompareTag("Player"))
+            {
+                Debug.Log("Huh");
+                //other.GetComponent<PlayerController>().DrainCharge(fDam);
+                collider.enabled = false;
+                GetComponentInParent<EnemyAiController>().bIsAttacking = false;
+            }
+            else if(other.CompareTag("Sol"))
+            {
+                Debug.Log("Other Huh");
+                collider.enabled = false;
+                other.GetComponent<AiController>().Generator.GetComponent<GeneratorPuzzleController>().DrainRepair(fDam / 2);
+                GetComponentInParent<EnemyAiController>().bIsAttacking = false;
+            }
         }
     }
 }

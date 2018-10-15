@@ -21,7 +21,7 @@ public class EnemyAiController : MonoBehaviour {
     public bool bIsAttacking = false;
     private float fAttackRate = 0.6f;
     private bool bCanAttack = true;
-    public float fAttackRadius = 2.0f;
+    public float fAttackRadius = 5.0f;
     public bool bChase = false;
     public bool bWave = false;
     
@@ -54,7 +54,7 @@ public class EnemyAiController : MonoBehaviour {
             anim.SetTrigger("Run");
             // Determine target
             int random = Random.Range(0, 4);
-            if(random == 0) {
+            if(random >= 0) {
                 // Target Sol
                 player = GameObject.Find("Sol");
             }

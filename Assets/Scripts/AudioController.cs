@@ -26,6 +26,8 @@ public class AudioController : MonoBehaviour {
             if (!audio.isPlaying) {// Stop looping sounds from starting up again
                 audio.Play();
                 Debug.Log("Playing: " + sound);
+            } else {
+                Debug.Log("Already playing sound");
             }
         } else {
             Debug.Log("Sound not found - null reference.");

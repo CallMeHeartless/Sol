@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
     public GameObject hoverEffect;
 
+    //public GameObject[] repairEffects;
+
     public Slider chargeSlider;
     public Transform gunPosition;
     //private GameObject muzzleFlash;

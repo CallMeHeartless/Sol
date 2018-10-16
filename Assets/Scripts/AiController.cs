@@ -7,37 +7,25 @@ public class AiController : MonoBehaviour {
 
     public GameObject player;
     public NavMeshAgent agent;
-    public float fAttackRadius = 2.0f;
-
-    private bool bIsStunned = false;
-    private bool bIsAttacking = false;
-    private float fAttackRate = 0.6f;
-    private bool bCanAttack = true;
 
     private Ray ray;
     private Animator anim;
-    private float fDistance;
 
-    public float MaxSpeed = 1.0f;
-    private Vector3 currentPos;
-    public float Radius = 10.0f;
+    public float GeneratorRadius = 10.0f;
+
     private float PlayerRadius = 5.0f;
-    private Vector3 targetPos;
-    private float distance;
-    private Vector3 playerPos;
     private float playerDistance;
-    private Quaternion lookRotation;
-    private Vector3 direction;
+
     public float fChargeMultiplier = 1.0f;
     public GameObject playerArrow;
     private Quaternion arrowRotation;
     private Vector3 arrowDirection;
 
-    public float GeneratorRadius = 10.0f;
-
     public GameObject solArrow;
     private Quaternion solArrowRotation;
     private Vector3 solArrowDirection;
+
+    public GameObject Generator;
 
     public GameObject FindPlayer()
     {
@@ -81,6 +69,9 @@ public class AiController : MonoBehaviour {
             float GenDistance = (player.transform.position - closest.transform.position).magnitude;
 
             if ((GenDistance < GeneratorRadius) && !closest.GetComponent<GeneratorPuzzleController>().IsSolved()) {
+
+                Generator = closest;
+
                 Vector3 vA = closest.transform.position;
                 vA.y = vA.y + 4.0f;
 
@@ -92,6 +83,11 @@ public class AiController : MonoBehaviour {
                 if (Physics.Raycast(ray, out hit)) {
                     agent.SetDestination(hit.point);
                 }
+            }
+
+            if((GenDistance < GeneratorRadius) && closest.GetComponent<GeneratorPuzzleController>().IsSolved())
+            {
+                Generator = null;
             }
         }
     }
@@ -112,29 +108,15 @@ public class AiController : MonoBehaviour {
         return gos;
     }
 
-    // Use this for initialization
-    void Start () {
-        player = FindPlayer();
-        playerArrow = FindPlayerArrow();
-        solArrow = FindSolArrow();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        currentPos = transform.position;
-
-
-        //Dertimine distance from target
-        distance = (targetPos - transform.position).magnitude;
-        //Dertimine distance from player
-        playerDistance = (player.transform.position - transform.position).magnitude;
-
-       
+    public void RotateArrows()
+    {
         //Rotate Arrow towards Sol
-        if(playerArrow != null) {
-           arrowDirection = (transform.position - playerArrow.transform.position).normalized;
-           arrowDirection.y = 0;
-            if(arrowDirection != Vector3.zero) {
+        if (playerArrow != null)
+        {
+            arrowDirection = (transform.position - playerArrow.transform.position).normalized;
+            arrowDirection.y = 0;
+            if (arrowDirection != Vector3.zero)
+            {
                 //create arrow rotation
                 arrowRotation = Quaternion.LookRotation(arrowDirection);
                 //Rotate
@@ -142,27 +124,33 @@ public class AiController : MonoBehaviour {
             }
 
 
-            if (playerDistance < PlayerRadius) {
+            if (playerDistance < PlayerRadius)
+            {
                 playerArrow.SetActive(false);
                 solArrow.SetActive(false);
-            } else {
+            }
+            else
+            {
                 playerArrow.SetActive(true);
                 solArrow.SetActive(true);
             }
         }
-     
 
-        //Rotate towards next point
+
+        //Rotate towards player
         solArrowDirection = (player.transform.position - solArrow.transform.position).normalized;
         solArrowDirection.y = 0;
         //create new rotation
-        if(solArrowDirection != Vector3.zero) {
+        if (solArrowDirection != Vector3.zero)
+        {
             solArrowRotation = Quaternion.LookRotation(solArrowDirection);
             //Rotate
             solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
         }
+    }
 
-
+    public void GoToPlayer()
+    {
         Vector3 vA = player.transform.position;
         vA.y = vA.y + 4.0f;
 
@@ -175,62 +163,28 @@ public class AiController : MonoBehaviour {
         {
             agent.SetDestination(hit.point);
         }
+    }
+
+    // Use this for initialization
+    void Start () {
+        player = FindPlayer();
+        playerArrow = FindPlayerArrow();
+        solArrow = FindSolArrow();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        
+        //Dertimine distance from player
+        playerDistance = (player.transform.position - transform.position).magnitude;
+
+
+
+        RotateArrows();
+
+        GoToPlayer();
 
         GoToGenerator();
-        /*
-        if(forward == true)
-        {
-            int i = sequence + 1;
-            if(i == targets.Length)
-            {
-                i = 0;
-            }
-            //Rotate towards next point
-            solArrowDirection = (targets[i].transform.position - solArrow.transform.position).normalized;
-            solArrowDirection.y = 0;
-            //create new rotation
-            solArrowRotation = Quaternion.LookRotation(solArrowDirection);
-            //Rotate
-            solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
-        }
-        
-        else
-        {
-            int i = sequence - 1;
-            if(i < 0)
-            {
-                i = targets.Length - 1;
-            }
-            //Rotate towards next point
-            solArrowDirection = (targets[i].transform.position - solArrow.transform.position).normalized;
-            solArrowDirection.y = 0;
-            //create new rotation
-            solArrowRotation = Quaternion.LookRotation(solArrowDirection);
-            //Rotate
-            solArrow.transform.rotation = Quaternion.Slerp(solArrow.transform.rotation, solArrowRotation, 10);
-        }
-        */
-
-
-
-
-        
-
-        
-        
-
-        
-        /*
-        //Recharge/drain player
-        if(playerDistance > PlayerRadius)
-        {
-            player.GetComponent<PlayerController>().DrainCharge(Time.deltaTime);
-            //Debug.Log("Draining Sparky");
-        }
-        else
-        {
-            player.GetComponent<PlayerController>().GiveCharge(fChargeMultiplier * Time.deltaTime);
-        }
-        */
+       
 	}
 }

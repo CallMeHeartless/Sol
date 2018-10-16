@@ -61,6 +61,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
                 AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
                 TurnOnLights();
                 runningNoise.Play();
+                GameManager.MarkFuseBoxAsRepaired();
             }
         }
 

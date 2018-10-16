@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04439433, g: 0.04188624, b: 0.04585708, a: 1}
+  m_IndirectSpecularColor: {r: 0.04345821, g: 0.041858047, b: 0.044895597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1464,6 +1464,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.196
       objectReference: {fileID: 0}
+    - target: {fileID: 1475718204261554, guid: 97fb450d4ed2d024f823c5438cdf1e8a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fb450d4ed2d024f823c5438cdf1e8a, type: 2}
   m_IsPrefabAsset: 0
@@ -2738,6 +2742,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 529973163}
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1136707325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114358080911536950, guid: 563be469a43562648ba44579b79e938d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1690928535}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1192448797
 Prefab:
   m_ObjectHideFlags: 0
@@ -3938,6 +3948,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
+        type: 2}
+      propertyPath: fuseBoxProgressText
+      value: 
+      objectReference: {fileID: 1136707325}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0

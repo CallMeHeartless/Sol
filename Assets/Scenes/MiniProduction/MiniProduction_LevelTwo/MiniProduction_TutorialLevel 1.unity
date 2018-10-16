@@ -7034,32 +7034,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 23782528153688710, guid: 9a0d55cddc7606844a13b5ddf417761e,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 136461270653454146, guid: 9a0d55cddc7606844a13b5ddf417761e, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a0d55cddc7606844a13b5ddf417761e, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &354141260 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1937110506751910, guid: 9a0d55cddc7606844a13b5ddf417761e,
-    type: 2}
-  m_PrefabInternal: {fileID: 354141259}
---- !u!65 &354141261
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 354141260}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.7342567, y: 2.758381, z: 4.4965916}
-  m_Center: {x: 0.31822395, y: 0.3791888, z: 0.23330593}
 --- !u!4 &361354420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4394743277790366, guid: e4a86668a321e934698a908288efc407,

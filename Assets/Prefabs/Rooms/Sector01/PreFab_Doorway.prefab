@@ -1907,6 +1907,7 @@ GameObject:
   - component: {fileID: 4607094212253904}
   - component: {fileID: 33259059153528712}
   - component: {fileID: 23446818634677340}
+  - component: {fileID: 65802960196812774}
   m_Layer: 0
   m_Name: FloorEdge_OuterCorner_lowquad
   m_TagString: Untagged
@@ -3372,8 +3373,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1017750171205718}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.202115, y: -0.1782301, z: -4.452896}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 21}
   m_LocalScale: {x: 0.0100000035, y: 0.01, z: 0.0100000035}
   m_Children:
   - {fileID: 4225803974904200}
@@ -9905,6 +9906,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 40.0771, y: 333.318, z: 235.90675}
   m_Center: {x: -215.86806, y: 166.65619, z: 82.04652}
+--- !u!65 &65802960196812774
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1767768787007906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200.0995, y: 4.176411, z: 200.06467}
+  m_Center: {x: -100.00941, y: 2.0882056, z: -100.01227}
 --- !u!65 &65828226860307878
 BoxCollider:
   m_ObjectHideFlags: 1

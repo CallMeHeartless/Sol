@@ -48,7 +48,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         }
 
         // Check player is in range to solve puzzle
-        TrackPlayer();
+       // TrackPlayer();
 
         // AI solving
         if(isPlayerInRange && isAISolving) {

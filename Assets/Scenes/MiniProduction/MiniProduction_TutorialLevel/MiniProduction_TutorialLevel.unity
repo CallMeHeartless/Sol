@@ -1518,6 +1518,42 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114974828370387942, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f7d1b2f3b07a79449d5abad71c7d5d6,
+        type: 3}
+    - target: {fileID: 114974828370387942, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+        type: 2}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224401106744785668, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 90.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224401106744785668, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -340.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224401106744785668, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -617.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224401106744785668, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -779.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974828370387942, guid: 0fb19955ab87c234598fc8aea7a0ce29,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb19955ab87c234598fc8aea7a0ce29, type: 2}
   m_IsPrefabAsset: 0
@@ -2280,6 +2316,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a131821e332b1264d9c32d4ff1148fd2, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &879356914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114358080911536950, guid: 563be469a43562648ba44579b79e938d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1690928535}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &887802927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4236825913815920, guid: 4d0d778b8c2bb8d43b9a18b7ec824003,
@@ -3968,6 +4010,21 @@ Prefab:
       propertyPath: elevatorDoor
       value: 
       objectReference: {fileID: 2113094764}
+    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
+        type: 2}
+      propertyPath: fuseBoxProgressText
+      value: 
+      objectReference: {fileID: 879356914}
+    - target: {fileID: 224522881361099062, guid: 563be469a43562648ba44579b79e938d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224703543706710222, guid: 563be469a43562648ba44579b79e938d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0

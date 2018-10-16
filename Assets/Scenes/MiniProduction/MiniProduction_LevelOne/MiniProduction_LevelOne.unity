@@ -2713,6 +2713,23 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114702941994602558, guid: 74b89fd59af0a5c429e815be87c44e06,
+        type: 2}
+      propertyPath: playerRange
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915618613912140, guid: 74b89fd59af0a5c429e815be87c44e06, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.04803244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915618613912140, guid: 74b89fd59af0a5c429e815be87c44e06, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.07029502
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915618613912140, guid: 74b89fd59af0a5c429e815be87c44e06, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.07029502
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74b89fd59af0a5c429e815be87c44e06, type: 2}
   m_IsPrefabAsset: 0

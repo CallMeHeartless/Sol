@@ -2742,12 +2742,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 529973163}
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!114 &1136707325 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114358080911536950, guid: 563be469a43562648ba44579b79e938d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1690928535}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1192448797
 Prefab:
   m_ObjectHideFlags: 0
@@ -3943,16 +3937,6 @@ Prefab:
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 249857050}
-    - target: {fileID: 224194127807040446, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: fuseBoxProgressText
-      value: 
-      objectReference: {fileID: 1136707325}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0

@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         charge = maxCharge;
         anim = GetComponentInChildren<Animator>();
-        //gunPosition = transform.Find("Base HumanGun");
+        gunPosition = transform.Find("Base HumanGun");
         //muzzleFlash = gunPosition.Find("VFX_MuzzleFlash").GetComponent<ParticleSystem>();
         
 	}
@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour {
             //muzzleFlash.Play();
             // Replace position with reference to Transform on final model
             GameObject projectile = GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation) as GameObject;//+ transform.forward + transform.up
+
             StartCoroutine(WeaponCooldown());
         }
 

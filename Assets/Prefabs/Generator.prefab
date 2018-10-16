@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4030246998931772}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Interactivepanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224030522038530656}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 114702941994602558}
   - component: {fileID: 82988118500329948}
   - component: {fileID: 65232131032357818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Generator
   m_TagString: Generator
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 224053205445122194}
   - component: {fileID: 222193479920693216}
   - component: {fileID: 114943378005022756}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4915618613912140}
   - component: {fileID: 33191377581929088}
   - component: {fileID: 23499643118736698}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CapturePointArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224154000289636368}
   - component: {fileID: 114118868559577212}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: FixBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 223199642729572194}
   - component: {fileID: 114000087062783628}
   - component: {fileID: 114897439905603400}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: RepairUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4798949191224274}
   - component: {fileID: 33470744270572262}
   - component: {fileID: 23479968035288700}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mainblock_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4509585064393580}
   - component: {fileID: 33342931752081588}
   - component: {fileID: 23561593960281520}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fusebox_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 4139738779646734}
   - component: {fileID: 33678382114033284}
   - component: {fileID: 23954496516261242}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Panel_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4190197121401628}
   - component: {fileID: 33704106538921258}
   - component: {fileID: 23429155110810954}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Panelsupport_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 224734932601075444}
   - component: {fileID: 222305401655930928}
   - component: {fileID: 114454929484358132}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224408408724946486}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1181535146633230}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 15.53, y: 0.63, z: -19.04}
+  m_LocalPosition: {x: 25.116, y: 0.63, z: -19.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224361968127080836}
@@ -323,7 +323,7 @@ Transform:
   m_GameObject: {fileID: 1422146623314988}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.019, z: 0}
-  m_LocalScale: {x: 0.050000016, y: 0.05, z: 0.050000016}
+  m_LocalScale: {x: 0.07029502, y: 0.04803244, z: 0.07029502}
   m_Children: []
   m_Father: {fileID: 4030246998931772}
   m_RootOrder: 4
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sectorName: Sector 01
-  playerRange: 4
+  playerRange: 6
   repairCountdown: 20
   repairSlider: {fileID: 114118868559577212}
 --- !u!114 &114897439905603400

@@ -26,7 +26,11 @@ public class AIVision : MonoBehaviour {
         {
 
             GetComponentInParent<EnemyAiController>().bChase = true;
-            GetComponentInParent<EnemyAiController>().agent.isStopped = false;
+
+            if(GetComponentInParent<EnemyAiController>().agent.enabled)
+            {
+                GetComponentInParent<EnemyAiController>().agent.isStopped = false;
+            }
             GetComponentInParent<EnemyAiController>().anim.SetTrigger("Run");
             Destroy(GetComponent<CapsuleCollider>());
 

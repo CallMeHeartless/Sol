@@ -24,12 +24,12 @@ public class EnemyAiController : MonoBehaviour {
     public float fAttackRadius = 5.0f;
     public bool bChase = false;
     public bool bWave = false;
-    public bool bAlive = true;
+
     public Collider[] colliders;
     
     public void Dead()
     {
-        if(!isAlive)
+        if(!isAlive && agent.enabled)
         {
             foreach(Collider coll in colliders)
             {
@@ -78,27 +78,34 @@ public class EnemyAiController : MonoBehaviour {
 
     private void Attack()
     {
-        bIsAttacking = true;
-        // Animation
-        anim.SetTrigger("Attack");
-        agent.isStopped = true;
-        // cooldown
-        StartCoroutine(AttackCooldown(fAttackRate));
+        if(agent.enabled)
+        {
+            bIsAttacking = true;
+            // Animation
+            anim.SetTrigger("Attack");
+            agent.isStopped = true;
+            // cooldown
+            StartCoroutine(AttackCooldown(fAttackRate));
+        }
     }
 
     IEnumerator AttackCooldown(float _fAttackCooldown)
     {
         yield return new WaitForSeconds(_fAttackCooldown);
-        agent.isStopped = false;
-        anim.SetTrigger("Run");
-        bIsAttacking = false;
+        if(agent.enabled)
+        {
+            agent.isStopped = false;
+            anim.SetTrigger("Run");
+            bIsAttacking = false;
+        }
+        
 
     }
 
     void AttackDistance()
     {
 
-        if(bChase)
+        if(bChase && agent.enabled)
         {
             fDistance = (player.transform.position - transform.position).magnitude;
 
@@ -116,7 +123,7 @@ public class EnemyAiController : MonoBehaviour {
 
     public void movement()
     {
-        if(bChase)
+        if(bChase && agent.enabled)
         {
             if(agent.isStopped == false)
             {

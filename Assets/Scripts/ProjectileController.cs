@@ -26,7 +26,7 @@ public class ProjectileController : MonoBehaviour {
             other.GetComponent<EnemyAiController>().DamageEnemy(iDamage);
         }
 
-        if(!other.CompareTag("Sol"))
+        if(!other.CompareTag("Sol") && !other.CompareTag("Meathunk"))
         {
             Destroy(gameObject);
         }

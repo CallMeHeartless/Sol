@@ -15,6 +15,7 @@ public class ElevatorController : MonoBehaviour {
 	}
 
     public void OnTriggerEnter(Collider other) {
+        Debug.Log(other.name);
         if (other.CompareTag("Player") && GameManager.CheckForVictory()) {
             // Next level 
             Debug.Log("Loading next level...");

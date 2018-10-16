@@ -110,7 +110,7 @@ public class EnemyAiController : MonoBehaviour {
             }
 
             Vector3 vA = player.transform.position;
-            vA.y = vA.y + 4.0f;
+            vA.y = vA.y + 3.0f;
 
             ray.origin = vA;
             ray.direction = Vector3.down;

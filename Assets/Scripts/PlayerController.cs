@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour {
             bCanFire = false;
             //muzzleFlash.Play();
             // Replace position with reference to Transform on final model
-            GameObject projectile = GameObject.Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation) as GameObject;//+ transform.forward + transform.up
+            GameObject projectile = Instantiate(Resources.Load("Projectile", typeof(GameObject)), gunPosition.position , transform.rotation) as GameObject;//+ transform.forward + transform.up
             StartCoroutine(WeaponCooldown());
         }
 

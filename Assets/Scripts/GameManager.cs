@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
     int totalGenerators;
     int fuseBoxesRepaired = 0;
 
-    static public float fWaveMaxTime = 5.0f;
+    public float fWaveMaxTime = 5.0f;
     static float fWaveTime = 0.0f;
 
 	// Use this for initialization
@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour {
 
         if(closest != null) {
             if (closest.GetComponent<GeneratorPuzzleController>().IsSolRepairing() == true) {
-                if (fWaveTime > fWaveMaxTime) {
+                if (fWaveTime >= instance.fWaveMaxTime) {
                     SpawnEnemies();
                     fWaveTime = 0.0f;
                 } else {

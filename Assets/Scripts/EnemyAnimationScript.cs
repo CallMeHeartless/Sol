@@ -7,6 +7,7 @@ public class EnemyAnimationScript : MonoBehaviour {
     public GameObject parent;
 
 	IEnumerator Death() {
+        
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
     }

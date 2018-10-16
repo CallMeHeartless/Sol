@@ -24,7 +24,21 @@ public class EnemyAiController : MonoBehaviour {
     public float fAttackRadius = 5.0f;
     public bool bChase = false;
     public bool bWave = false;
+    public bool bAlive = true;
+    public Collider[] colliders;
     
+    public void Dead()
+    {
+        if(!isAlive)
+        {
+            foreach(Collider coll in colliders)
+            {
+                coll.enabled = false;
+            }
+            agent.isStopped = true;
+            agent.enabled = false;
+        }
+    }
 
     public GameObject FindPlayer()
     {
@@ -137,7 +151,7 @@ public class EnemyAiController : MonoBehaviour {
 
         movement();
         AttackDistance();
-
+        Dead();
     }
 
     public void DamageEnemy(int _iDamage) {
@@ -145,6 +159,7 @@ public class EnemyAiController : MonoBehaviour {
         if(m_iLife <= 0 && isAlive) {
             isAlive = false;
             agent.isStopped = true;
+            Dead();
             // Cue death animation
             anim.SetTrigger("Die");
         }// If the enemy was hit from stealth, make them chase the player

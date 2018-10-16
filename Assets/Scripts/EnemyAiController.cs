@@ -24,7 +24,21 @@ public class EnemyAiController : MonoBehaviour {
     public float fAttackRadius = 5.0f;
     public bool bChase = false;
     public bool bWave = false;
+
+    public Collider[] colliders;
     
+    public void Dead()
+    {
+        if(!isAlive && agent.enabled)
+        {
+            foreach(Collider coll in colliders)
+            {
+                coll.enabled = false;
+            }
+            agent.isStopped = true;
+            agent.enabled = false;
+        }
+    }
 
     public GameObject FindPlayer()
     {
@@ -64,27 +78,34 @@ public class EnemyAiController : MonoBehaviour {
 
     private void Attack()
     {
-        bIsAttacking = true;
-        // Animation
-        anim.SetTrigger("Attack");
-        agent.isStopped = true;
-        // cooldown
-        StartCoroutine(AttackCooldown(fAttackRate));
+        if(agent.enabled)
+        {
+            bIsAttacking = true;
+            // Animation
+            anim.SetTrigger("Attack");
+            agent.isStopped = true;
+            // cooldown
+            StartCoroutine(AttackCooldown(fAttackRate));
+        }
     }
 
     IEnumerator AttackCooldown(float _fAttackCooldown)
     {
         yield return new WaitForSeconds(_fAttackCooldown);
-        agent.isStopped = false;
-        anim.SetTrigger("Run");
-        bIsAttacking = false;
+        if(agent.enabled)
+        {
+            agent.isStopped = false;
+            anim.SetTrigger("Run");
+            bIsAttacking = false;
+        }
+        
 
     }
 
     void AttackDistance()
     {
 
-        if(bChase)
+        if(bChase && agent.enabled)
         {
             fDistance = (player.transform.position - transform.position).magnitude;
 
@@ -102,7 +123,7 @@ public class EnemyAiController : MonoBehaviour {
 
     public void movement()
     {
-        if(bChase)
+        if(bChase && agent.enabled)
         {
             if(agent.isStopped == false)
             {
@@ -110,7 +131,7 @@ public class EnemyAiController : MonoBehaviour {
             }
 
             Vector3 vA = player.transform.position;
-            vA.y = vA.y + 4.0f;
+            vA.y = vA.y + 3.0f;
 
             ray.origin = vA;
             ray.direction = Vector3.down;
@@ -137,7 +158,7 @@ public class EnemyAiController : MonoBehaviour {
 
         movement();
         AttackDistance();
-
+        Dead();
     }
 
     public void DamageEnemy(int _iDamage) {
@@ -145,6 +166,7 @@ public class EnemyAiController : MonoBehaviour {
         if(m_iLife <= 0 && isAlive) {
             isAlive = false;
             agent.isStopped = true;
+            Dead();
             // Cue death animation
             anim.SetTrigger("Die");
         }// If the enemy was hit from stealth, make them chase the player

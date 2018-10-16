@@ -87,9 +87,9 @@ public class GameManager : MonoBehaviour {
         yield return null;
     }
 
-    public void MarkFuseBoxAsRepaired() {
-        ++fuseBoxesRepaired;
-        fuseBoxProgressText.text = "Fuse Boxes Repaired: " + fuseBoxesRepaired.ToString() + " / " + totalGenerators.ToString();
+    public static void MarkFuseBoxAsRepaired() {
+        ++instance.fuseBoxesRepaired;
+        instance.fuseBoxProgressText.text = "Generators Repaired: " + instance.fuseBoxesRepaired.ToString() + " / " + instance.totalGenerators.ToString();
         //Debug.Log(totalFuseBoxes);
     }
 

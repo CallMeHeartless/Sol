@@ -64,7 +64,7 @@ public class PowerBoxController : MonoBehaviour {
                     fixSlider.value = fixHealth;
                     if (fixHealth >= maxHealth) {
                         isFixed = true;
-                        GameObject.Find("GameManager").GetComponent<GameManager>().MarkFuseBoxAsRepaired();
+                        //GameObject.Find("GameManager").GetComponent<GameManager>().MarkFuseBoxAsRepaired();
                         // Change mesh
                         brokenMesh.SetActive(false);
                         fixedMesh.SetActive(true);

@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4008457601175792}
   - component: {fileID: 33562871026921390}
   - component: {fileID: 23643921448966796}
+  - component: {fileID: 65129035825482610}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Untagged
@@ -106,6 +107,7 @@ GameObject:
   - component: {fileID: 4303056237151948}
   - component: {fileID: 33232830808870548}
   - component: {fileID: 23443614206952818}
+  - component: {fileID: 65733523498033024}
   m_Layer: 0
   m_Name: Crate (2)
   m_TagString: Untagged
@@ -308,6 +310,7 @@ GameObject:
   - component: {fileID: 4912459590314838}
   - component: {fileID: 33506261293193876}
   - component: {fileID: 23543321269191760}
+  - component: {fileID: 65912946126764890}
   m_Layer: 0
   m_Name: Crate (1)
   m_TagString: Untagged
@@ -1353,3 +1356,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523026901189578}
   m_Mesh: {fileID: 4300002, guid: d56b8ceb335f6084c98052374d3a9beb, type: 3}
+--- !u!65 &65129035825482610
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087743705177320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.043222003, y: 0.043079436, z: 0.047327425}
+  m_Center: {x: -0.00009757005, y: 0.023725078, z: -2.9149183e-12}
+--- !u!65 &65733523498033024
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182815954386240}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.043221995, y: 0.043079436, z: 0.04732742}
+  m_Center: {x: -0.0000982853, y: 0.023725078, z: 0.00000011920856}
+--- !u!65 &65912946126764890
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966034733129982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.043222003, y: 0.043079436, z: 0.047327425}
+  m_Center: {x: -0.00009804689, y: 0.023725078, z: -0.00000013411045}

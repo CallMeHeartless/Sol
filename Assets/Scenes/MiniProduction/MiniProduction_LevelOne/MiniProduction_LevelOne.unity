@@ -24432,6 +24432,11 @@ Prefab:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 2011828815}
+    - target: {fileID: 114205079070115302, guid: cafd9402b441c3446bd41d98658cbe6a,
+        type: 2}
+      propertyPath: miniMap
+      value: 
+      objectReference: {fileID: 629087279}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cafd9402b441c3446bd41d98658cbe6a, type: 2}
   m_IsPrefabAsset: 0
@@ -33901,15 +33906,15 @@ Prefab:
       objectReference: {fileID: 1939803118}
     - target: {fileID: 4128869342350988, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.865892
+      value: 3.865892
       objectReference: {fileID: 0}
     - target: {fileID: 4128869342350988, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.3065505
+      value: -1.6934495
       objectReference: {fileID: 0}
     - target: {fileID: 4128869342350988, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 32.417725
+      value: -3.612273
       objectReference: {fileID: 0}
     - target: {fileID: 4226534205194070, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalPosition.x
@@ -33946,24 +33951,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4128869342350988, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.0053057713
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4128869342350988, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.99369526
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4128869342350988, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.09831444
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4128869342350988, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.053627115
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 20827699617825302, guid: 18c5ffff00cd0aa469e1b43d6e59b410,
         type: 2}
       propertyPath: far clip plane
-      value: 85
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}

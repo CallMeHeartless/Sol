@@ -2873,6 +2873,11 @@ Prefab:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1245577278}
+    - target: {fileID: 114205079070115302, guid: cafd9402b441c3446bd41d98658cbe6a,
+        type: 2}
+      propertyPath: miniMap
+      value: 
+      objectReference: {fileID: 338058934}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cafd9402b441c3446bd41d98658cbe6a, type: 2}
   m_IsPrefabAsset: 0
@@ -3850,6 +3855,11 @@ Prefab:
     - target: {fileID: 4128869342350988, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}
       propertyPath: m_LocalRotation.w
       value: 0.66472846
+      objectReference: {fileID: 0}
+    - target: {fileID: 20827699617825302, guid: 18c5ffff00cd0aa469e1b43d6e59b410,
+        type: 2}
+      propertyPath: far clip plane
+      value: 85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c5ffff00cd0aa469e1b43d6e59b410, type: 2}

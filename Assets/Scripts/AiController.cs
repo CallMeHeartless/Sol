@@ -11,6 +11,7 @@ public class AiController : MonoBehaviour {
     private Ray ray;
     private Animator anim;
     private bool isRepairing = false;
+    private bool lowered = false;
 
     public float GeneratorRadius = 10.0f;
 
@@ -27,6 +28,8 @@ public class AiController : MonoBehaviour {
     private Vector3 solArrowDirection;
 
     public GameObject Generator;
+
+    Vector3 pos;
 
     public GameObject FindPlayer()
     {
@@ -166,6 +169,8 @@ public class AiController : MonoBehaviour {
         }
     }
 
+    
+
     // Use this for initialization
     void Start () {
         player = FindPlayer();
@@ -175,6 +180,7 @@ public class AiController : MonoBehaviour {
         if(anim == null) {
             Debug.Log("SOL is missing animator component.");
         }
+        pos = transform.position;
     }
 	
 	// Update is called once per frame
@@ -188,7 +194,6 @@ public class AiController : MonoBehaviour {
         GoToPlayer();
 
         GoToGenerator();
-       
 	}
 
     public void StartRepair() {

@@ -243,10 +243,8 @@ public class EnemyAiController : MonoBehaviour {
             if (!enemyAudio[0].isPlaying && !enemyAudio[1].isPlaying) {
                 if (breathOne) {
                     enemyAudio[0].Play();
-                    Debug.Log("BreathOne");
                 } else {
                     enemyAudio[1].Play();
-                    Debug.Log("BreathTwo");
                 }
 
                 breathOne = !breathOne;

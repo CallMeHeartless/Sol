@@ -139,25 +139,24 @@ public class PlayerController : MonoBehaviour {
         // Update slider
         chargeSlider.value = charge/maxCharge;
 
-        if(eyeLights != null) {
-            // Dim lights
-            foreach (Light light in eyeLights) {
-                light.GetComponent<Light>().intensity = charge / maxCharge;
-            }
-            // Dim audio
-            if (bgMusic != null) {
-                bgMusic.volume = charge / maxCharge;
-            }
-        }
-    
-
+        //if(eyeLights != null) {
+        //    // Dim lights
+        //    foreach (Light light in eyeLights) {
+        //        light.GetComponent<Light>().intensity = charge / maxCharge;
+        //    }
+        //    // Dim audio
+        //    if (bgMusic != null) {
+        //        bgMusic.volume = charge / maxCharge;
+        //    }
+        //}
 
         // Kill if out of charge
         if(charge <= 0) {
             isAlive = false;
-            //anim.SetBool("PlayerIsDead", true);
+            Debug.Log("Dead");
             anim.SetTrigger("Death");
-            hoverEffect.SetActive(false);
+            //hoverEffect.SetActive(false);
+            Cursor.visible = true;
         }
     }
 

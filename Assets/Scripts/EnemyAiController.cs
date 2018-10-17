@@ -26,6 +26,10 @@ public class EnemyAiController : MonoBehaviour {
     public bool bWave = false;
 
     public Collider[] colliders;
+
+    // Audio
+    private AudioSource[] enemyAudio;
+    bool breathOne = true;
     
     public void Dead()
     {
@@ -37,7 +41,17 @@ public class EnemyAiController : MonoBehaviour {
             }
             agent.isStopped = true;
             agent.enabled = false;
+
+            // Play death effect
+            int iRandom = Random.Range(0, 2);
+            if (iRandom == 0) {
+                enemyAudio[2].Play();
+            } else {
+                enemyAudio[3].Play();
+            }
         }
+
+
     }
 
     public GameObject FindPlayer()
@@ -151,6 +165,13 @@ public class EnemyAiController : MonoBehaviour {
         anim = GetComponent<Animator>();
         anim.SetTrigger("Idle");
         WaveEnemy();
+        enemyAudio = GetComponents<AudioSource>();
+        if(enemyAudio == null) {
+            Debug.Log("ERROR: Missing Audio for enemy object.");
+        } else {
+            //StartCoroutine(EnemyBreathing());
+            InvokeRepeating("EnemyBreathing2", 0, 1.5f);
+        }
     }
 	
 	// Update is called once per frame
@@ -162,6 +183,7 @@ public class EnemyAiController : MonoBehaviour {
     }
 
     public void DamageEnemy(int _iDamage) {
+        enemyAudio[4].Play();
         m_iLife -= m_iLife;
         if(m_iLife <= 0 && isAlive) {
             isAlive = false;
@@ -172,6 +194,59 @@ public class EnemyAiController : MonoBehaviour {
         }// If the enemy was hit from stealth, make them chase the player
         else if(isAlive && !bChase) {
             bChase = true;
+        }
+    }
+
+    IEnumerator EnemyBreathing() {
+        yield return new WaitForSeconds(1.5f);
+        if (!bChase) {
+            // Switch between playing audio
+            if (!enemyAudio[0].isPlaying && !enemyAudio[1].isPlaying) {
+                if (breathOne) {
+                    enemyAudio[0].Play();
+                    Debug.Log("BreathOne");
+                } else {
+                    enemyAudio[1].Play();
+                    Debug.Log("BreathTwo");
+                }
+                
+                breathOne = !breathOne;
+                StartCoroutine(EnemyBreathing());
+            }
+        }
+
+    }
+
+    void EnemyBreathing2() {
+        if (!isAlive) {
+            return;
+        }
+        if (!bChase) {
+            // Switch between playing audio
+            if (!enemyAudio[0].isPlaying && !enemyAudio[1].isPlaying) {
+                if (breathOne) {
+                    enemyAudio[0].Play();
+                    Debug.Log("BreathOne");
+                } else {
+                    enemyAudio[1].Play();
+                    Debug.Log("BreathTwo");
+                }
+
+                breathOne = !breathOne;
+                StartCoroutine(EnemyBreathing());
+            }
+        } else {
+            // Audio for player being chased
+            if (!enemyAudio[6].isPlaying && !enemyAudio[7].isPlaying) {
+                if (breathOne) {
+                    enemyAudio[6].Play();
+                } else {
+                    enemyAudio[7].Play();
+                }
+
+                breathOne = !breathOne;
+                StartCoroutine(EnemyBreathing());
+            }
         }
     }
 }

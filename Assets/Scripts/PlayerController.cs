@@ -138,6 +138,15 @@ public class PlayerController : MonoBehaviour {
         charge -= drain;
         // Update slider
         chargeSlider.value = charge/maxCharge;
+        int iRandom = Random.Range(0, 4);
+        if(iRandom == 0) {
+            AudioController.PlaySingleSound("IMPACT_Generic_06_mono");
+        }else if(iRandom == 1) {
+            AudioController.PlaySingleSound("IMPACT_Generic_02_mono");
+        } else {
+            AudioController.PlaySingleSound("IMPACT_Metal_Sheet_Subtle_02_mono");
+        }
+        
 
         //if(eyeLights != null) {
         //    // Dim lights

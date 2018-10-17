@@ -1104,6 +1104,7 @@ MonoBehaviour:
   controlMenuUI: {fileID: 1461413205288144}
   ingameMenuUI: {fileID: 0}
   gameManager: {fileID: 0}
+  miniMap: {fileID: 0}
 --- !u!114 &114234731469752244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2097,7 +2098,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1a9acb2b5d8e66940b40d055f157e194, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16f498ac91b8cd24a80edc32f0b3c70b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2184,7 +2185,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1a9acb2b5d8e66940b40d055f157e194, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16f498ac91b8cd24a80edc32f0b3c70b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

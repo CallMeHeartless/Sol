@@ -213,7 +213,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         } else {
             DialogueController.BasicMessage("One more generator restored. I'm beginning to feel better already.", 4.0f);
         }
-        GameObject.Find("Sol").GetComponent<AiController>().StopRepair();
+        //GameObject.Find("Sol").GetComponent<AiController>().StopRepair();
     }
 
     public void OnTriggerEnter(Collider other) {
@@ -222,7 +222,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
         }
         if (other.CompareTag("Sol")) {
             isPlayerInRange = true;
-            other.GetComponent<AiController>().StartRepair();
+            //other.GetComponent<AiController>().StartRepair();
             AudioController.PlaySingleSound("ALARM_Submarine_Slow_loop_stereo");
             AudioController.PlaySingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             if (!repairSlider.gameObject.activeSelf) {
@@ -236,7 +236,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
             return;
         }
         if (other.CompareTag("Sol")) {
-            other.GetComponent<AiController>().StopRepair();
+            //other.GetComponent<AiController>().StopRepair();
             AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
             AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             isPlayerInRange = false;

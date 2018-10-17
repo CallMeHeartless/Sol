@@ -10,6 +10,7 @@ public class AiController : MonoBehaviour {
 
     private Ray ray;
     private Animator anim;
+    private bool isRepairing = false;
 
     public float GeneratorRadius = 10.0f;
 
@@ -170,6 +171,10 @@ public class AiController : MonoBehaviour {
         player = FindPlayer();
         playerArrow = FindPlayerArrow();
         solArrow = FindSolArrow();
+        anim = GetComponentInChildren<Animator>();
+        if(anim == null) {
+            Debug.Log("SOL is missing animator component.");
+        }
     }
 	
 	// Update is called once per frame
@@ -178,8 +183,6 @@ public class AiController : MonoBehaviour {
         //Dertimine distance from player
         playerDistance = (player.transform.position - transform.position).magnitude;
 
-
-
         RotateArrows();
 
         GoToPlayer();
@@ -187,4 +190,23 @@ public class AiController : MonoBehaviour {
         GoToGenerator();
        
 	}
+
+    public void StartRepair() {
+        //if(anim.GetCurrentAnimatorClipInfo(0)[0].clip.)
+        if (!isRepairing) {
+            anim.ResetTrigger("Move");
+            anim.ResetTrigger("Idle");
+            anim.SetTrigger("Fix");
+            isRepairing = true;
+        }
+
+    }
+
+    public void StopRepair() {
+        if (isRepairing) {
+            anim.ResetTrigger("Fix");
+            anim.SetTrigger("Idle");
+            isRepairing = false;
+        }
+    }
 }

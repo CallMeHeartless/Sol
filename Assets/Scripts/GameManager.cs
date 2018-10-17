@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
             gameOver = true;
             if(elevatorDoor != null) {
                 elevatorDoor.GetComponent<DoorController>().Unlock();
+                fuseBoxProgressText.text = "Go to the exit elevator.";
             } else {
                 Debug.Log("ERROR: Elevator door is null reference.");
             }
@@ -126,10 +127,6 @@ public class GameManager : MonoBehaviour {
             foreach (GameObject go in instance.enemySpawn) {
                 if (groupName == go.GetComponent<ESpawn>().name) {
                     GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
-                    //Apebyss.GetComponent<EnemyAiController>().agent.enabled = false;
-                    //Apebyss.GetComponent<EnemyAiController>().agent.enabled = true;
-                    //Apebyss.GetComponent<EnemyAiController>().agent.updatePosition = false;
-                    //Apebyss.GetComponent<EnemyAiController>().agent.updatePosition = true;
                     Apebyss.GetComponent<EnemyAiController>().agent.Warp(go.transform.position);
                     Apebyss.GetComponent<EnemyAiController>().bWave = true;
                 }

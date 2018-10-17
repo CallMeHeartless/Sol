@@ -126,7 +126,11 @@ public class GameManager : MonoBehaviour {
             foreach (GameObject go in instance.enemySpawn) {
                 if (groupName == go.GetComponent<ESpawn>().name) {
                     GameObject Apebyss = Instantiate(Resources.Load("Apebyss", typeof(GameObject))) as GameObject;
-                    Apebyss.transform.position = go.transform.position;
+                    //Apebyss.GetComponent<EnemyAiController>().agent.enabled = false;
+                    //Apebyss.GetComponent<EnemyAiController>().agent.enabled = true;
+                    //Apebyss.GetComponent<EnemyAiController>().agent.updatePosition = false;
+                    //Apebyss.GetComponent<EnemyAiController>().agent.updatePosition = true;
+                    Apebyss.GetComponent<EnemyAiController>().agent.Warp(go.transform.position);
                     Apebyss.GetComponent<EnemyAiController>().bWave = true;
                 }
             }

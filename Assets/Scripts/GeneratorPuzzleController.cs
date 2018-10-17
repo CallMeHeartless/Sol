@@ -55,21 +55,8 @@ public class GeneratorPuzzleController : MonoBehaviour {
             repairCount += Time.deltaTime;
             repairSlider.value = repairCount;
             if(repairCount >= repairCountdown) {
-                isSolved = true;
-                Debug.Log("Repaired");
-                AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
-                AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
-                TurnOnLights();
-                runningNoise.Play();
-                GameManager.MarkFuseBoxAsRepaired();
-                GameObject.Find("Player").GetComponent<PlayerController>().GiveCharge(100);
-                int iRandom = Random.Range(0, 2);
-                if(iRandom == 0) {
-                    DialogueController.BasicMessage("We're done here, let's move forwards.", 4.0f);
-                } else {
-                    DialogueController.BasicMessage("One more generator restored. I'm beginning to feel better already.", 4.0f);
-                }
-                
+
+                MakeRepaired();
             }
         }
 
@@ -211,13 +198,31 @@ public class GeneratorPuzzleController : MonoBehaviour {
         return false;
     }
 
+    void MakeRepaired() {
+        isSolved = true;
+        Debug.Log("Repaired");
+        AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
+        AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
+        TurnOnLights();
+        runningNoise.Play();
+        GameManager.MarkFuseBoxAsRepaired();
+        GameObject.Find("Player").GetComponent<PlayerController>().GiveCharge(100);
+        int iRandom = Random.Range(0, 2);
+        if (iRandom == 0) {
+            DialogueController.BasicMessage("We're done here, let's move forwards.", 4.0f);
+        } else {
+            DialogueController.BasicMessage("One more generator restored. I'm beginning to feel better already.", 4.0f);
+        }
+        GameObject.Find("Sol").GetComponent<AiController>().StopRepair();
+    }
+
     public void OnTriggerEnter(Collider other) {
         if (isSolved) {
             return;
         }
-        Debug.Log(other.name);
         if (other.CompareTag("Sol")) {
             isPlayerInRange = true;
+            other.GetComponent<AiController>().StartRepair();
             AudioController.PlaySingleSound("ALARM_Submarine_Slow_loop_stereo");
             AudioController.PlaySingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             if (!repairSlider.gameObject.activeSelf) {
@@ -231,6 +236,7 @@ public class GeneratorPuzzleController : MonoBehaviour {
             return;
         }
         if (other.CompareTag("Sol")) {
+            other.GetComponent<AiController>().StopRepair();
             AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
             AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             isPlayerInRange = false;

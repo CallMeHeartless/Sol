@@ -4,27 +4,18 @@ using UnityEngine;
 
 public class MeatHunk : MonoBehaviour {
 
-    public float fDam = 5.0f;
+    public float fDam = 2.0f;
     public Collider collider;
 
 	// Use this for initialization
 	void Start () {
         collider = GetComponent<Collider>();
-        collider.enabled = true;
+        collider.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (GetComponentInParent<EnemyAiController>().bIsAttacking == true)
-        {
-            collider.enabled = true;
-            //Debug.Log("Enable the box collider");
-        }
-        else
-        {
-            collider.enabled = false;
-            //Debug.Log("Disable box collider");
-        }
+        
     }
 
     public void OnTriggerEnter(Collider other)
@@ -33,17 +24,15 @@ public class MeatHunk : MonoBehaviour {
         {
             if(other.CompareTag("Player"))
             {
-                Debug.Log("Huh");
                 other.GetComponent<PlayerController>().DrainCharge(fDam);
-                collider.enabled = false;
-                GetComponentInParent<EnemyAiController>().bIsAttacking = false;
+                
             }
             else if(other.CompareTag("Sol"))
             {
-                Debug.Log("Other Huh");
-                collider.enabled = false;
-                other.GetComponent<AiController>().Generator.GetComponent<GeneratorPuzzleController>().DrainRepair(fDam / 2);
-                GetComponentInParent<EnemyAiController>().bIsAttacking = false;
+                GameObject gen = other.GetComponent<AiController>().Generator;
+                if(gen != null) {
+                    gen.GetComponent<GeneratorPuzzleController>().DrainRepair(fDam / 2);
+                }
             }
         }
     }

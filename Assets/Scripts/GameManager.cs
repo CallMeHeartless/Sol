@@ -76,6 +76,9 @@ public class GameManager : MonoBehaviour {
     IEnumerator GameOverMenu() {
         yield return new WaitForSeconds(4.5f);
         // MENU STUFF HERE
+        if(gameOverMenu == null) {
+            gameOverMenu = GameObject.Find("UI/Canvas/GameOverMenu");
+        }
         gameOverMenu.SetActive(true);
         yield return null;
     }

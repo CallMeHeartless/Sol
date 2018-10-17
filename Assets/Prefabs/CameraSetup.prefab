@@ -86,8 +86,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1257037472798106}
-  m_LocalRotation: {x: -0.000078510195, y: 0.9975881, z: -0.069403164, w: -0.001128491}
-  m_LocalPosition: {x: 1.2719762, y: 0.8340194, z: 4.0059557}
+  m_LocalRotation: {x: 0.004528113, y: 0.99397486, z: -0.09991417, w: 0.044840466}
+  m_LocalPosition: {x: 78.21486, y: 1.0914581, z: 9.330724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4259417731198062}
@@ -112,8 +112,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670933291820214}
-  m_LocalRotation: {x: -0.000078510195, y: 0.9975881, z: -0.069403164, w: -0.001128491}
-  m_LocalPosition: {x: 1.2719762, y: 0.8340194, z: 4.0059557}
+  m_LocalRotation: {x: 0.004447488, y: 0.9941255, z: -0.09835699, w: 0.044952177}
+  m_LocalPosition: {x: 78.21486, y: 1.0914581, z: 9.330724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4208005326106086}
@@ -156,7 +156,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
+  far clip plane: 85
   field of view: 40
   orthographic: 0
   orthographic size: 10
@@ -170,7 +170,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -204,7 +204,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 85
     Dutch: 0
   m_ComponentOwner: {fileID: 4208005326106086}
 --- !u!114 &114093424434742818

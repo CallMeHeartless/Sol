@@ -29718,11 +29718,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224194127807040446, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4826404056573184, guid: 563be469a43562648ba44579b79e938d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -29760,11 +29755,6 @@ Prefab:
       propertyPath: elevatorDoor
       value: 
       objectReference: {fileID: 1530531765}
-    - target: {fileID: 114723804011460832, guid: 563be469a43562648ba44579b79e938d,
-        type: 2}
-      propertyPath: fWaveMaxTime
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563be469a43562648ba44579b79e938d, type: 2}
   m_IsPrefabAsset: 0

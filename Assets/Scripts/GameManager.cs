@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour {
             Debug.Log("ERROR: PLAYER NOT FOUND!");
         }
         enemySpawn = GameObject.FindGameObjectsWithTag("ESpawn");
+
+        // Set the initial time of the first wave to begin in 1 second
+        fWaveTime = fWaveMaxTime - 1.0f;
         
         
     }

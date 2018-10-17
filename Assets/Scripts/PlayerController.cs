@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour {
             isAlive = false;
             Debug.Log("Dead");
             anim.SetTrigger("Death");
-            hoverEffect.SetActive(false);
+            //hoverEffect.SetActive(false);
         }
     }
 

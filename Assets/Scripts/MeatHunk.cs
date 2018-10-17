@@ -24,16 +24,15 @@ public class MeatHunk : MonoBehaviour {
         {
             if(other.CompareTag("Player"))
             {
-                Debug.Log("Huh");
                 other.GetComponent<PlayerController>().DrainCharge(fDam);
                 
             }
             else if(other.CompareTag("Sol"))
             {
-                Debug.Log("Other Huh");
-                
-                other.GetComponent<AiController>().Generator.GetComponent<GeneratorPuzzleController>().DrainRepair(fDam / 2);
-                
+                GameObject gen = other.GetComponent<AiController>().Generator;
+                if(gen != null) {
+                    gen.GetComponent<GeneratorPuzzleController>().DrainRepair(fDam / 2);
+                }
             }
         }
     }

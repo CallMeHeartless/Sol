@@ -22,7 +22,7 @@ public class AIVision : MonoBehaviour {
     public void OnTriggerEnter(Collider other)
     {
         
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !GetComponentInParent<EnemyAiController>().bChase)
         {
 
             GetComponentInParent<EnemyAiController>().bChase = true;
@@ -33,7 +33,13 @@ public class AIVision : MonoBehaviour {
             }
             GetComponentInParent<EnemyAiController>().anim.SetTrigger("Run");
             Destroy(GetComponent<CapsuleCollider>());
-
+            AudioSource[] parentAudio = GetComponentsInParent<AudioSource>();
+            if(parentAudio != null) {
+                parentAudio[5].Play();
+            } else {
+                Debug.Log("No audio in parent");
+            }
+            
             /*
             Debug.Log("Whut?");
 

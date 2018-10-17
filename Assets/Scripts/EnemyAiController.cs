@@ -20,12 +20,13 @@ public class EnemyAiController : MonoBehaviour {
     private bool bIsStunned = false;
     public bool bIsAttacking = false;
     private float fAttackRate = 0.6f;
-    private bool bCanAttack = true;
+    public bool bCanAttack = true;
     public float fAttackRadius = 5.0f;
     public bool bChase = false;
     public bool bWave = false;
 
     public Collider[] colliders;
+    public Collider[] MeatHunks;
 
     // Audio
     private AudioSource[] enemyAudio;
@@ -50,8 +51,22 @@ public class EnemyAiController : MonoBehaviour {
                 enemyAudio[3].Play();
             }
         }
+    }
 
+    public void enableColliders()
+    {
+        foreach(Collider coll in MeatHunks)
+        {
+            coll.enabled = true;
+        }
+    }
 
+    public void disableColliders()
+    {
+        foreach (Collider coll in MeatHunks)
+        {
+            coll.enabled = false;
+        }
     }
 
     public GameObject FindPlayer()
@@ -111,6 +126,7 @@ public class EnemyAiController : MonoBehaviour {
             agent.isStopped = false;
             anim.SetTrigger("Run");
             bIsAttacking = false;
+            bCanAttack = true;
         }
         
 
@@ -128,6 +144,7 @@ public class EnemyAiController : MonoBehaviour {
                 if (bCanAttack == true && isAlive == true)
                 {
                     Attack();
+                    bCanAttack = false;
                 }
 
             }

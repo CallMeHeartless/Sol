@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822657283071420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0504652, y: 1.824004, z: 1.7031817}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224194127807040446}
@@ -233,6 +233,7 @@ MonoBehaviour:
   fuseBoxProgressText: {fileID: 114358080911536950}
   gameOverMenu: {fileID: 0}
   elevatorDoor: {fileID: 0}
+  fWaveMaxTime: 8
 --- !u!114 &114940462675319080
 MonoBehaviour:
   m_ObjectHideFlags: 1

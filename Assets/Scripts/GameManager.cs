@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         instance = this;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
         PlayerController.MakeAlive(); // Enforces that the player is alive
         generators = GameObject.FindGameObjectsWithTag("Generator");
         totalGenerators = generators.Length;

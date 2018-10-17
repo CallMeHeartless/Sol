@@ -62,6 +62,14 @@ public class GeneratorPuzzleController : MonoBehaviour {
                 TurnOnLights();
                 runningNoise.Play();
                 GameManager.MarkFuseBoxAsRepaired();
+                GameObject.Find("Player").GetComponent<PlayerController>().GiveCharge(100);
+                int iRandom = Random.Range(0, 2);
+                if(iRandom == 0) {
+                    DialogueController.BasicMessage("We're done here, let's move forwards.", 4.0f);
+                } else {
+                    DialogueController.BasicMessage("One more generator restored. I'm beginning to feel better already.", 4.0f);
+                }
+                
             }
         }
 
@@ -204,6 +212,9 @@ public class GeneratorPuzzleController : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider other) {
+        if (isSolved) {
+            return;
+        }
         Debug.Log(other.name);
         if (other.CompareTag("Sol")) {
             isPlayerInRange = true;
@@ -216,8 +227,10 @@ public class GeneratorPuzzleController : MonoBehaviour {
     }
 
     public void OnTriggerExit(Collider other) {
-
-        if(other.CompareTag("Sol")) {
+        if (isSolved) {
+            return;
+        }
+        if (other.CompareTag("Sol")) {
             AudioController.StopSingleSound("ALARM_Submarine_Slow_loop_stereo");
             AudioController.StopSingleSound("COMPUTER_Sci-Fi_Processing_01_loop_mono");
             isPlayerInRange = false;

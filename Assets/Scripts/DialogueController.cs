@@ -25,6 +25,13 @@ public class DialogueController : MonoBehaviour {
     public static void BasicMessage(string _message, float _duration) {
         instance.dialoguePanel.SetActive(true);
         instance.dialogueText.text = _message;
+        int iRandom = Random.Range(0, 2);
+        if(iRandom == 0) {
+            AudioController.PlaySingleSound("UI_SCI-FI_Compute_01_Wet_stereo");
+        } else {
+            AudioController.PlaySingleSound("UI_SCI-FI_Tone_Deep_Wet_05_stereo");
+        }
+
         instance.StartCoroutine(ClearDialogue(_duration));
     }
 

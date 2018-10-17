@@ -11,4 +11,14 @@ public class EnemyAnimationScript : MonoBehaviour {
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
     }
+
+    public void EnableHit()
+    {
+        parent.GetComponent<EnemyAiController>().enableColliders();
+    }
+
+    public void DisableHit()
+    {
+        parent.GetComponent<EnemyAiController>().disableColliders();
+    }
 }

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MeatHunk : MonoBehaviour {
 
-    public float fDam = 5.0f;
+    public float fDam = 2.0f;
     public Collider collider;
 
 	// Use this for initialization
 	void Start () {
         collider = GetComponent<Collider>();
+        collider.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -25,15 +26,14 @@ public class MeatHunk : MonoBehaviour {
             {
                 Debug.Log("Huh");
                 other.GetComponent<PlayerController>().DrainCharge(fDam);
-                collider.enabled = false;
-                GetComponentInParent<EnemyAiController>().bIsAttacking = false;
+                
             }
             else if(other.CompareTag("Sol"))
             {
                 Debug.Log("Other Huh");
-                collider.enabled = false;
+                
                 other.GetComponent<AiController>().Generator.GetComponent<GeneratorPuzzleController>().DrainRepair(fDam / 2);
-                GetComponentInParent<EnemyAiController>().bIsAttacking = false;
+                
             }
         }
     }
